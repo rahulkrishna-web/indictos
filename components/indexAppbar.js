@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import fb from '../firebase/clientApp';
 

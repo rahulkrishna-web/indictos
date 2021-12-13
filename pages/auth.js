@@ -1,7 +1,7 @@
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import signInScreen from '../components/loginScreen';
+import SignInScreen from '../components/signInScreen';
 import fb from '../firebase/clientApp';
 
 const auth = getAuth(fb)
@@ -29,7 +29,7 @@ const Auth = () => {
         pathname: '/'
     })
   }
-  return <signInScreen />;
+  return <SignInScreen />;
 };
 
 export default Auth
