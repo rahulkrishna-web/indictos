@@ -6,8 +6,18 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import fb from '../firebase/clientApp';
+
 
 export default function IndexAppbar() {
+  const auth = getAuth(fb)
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth)
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -24,7 +34,10 @@ export default function IndexAppbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Indictos
           </Typography>
-          <Button color="inherit">Login</Button>
+          {user ? `Hi ${user.email}`: "Hello Guest" }
+          {user ?       <Button onClick={logout} variant="outlined" sx={{ color: "#fff"}}>Logout</Button>
+: <Link href="/auth" passHref><Button color="inherit">Login</Button></Link>}
+          
         </Toolbar>
       </AppBar>
     </Box>
