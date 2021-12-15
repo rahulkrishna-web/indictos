@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getDatabase, ref, set } from "firebase/database";
-
+import { getFirestore, collection, addDoc } from "firebase/firestore"
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -20,9 +19,11 @@ import IndexAppbar from '../components/indexAppbar';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import fb from '../firebase/clientApp';
+import useId from '@mui/material/utils/useId';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const auth = getAuth(fb);
-const db = getDatabase();
+const db = getFirestore();
 
 export default function RegisterScreen() {
   const [values, setValues] = React.useState({
@@ -50,23 +51,38 @@ export default function RegisterScreen() {
     event.preventDefault();
   };
 
-  const  writeUserData = (userId) => {
-    const db = getDatabase();
-    set(ref(db, 'profiles/' + userId), {
-      firstname: values.firstname,
-      lastname: values.lastname,
-      username: values.username,
-      email: values.email,
-    });
+  const  writeUserData = async (uid) => {
+    
+    const data = {
+        first_name : values.firstname,
+        last_name : values.lastname,
+        email : values.email,
+        username : values.username,
+        uid : uid
+    }
+    try {
+        const docRef = await addDoc(collection(db, "users", uid), data);
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
   }
 
   const register = () => {
+    setValues({
+        ...values,
+        loading: true,
+      });
     createUserWithEmailAndPassword(auth, values.email, values.password)
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
         console.log(user);
         writeUserData(user.uid).then(res => console.log(res));
+        setValues({
+            ...values,
+            loading: false,
+          });
         // ...
     })
     .catch((error) => {
@@ -89,8 +105,10 @@ export default function RegisterScreen() {
         },
       }}
     >
-      <Paper elevation={0} >
-      <Typography variant="h3" gutterBottom component="div">
+      <Paper elevation={1} >
+          {values.loading && <LinearProgress />}
+          <Box sx={{p: 2}}>
+          <Typography variant="h3" gutterBottom component="div">
         Register
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
@@ -158,6 +176,7 @@ export default function RegisterScreen() {
       
       <Link href="/auth" passHref><Button variant="text">Already have account? Login</Button></Link>
     </Stack>
+          </Box>
       </Paper>
     </Box>
       </Container>

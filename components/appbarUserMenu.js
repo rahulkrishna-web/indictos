@@ -76,6 +76,7 @@ const AppbarUserMenu = () => {
             open={Boolean(anchorEl2)}
             onClose={handleClose}
           >
+            <Link href="/dashboard" passHref><MenuItem>Dashboard</MenuItem></Link>
             <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem>
             <MenuItem onClick={logout}>Sign Out</MenuItem>
