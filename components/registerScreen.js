@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set } from "firebase/database";
+
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -19,10 +21,14 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import fb from '../firebase/clientApp';
 
-const auth = getAuth(fb)
+const auth = getAuth(fb);
+const db = getDatabase();
 
-export default function SignInScreen() {
+export default function RegisterScreen() {
   const [values, setValues] = React.useState({
+    firstname: '',
+    lastname: '',
+    email: '',
     username: '',
     password: '',
     loading: false,
@@ -44,8 +50,30 @@ export default function SignInScreen() {
     event.preventDefault();
   };
 
-  const login = () => {
-    signInWithEmailAndPassword(auth, values.username, values.password);
+  const  writeUserData = (userId) => {
+    const db = getDatabase();
+    set(ref(db, 'profiles/' + userId), {
+      firstname: values.firstname,
+      lastname: values.lastname,
+      username: values.username,
+      email: values.email,
+    });
+  }
+
+  const register = () => {
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        writeUserData(user.uid).then(res => console.log(res));
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+    });
   };
   return (
     <div>
@@ -63,11 +91,35 @@ export default function SignInScreen() {
     >
       <Paper elevation={0} >
       <Typography variant="h3" gutterBottom component="div">
-        Sign In
+        Register
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
-        Signing in gives you a lot of extra features.
+        Register now and get exclusive conent.
       </Typography>
+      <TextField 
+        id="firstname" 
+        label="First Name" 
+        variant="outlined" 
+        margin="dense" 
+        fullWidth
+        onChange={handleChange('firstname')}
+        />
+        <TextField 
+        id="lastname" 
+        label="Lastname" 
+        variant="outlined" 
+        margin="dense" 
+        fullWidth
+        onChange={handleChange('lastname')}
+        />
+        <TextField 
+        id="email" 
+        label="Email" 
+        variant="outlined" 
+        margin="dense" 
+        fullWidth
+        onChange={handleChange('email')}
+        />
       <TextField 
         id="username" 
         label="Username" 
@@ -102,9 +154,9 @@ export default function SignInScreen() {
         }}>
           {values.loading ? <LoadingButton loading variant="contained">
         Submit
-      </LoadingButton> : <Button variant="contained" onClick={login}>Sign In</Button>}
+      </LoadingButton> : <Button variant="contained" onClick={register}>Register</Button>}
       
-      <Link href="/register" passHref><Button variant="text">No Account? Register</Button></Link>
+      <Link href="/auth" passHref><Button variant="text">Already have account? Login</Button></Link>
     </Stack>
       </Paper>
     </Box>

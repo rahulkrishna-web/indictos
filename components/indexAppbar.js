@@ -7,9 +7,11 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
+import fb from '../firebase/clientApp';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import fb from '../firebase/clientApp';
+
+import AppbarUserMenu from './appbarUserMenu';
 
 
 export default function IndexAppbar() {
@@ -31,13 +33,13 @@ export default function IndexAppbar() {
           >
             <MenuIcon />
           </IconButton>
+          <Link href="/" passHref>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Indictos
           </Typography>
-          {user ? `Hi ${user.email}`: "Hello Guest" }
-          {user ?       <Button onClick={logout} variant="outlined" sx={{ color: "#fff"}}>Logout</Button>
-: <Link href="/auth" passHref><Button color="inherit">Login</Button></Link>}
-          
+          </Link>
+          {user ? `Hi ${user.email}!`: "Hello Guest" }
+          <AppbarUserMenu />
         </Toolbar>
       </AppBar>
     </Box>
