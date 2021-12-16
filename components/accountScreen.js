@@ -15,7 +15,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const db = getFirestore();
 
-export default function DashboardScreen() {
+export default function AccountScreen() {
   const [values, setValues] = React.useState({
     firstname: '',
     lastname: '',
@@ -77,7 +77,7 @@ export default function DashboardScreen() {
       <Paper elevation={1} >
       <Box sx={{p: 2}}>
       <Typography variant="h3" gutterBottom component="div">
-        Hello {values.user.first_name} {values.user.last_name}!
+        {values.user.first_name} {values.user.last_name}
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
         Register now and get exclusive conent.

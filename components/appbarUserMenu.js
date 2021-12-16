@@ -77,8 +77,8 @@ const AppbarUserMenu = () => {
             onClose={handleClose}
           >
             <Link href="/dashboard" passHref><MenuItem>Dashboard</MenuItem></Link>
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <Link href="/profile" passHref><MenuItem>Profile</MenuItem></Link>
+            <Link href="/account" passHref><MenuItem>My account</MenuItem></Link>
             <MenuItem onClick={logout}>Sign Out</MenuItem>
           </Menu>
           </div>
