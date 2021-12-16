@@ -5,7 +5,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import DashboardScreen from '../components/dashboardScreen';
 
 const Dashboard = () => {
-    const router = useRouter();
     const auth = getAuth(fb);
     const [user] = useAuthState(auth);
     return(

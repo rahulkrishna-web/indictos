@@ -5,7 +5,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import ProfileScreen from '../components/profileScreen';
 
 const Profile = () => {
-    const router = useRouter();
     const auth = getAuth(fb);
     const [user] = useAuthState(auth);
     
