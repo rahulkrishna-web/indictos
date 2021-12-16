@@ -19,7 +19,6 @@ import IndexAppbar from '../components/indexAppbar';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import fb from '../firebase/clientApp';
-import useId from '@mui/material/utils/useId';
 import LinearProgress from '@mui/material/LinearProgress';
 
 const auth = getAuth(fb);

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import fb from '../firebase/clientApp';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
