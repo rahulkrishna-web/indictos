@@ -21,6 +21,7 @@ import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import HistoryIcon from '@mui/icons-material/History';
 import InfoIcon from '@mui/icons-material/Info';
 import MailIcon from '@mui/icons-material/Mail';
+import AppbarUserMenu from '../components/appbarUserMenu';
 
 const drawerWidth = 240;
 
@@ -138,9 +139,10 @@ function HomeLayout(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Indictos
           </Typography>
+          <AppbarUserMenu />
         </Toolbar>
       </AppBar>
       <Box
