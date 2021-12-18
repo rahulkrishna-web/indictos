@@ -8,9 +8,6 @@ const Register = () => {
     const router = useRouter();
     const auth = getAuth(fb);
     const [user] = useAuthState(auth);
-    if(user){
-        router.push('/dashboard')
-    }
     return(
         <div>
             {!user && <RegisterScreen />}
