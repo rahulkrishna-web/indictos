@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Router, {useRouter} from 'next/router'
 import RegisterScreen from '../components/registerScreen'
 import fb from '../firebase/clientApp';
