@@ -62,8 +62,6 @@ export default function ProfileScreen() {
   
   return (
     <div>
-      <IndexAppbar />
-      <Container maxWidth="sm">
       <Box
       sx={{
         display: 'flex',
@@ -87,7 +85,6 @@ export default function ProfileScreen() {
       
       </Paper>
     </Box>
-      </Container>
     </div>
   );
 }

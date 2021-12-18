@@ -55,8 +55,6 @@ export default function DashboardScreen() {
   
   return (
     <div>
-      <IndexAppbar />
-      <Container maxWidth="sm">
       <Box
       sx={{
         display: 'flex',
@@ -80,7 +78,6 @@ export default function DashboardScreen() {
       
       </Paper>
     </Box>
-      </Container>
     </div>
   );
 }

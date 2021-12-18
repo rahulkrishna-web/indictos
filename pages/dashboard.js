@@ -3,6 +3,7 @@ import Router, {useRouter} from 'next/router'
 import fb from '../firebase/clientApp';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import HomeLayout from '../layouts/homeLayout'
 import DashboardScreen from '../components/dashboardScreen';
 
 
@@ -17,7 +18,7 @@ const Dashboard = () => {
       }, [user,router])
     return(
         <div>
-            {user && <DashboardScreen />}
+            {user && <HomeLayout><DashboardScreen /></HomeLayout>}
             
         </div>
     )
