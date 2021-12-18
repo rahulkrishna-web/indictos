@@ -60,8 +60,6 @@ export default function AccountScreen() {
   
   return (
     <div>
-      <IndexAppbar />
-      <Container maxWidth="sm">
       <Box
       sx={{
         display: 'flex',
@@ -85,7 +83,6 @@ export default function AccountScreen() {
       
       </Paper>
     </Box>
-      </Container>
     </div>
   );
 }
