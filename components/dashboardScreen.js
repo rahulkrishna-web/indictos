@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { getFirestore, collection, doc, getDoc } from "firebase/firestore"
+import { getFirestore, collection, doc, getDoc, query, where, getDocs } from "firebase/firestore"
 
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -47,17 +47,10 @@ export default function DashboardScreen() {
 
   async function getUserByEmail(user) {
     // Make the initial query
-    const docRef = doc(db, "users", user);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      setValues({ ...values, user: docSnap.data() });
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
+    console.log("checkpoint1",user);
   }
   useEffect(()=>{
-    getUserByEmail(user.uid);
+    getUserByEmail(user);
     });
   
   return (

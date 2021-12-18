@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from "firebase/firestore"
+import { getFirestore, collection, setDoc } from "firebase/firestore"
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -60,7 +60,7 @@ export default function RegisterScreen() {
         uid : uid
     }
     try {
-        const docRef = await addDoc(collection(db, "users", uid), data);
+        const docRef = await setDoc(collection(db, "users", uid), data);
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
         console.error("Error adding document: ", e);
