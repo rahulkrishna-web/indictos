@@ -4,6 +4,7 @@ import IndexAppbar from '../components/indexAppbar'
 import IndexLeadPanel from '../components/indexLeadPanel'
 import HomeScreen from '../components/homeScreen'
 import HomeLayout from '../layouts/homeLayout'
+import RecommendedVideoSection from '../components/recommendedVideoSection'
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-        Hello
+        <RecommendedVideoSection />
       </HomeLayout>
     </div>
   )

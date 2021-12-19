@@ -9,6 +9,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Link from 'next/link';
+
 
 
 export default function RecommendedVideoSection() {
@@ -24,6 +26,7 @@ export default function RecommendedVideoSection() {
             </Typography>
             <Grid container spacing={2}>
         <Grid item md={3}>
+          <Link href="/watch/1" passHref>
         <Card sx={{ maxWidth: 345 }} variant="outlined">
       <CardMedia
         component="img"
@@ -40,8 +43,10 @@ export default function RecommendedVideoSection() {
         </Typography>
       </CardContent>
     </Card>
+    </Link>
         </Grid>
         <Grid item md={3}>
+        <Link href="/watch/2" passHref>
         <Card sx={{ maxWidth: 345 }} variant="outlined">
       <CardMedia
         component="img"
@@ -58,6 +63,7 @@ export default function RecommendedVideoSection() {
         </Typography>
       </CardContent>
     </Card>
+    </Link>
         </Grid>
         <Grid item md={3}>
         <Card sx={{ maxWidth: 345 }} variant="outlined">
