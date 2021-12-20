@@ -2,6 +2,8 @@ import { Typography } from '@mui/material';
 import Head from 'next/head'
 import Link from 'next/link';
 import ReactPlayer from 'react-player'
+import Grid from '@mui/material/Grid';
+
 import HomeLayout from '../../layouts/homeLayout'
 
 export default function Watch({ postData }) {
@@ -14,7 +16,16 @@ export default function Watch({ postData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      <ReactPlayer url='https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Big_Buck_Bunny_360_10s_1MB.mp4?alt=media&token=2ba042a6-9954-4b6f-aa9f-e6101c338570' controls={true} pip={true} stopOnUnmount={false}/>
+      <Grid container spacing={2}>
+        <Grid item md={8}>
+        <ReactPlayer url='https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Big_Buck_Bunny_360_10s_1MB.mp4?alt=media&token=2ba042a6-9954-4b6f-aa9f-e6101c338570' controls={true} pip={true} stopOnUnmount={false} width="100%" height="100%"/>
+        <Typography variant='subtitle2'>{postData}</Typography>
+        </Grid>
+        <Grid item md={4}>
+          
+        </Grid>
+      </Grid>
+      
       <Typography variant='subtitle2'>{postData}</Typography>
       </HomeLayout>
     </div>
