@@ -148,7 +148,7 @@ function HomeLayout(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Link href="/premium" passHref >
+          <Link href="/" passHref >
           <Button variant="text" sx={{ color: "#fff" }}>
             Indictos
           </Button>
