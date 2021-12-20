@@ -1,12 +1,9 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from 'next/link';
@@ -27,7 +24,7 @@ export default function RecommendedVideoSection() {
             <Grid container spacing={2}>
         <Grid item md={3}>
           <Link href="/watch/1" passHref>
-        <Card sx={{ maxWidth: 345 }} variant="outlined">
+        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
         height="140"
@@ -47,7 +44,7 @@ export default function RecommendedVideoSection() {
         </Grid>
         <Grid item md={3}>
         <Link href="/watch/2" passHref>
-        <Card sx={{ maxWidth: 345 }} variant="outlined">
+        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
         height="140"
@@ -66,7 +63,7 @@ export default function RecommendedVideoSection() {
     </Link>
         </Grid>
         <Grid item md={3}>
-        <Card sx={{ maxWidth: 345 }} variant="outlined">
+        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
         height="140"
@@ -84,7 +81,7 @@ export default function RecommendedVideoSection() {
     </Card>
         </Grid>
         <Grid item md={3}>
-        <Card sx={{ maxWidth: 345 }} variant="outlined">
+        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
         height="140"

@@ -148,9 +148,12 @@ function HomeLayout(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          <Link href="/premium" passHref >
+          <Button variant="text" sx={{ color: "#fff" }}>
             Indictos
-          </Typography>
+          </Button>
+          </Link>
+          <Box sx={{ flexGrow: "1" }} />
           <AppbarUserMenu />
         </Toolbar>
       </AppBar>
