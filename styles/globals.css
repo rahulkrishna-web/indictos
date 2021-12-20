@@ -10,7 +10,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+.link {
+  cursor: pointer;
+}
 * {
   box-sizing: border-box;
 }

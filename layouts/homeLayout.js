@@ -22,6 +22,8 @@ import HistoryIcon from '@mui/icons-material/History';
 import InfoIcon from '@mui/icons-material/Info';
 import MailIcon from '@mui/icons-material/Mail';
 import AppbarUserMenu from '../components/appbarUserMenu';
+import Button from '@mui/material/Button';
+
 
 const drawerWidth = 240;
 
@@ -106,6 +108,13 @@ function HomeLayout(props) {
           </ListItem>
           </Link>
       </List>
+      <Divider />
+      <Box sx={{p : 2}}>
+      <Link href="/privacy" passHref><Button variant="text">Privacy</Button></Link>
+      <Link href="/terms" passHref><Button variant="text">Terms</Button></Link>
+      <Link href="/refund" passHref><Button variant="text">Refund</Button></Link>
+      <Link href="/faq" passHref><Button variant="text">FAQ</Button></Link>
+      </Box>
     </div>
   );
 
