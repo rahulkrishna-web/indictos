@@ -63,6 +63,7 @@ export default function RecommendedVideoSection() {
     </Link>
         </Grid>
         <Grid item md={3}>
+        <Link href="/watch/3" passHref>
         <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
@@ -79,8 +80,10 @@ export default function RecommendedVideoSection() {
         </Typography>
       </CardContent>
     </Card>
+    </Link>
         </Grid>
         <Grid item md={3}>
+        <Link href="/watch/4" passHref>
         <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
@@ -97,6 +100,7 @@ export default function RecommendedVideoSection() {
         </Typography>
       </CardContent>
     </Card>
+    </Link>
         </Grid>
       </Grid>
         </Box>
