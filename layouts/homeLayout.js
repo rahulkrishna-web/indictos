@@ -126,7 +126,8 @@ function HomeLayout(props) {
       <AppBar
         position="fixed"
         sx={{
-            zIndex: (theme) => theme.zIndex.drawer + 1
+            zIndex: (theme) => theme.zIndex.drawer + 1,
+            boxShadow: 'none'
         }}
       >
         <Toolbar>
