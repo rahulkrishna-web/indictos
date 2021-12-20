@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import HomeLayout from '../layouts/homeLayout'
+import Box from '@mui/material/Box'
 import RefundMD from '../markdowns/refund.mdx'
 
 export default function Refund() {
@@ -13,7 +14,7 @@ export default function Refund() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      <RefundMD />
+      <Box sx={{p: 2}}><RefundMD /></Box>
       </HomeLayout>
     </div>
   )

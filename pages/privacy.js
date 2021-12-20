@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import HomeLayout from '../layouts/homeLayout'
+import Box from '@mui/material/Box';
 import PrivacyMD from '../markdowns/privacy.mdx'
 
 export default function Privacy() {
@@ -13,7 +14,7 @@ export default function Privacy() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      <PrivacyMD />
+      <Box sx={{p: 2}}><PrivacyMD /></Box>
       </HomeLayout>
     </div>
   )

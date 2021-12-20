@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Box from '@mui/material/Box';
 import IndexAppbar from '../components/indexAppbar'
 import IndexLeadPanel from '../components/indexLeadPanel'
 import HomeScreen from '../components/homeScreen'
@@ -14,7 +15,7 @@ export default function History() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      History
+      <Box sx={{p: 2}}>History</Box>
       </HomeLayout>
     </div>
   )

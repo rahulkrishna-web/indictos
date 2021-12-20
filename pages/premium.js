@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import IndexAppbar from '../components/indexAppbar'
 import IndexLeadPanel from '../components/indexLeadPanel'
 import HomeScreen from '../components/homeScreen'
+import Box from '@mui/material/Box'
 import HomeLayout from '../layouts/homeLayout'
 
 export default function Premium() {
@@ -14,7 +15,7 @@ export default function Premium() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      Premium
+      <Box sx={{p: 2}}>Premium</Box>
       </HomeLayout>
     </div>
   )

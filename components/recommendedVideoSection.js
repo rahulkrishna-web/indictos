@@ -14,7 +14,7 @@ export default function RecommendedVideoSection() {
   return (
     <React.Fragment>
       <CssBaseline />
-        <Box sx={{ pb: 5 }} >
+        <Box sx={{ p: 2 }} >
             <Typography variant="h6" component="div">
                 Recommended
             </Typography>

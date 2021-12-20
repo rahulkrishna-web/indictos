@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import HomeLayout from '../layouts/homeLayout'
+import Box from '@mui/material/Box';
 import TermsMD from '../markdowns/terms.mdx'
 
 export default function Terms() {
@@ -13,7 +14,7 @@ export default function Terms() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      <TermsMD />
+      <Box sx={{p: 2}}><TermsMD /></Box>
       </HomeLayout>
     </div>
   )
