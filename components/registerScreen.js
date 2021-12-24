@@ -104,7 +104,7 @@ export default function RegisterScreen() {
         },
       }}
     >
-      <Paper elevation={1} >
+      <Paper elevation={0} >
           {values.loading && <LinearProgress />}
           <Box sx={{p: 2}}>
           <Typography variant="h3" gutterBottom component="div">

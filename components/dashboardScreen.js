@@ -64,17 +64,8 @@ export default function DashboardScreen() {
   
   return (
     <div>
-      <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > :not(style)': {
-          m: 1,
-          width: 500
-        },
-      }}
-    >
-      <Paper elevation={1} >
+      <Box>
+      <Paper elevation={0} >
       <Box sx={{p: 2}}>
       <Typography variant="h3" gutterBottom component="div">
         Hello {user.displayName}!
