@@ -15,93 +15,28 @@ export default function RecommendedVideoSection() {
     <React.Fragment>
       <CssBaseline />
         <Box sx={{ p: 2 }} >
-            <Typography variant="h6" component="div">
-                Recommended
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom component="div">
-                Discover premium movies and videos.
-            </Typography>
+            
             <Grid container spacing={2}>
         <Grid item md={3}>
           <Link href="/watch/1" passHref>
         <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
       <CardMedia
         component="img"
-        height="140"
-        image="https://i.ytimg.com/vi/ujb2CIWE8zY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO0Au7JLI3QA5w8romtju99hjpkQ"
+        image="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule_poster.jpg?alt=media&token=236ad0a3-f3aa-4452-ac75-3ebe7cc830c4"
         alt="green iguana"
       />
       <CardContent>
         <Typography variant="subtitle2" component="div">
-            Why is Radix Sort so Fast? Part 2 Radix Sort
+            Bulbule
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Creel
+        IMDB rating : 9.5
         </Typography>
       </CardContent>
     </Card>
     </Link>
         </Grid>
-        <Grid item md={3}>
-        <Link href="/watch/2" passHref>
-        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://i.ytimg.com/vi/ujb2CIWE8zY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO0Au7JLI3QA5w8romtju99hjpkQ"
-        alt="green iguana"
-      />
-      <CardContent>
-        <Typography variant="subtitle2" component="div">
-            Why is Radix Sort so Fast? Part 2 Radix Sort
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Creel
-        </Typography>
-      </CardContent>
-    </Card>
-    </Link>
-        </Grid>
-        <Grid item md={3}>
-        <Link href="/watch/3" passHref>
-        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://i.ytimg.com/vi/ujb2CIWE8zY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO0Au7JLI3QA5w8romtju99hjpkQ"
-        alt="green iguana"
-      />
-      <CardContent>
-        <Typography variant="subtitle2" component="div">
-            Why is Radix Sort so Fast? Part 2 Radix Sort
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Creel
-        </Typography>
-      </CardContent>
-    </Card>
-    </Link>
-        </Grid>
-        <Grid item md={3}>
-        <Link href="/watch/4" passHref>
-        <Card sx={{ maxWidth: 345, cursor: "pointer" }} variant="outlined">
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://i.ytimg.com/vi/ujb2CIWE8zY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO0Au7JLI3QA5w8romtju99hjpkQ"
-        alt="green iguana"
-      />
-      <CardContent>
-        <Typography variant="subtitle2" component="div">
-            Why is Radix Sort so Fast? Part 2 Radix Sort
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Creel
-        </Typography>
-      </CardContent>
-    </Card>
-    </Link>
-        </Grid>
+        
       </Grid>
         </Box>
     </React.Fragment>
