@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Router, {useRouter} from 'next/router'
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -12,6 +13,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 const AppbarUserMenu = () => {
+  const router = useRouter();
     const auth = getAuth(fb);
     const [user] = useAuthState(auth);
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -30,7 +32,8 @@ const AppbarUserMenu = () => {
         setAnchorEl2(null);
         };
         const logout = () => {
-            signOut(auth)
+            signOut(auth);
+            router.push('/');
           };
     return (
     <div>
