@@ -77,7 +77,7 @@ export default function DashboardScreen() {
       <Paper elevation={1} >
       <Box sx={{p: 2}}>
       <Typography variant="h3" gutterBottom component="div">
-        Hello {values.user.first_name} {values.user.last_name}!
+        Hello {user.displayName}!
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
         Register now and get exclusive conent.

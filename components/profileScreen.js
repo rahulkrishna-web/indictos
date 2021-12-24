@@ -75,7 +75,7 @@ export default function ProfileScreen() {
       <Paper elevation={1} >
       <Box sx={{p: 2}}>
       <Typography variant="h3" gutterBottom component="div">
-        {values.user.first_name} {values.user.last_name}
+        {user.displayName}
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
         Register now and get exclusive conent.

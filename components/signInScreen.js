@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -16,10 +16,13 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import IndexAppbar from '../components/indexAppbar';
 import Stack from '@mui/material/Stack';
+import GoogleIcon from '@mui/icons-material/Google';
 import Button from '@mui/material/Button';
 import fb from '../firebase/clientApp';
 
 const auth = getAuth(fb)
+const provider = new GoogleAuthProvider();
+
 
 export default function SignInScreen() {
   const [values, setValues] = React.useState({
@@ -47,6 +50,29 @@ export default function SignInScreen() {
   const login = () => {
     signInWithEmailAndPassword(auth, values.username, values.password);
   };
+
+  const googleSignIn = () => {
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user);
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    console.log(email,credential);
+    // ...
+  });
+  }
   return (
     <div>
       <IndexAppbar />
@@ -106,6 +132,7 @@ export default function SignInScreen() {
       
       <Link href="/register" passHref><Button variant="text">No Account? Register</Button></Link>
     </Stack>
+    <Button variant="contained" onClick={googleSignIn}startIcon={<GoogleIcon />} >Sign In with Google</Button>
       </Paper>
     </Box>
       </Container>
