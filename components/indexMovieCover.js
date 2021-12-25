@@ -36,7 +36,7 @@ export default function IndexMovieCover() {
               <Typography variant="h5" gutterBottom component="div">
                 Movie Details
               </Typography>
-              <Grid container>
+              <Grid container spacing={2}>
                 <Grid item md={4}>
                   <Typography variant="subtitle2" gutterBottom component="div">
                     Duration of the film
@@ -69,7 +69,7 @@ export default function IndexMovieCover() {
               <Typography variant="h5" gutterBottom component="div">
                 Movie Cast
               </Typography>
-              <Grid container>
+              <Grid container spacing={2}>
                 <Grid item md={4}>
                   <Typography variant="body2" gutterBottom component="div">
                   Jasmeet Bhatia
@@ -96,7 +96,7 @@ export default function IndexMovieCover() {
               <Typography variant="h5" gutterBottom component="div">
                 Awards
               </Typography>
-              <Grid container>
+              <Grid container spacing={2}>
                 <Grid item md={4}>
                   <Typography variant="subtitle2" gutterBottom component="div">
                   UK Asian film festival, London
