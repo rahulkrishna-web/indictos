@@ -19,7 +19,21 @@ export default function Watch({ postData }) {
       <HomeLayout>
       <Grid container spacing={2}>
         <Grid item md={8} sx={{pt: "0px"}}>
-        <ReactPlayer url='https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Big_Buck_Bunny_360_10s_1MB.mp4?alt=media&token=2ba042a6-9954-4b6f-aa9f-e6101c338570' controls={true} pip={true} stopOnUnmount={false} width="100%" height="100%"/>
+        <ReactPlayer 
+        url='https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Big_Buck_Bunny_360_10s_1MB.mp4?alt=media&token=2ba042a6-9954-4b6f-aa9f-e6101c338570' 
+        controls={true} 
+        pip={true} 
+        stopOnUnmount={false} 
+        width="100%" 
+        height="100%"
+        config={{ 
+          file: { 
+            attributes: {
+              controlsList: 'nodownload'
+            } 
+          } 
+        }}
+        />
         <Box sx={{p: 2}}>
         <Typography variant='subtitle2'>{postData}</Typography>
         </Box>

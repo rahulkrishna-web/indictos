@@ -12,7 +12,7 @@ export default function InvestCta() {
     <React.Fragment>
       <CssBaseline />
         <Box sx={{ p: 2 }} >
-            <Paper>
+            <Paper sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
             <Box sx={{ p: 2 }} >
             Bulbule 2 is coming soon!
             </Box>

@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import IndexAppbar from '../components/indexAppbar'
-import IndexLeadPanel from '../components/indexLeadPanel'
-import HomeScreen from '../components/homeScreen'
 import HomeLayout from '../layouts/homeLayout'
 import RecommendedVideoSection from '../components/recommendedVideoSection'
 import InvestCta from '../components/investCta'
+import IndexMovieCover from '../components/indexMovieCover'
 
 export default function Home() {
   return (
@@ -16,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-        <RecommendedVideoSection />
+        <IndexMovieCover />
         <InvestCta />
       </HomeLayout>
     </div>
