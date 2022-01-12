@@ -5,6 +5,7 @@ import IndexLeadPanel from '../components/indexLeadPanel'
 import HomeScreen from '../components/homeScreen'
 import Box from '@mui/material/Box'
 import HomeLayout from '../layouts/homeLayout'
+import MandiSection from '../components/mandiSection'
 
 export default function Invest() {
   return (
@@ -15,7 +16,10 @@ export default function Invest() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      <Box sx={{p: 2}}>Invest</Box>
+      <Box>
+      <MandiSection />
+      </Box>
+      
       </HomeLayout>
     </div>
   )
