@@ -6,6 +6,7 @@ import HomeScreen from '../components/homeScreen'
 import HomeLayout from '../layouts/homeLayout'
 import Box from '@mui/material/Box'
 import ContactMD from '../markdowns/contact.mdx'
+import ContactForm from '../components/contactForm'
 
 export default function Contact() {
   return (
@@ -16,7 +17,9 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      <Box sx={{p: 2}}><ContactMD /></Box>
+      <Box sx={{p: 2}}><ContactMD />
+      <ContactForm />
+      </Box>
       </HomeLayout>
     </div>
   )
