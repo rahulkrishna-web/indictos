@@ -4,6 +4,8 @@ import IndexAppbar from '../components/indexAppbar'
 import IndexLeadPanel from '../components/indexLeadPanel'
 import HomeScreen from '../components/homeScreen'
 import HomeLayout from '../layouts/homeLayout'
+import Box from '@mui/material/Box'
+import ContactMD from '../markdowns/contact.mdx'
 
 export default function Contact() {
   return (
@@ -14,7 +16,7 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-      Contact
+      <Box sx={{p: 2}}><ContactMD /></Box>
       </HomeLayout>
     </div>
   )
