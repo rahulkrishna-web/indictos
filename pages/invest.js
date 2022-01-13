@@ -4,8 +4,11 @@ import IndexAppbar from '../components/indexAppbar'
 import IndexLeadPanel from '../components/indexLeadPanel'
 import HomeScreen from '../components/homeScreen'
 import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid';
 import HomeLayout from '../layouts/homeLayout'
 import MandiSection from '../components/mandiSection'
+import BulbuleSection from '../components/bulbuleSection'
+import ParasyticalSection from '../components/parasyticalSection'
 
 export default function Invest() {
   return (
@@ -17,7 +20,18 @@ export default function Invest() {
       </Head>
       <HomeLayout>
       <Box>
-      <MandiSection />
+      <Grid container spacing={2}>
+  <Grid item xs={12} md={4}>
+  <BulbuleSection />
+  </Grid>
+  <Grid item xs={12} md={4}>
+  <MandiSection />
+  </Grid>
+  <Grid item xs={12} md={4}>
+  <ParasyticalSection />
+  </Grid>
+</Grid>
+      
       </Box>
       
       </HomeLayout>

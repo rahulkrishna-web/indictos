@@ -14,7 +14,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PaidIcon from '@mui/icons-material/Paid';
 
 
-export default function MandiSection() {
+export default function ParasyticalSection() {
   
   return (
     <div>
@@ -24,7 +24,7 @@ export default function MandiSection() {
         </Paper>
         <Box sx={{p: 2}}>
         <Typography variant="h3" component="div">
-        Mandi
+        Parasytical
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
       Money leads to everything and everything leads

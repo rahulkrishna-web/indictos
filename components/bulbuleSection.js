@@ -14,17 +14,17 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PaidIcon from '@mui/icons-material/Paid';
 
 
-export default function MandiSection() {
+export default function BulbuleSection() {
   
   return (
     <div>
       <Box>
       <Paper elevation={0}>
-            <img alt="bulbule movie poster" src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/mandi_poster.jpg?alt=media&token=22d8d39c-0c1a-4fe6-af63-67ee7d495e01" />
+            <img alt="bulbule movie poster" src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485" />
         </Paper>
         <Box sx={{p: 2}}>
         <Typography variant="h3" component="div">
-        Mandi
+        Bulbule
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
       Money leads to everything and everything leads
