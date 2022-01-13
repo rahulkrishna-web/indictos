@@ -27,11 +27,7 @@ export default function BulbuleSection() {
         Bulbule
       </Typography>
       <Typography variant="subtitle1" gutterBottom component="div">
-      Money leads to everything and everything leads
-to money. As people are emotionally charged in
-the times of riots, some people make money out
-of fear and greed of the people irrespective of
-their ideological leanings.
+      Two friends, Harmeet and Irfan, from two different minority communities in India, meet after a gap of 5 years. What begins as a conversation amongst two friends catching up on old times, soon becomes an intricate and profound conversation about all the fault lines of modern Indian society as they examine all the things in our society designed to divide.
       </Typography>
       <Stack direction="row" spacing={2}>
       <Button variant="outlined" startIcon={<PlayCircleOutlineIcon />}>
