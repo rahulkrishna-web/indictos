@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import DownloadIcon from '@mui/icons-material/Download';
 import PaidIcon from '@mui/icons-material/Paid';
 
 
@@ -34,9 +35,11 @@ of fear and greed of the people irrespective of
 their ideological leanings.
       </Typography>
       <Stack direction="row" spacing={2}>
-      <Button variant="outlined" startIcon={<PlayCircleOutlineIcon />}>
-        Watch Trailer
+        <Link href="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Mandi%20without%20budget.pdf?alt=media&token=1eef3f39-06b5-4d72-a066-5642cbd0f5c4"><Button variant="outlined" startIcon={<DownloadIcon />}>
+        View Presentation
       </Button>
+        </Link>
+      
       <Button variant="contained" endIcon={<PaidIcon />}>
         Invest
       </Button>
