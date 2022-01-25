@@ -58,28 +58,9 @@ function HomeLayout(props) {
             <ListItemIcon>
               <PaidIcon />
             </ListItemIcon>
-            <ListItemText primary="Invest" />
+            <ListItemText primary="Partner With Us" />
             </ListItem>
             </Link>
-      </List>
-      <Divider />
-      <List>
-      <Link href="/subscriptions" passHref>
-        <ListItem button key="1">
-            <ListItemIcon>
-            <VideoLibraryIcon />
-            </ListItemIcon>
-            <ListItemText primary="Subscriptions" />
-          </ListItem>
-          </Link>
-          <Link href="/history" passHref>
-          <ListItem button key="2">
-            <ListItemIcon>
-            <HistoryIcon />
-            </ListItemIcon>
-            <ListItemText primary="History" />
-          </ListItem>
-          </Link>
       </List>
       <Divider />
       <List>
