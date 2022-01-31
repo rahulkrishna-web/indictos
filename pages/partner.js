@@ -10,7 +10,7 @@ import MandiSection from '../components/mandiSection'
 import BulbuleSection from '../components/bulbuleSection'
 import ParasyticalSection from '../components/parasyticalSection'
 
-export default function Invest() {
+export default function Partner() {
   return (
     <div className={styles.container}>
       <Head>

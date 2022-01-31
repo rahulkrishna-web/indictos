@@ -34,7 +34,7 @@ export default function BulbuleSection() {
         Watch Trailer
       </Button>
       <Button variant="contained" endIcon={<PaidIcon />}>
-        Invest
+        Partner
       </Button>
     </Stack>
         </Box>

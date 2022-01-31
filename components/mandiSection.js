@@ -36,12 +36,12 @@ their ideological leanings.
       </Typography>
       <Stack direction="row" spacing={2}>
         <Link href="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Mandi%20without%20budget.pdf?alt=media&token=1eef3f39-06b5-4d72-a066-5642cbd0f5c4"><Button variant="outlined" startIcon={<DownloadIcon />}>
-        View Presentation
+        Presentation
       </Button>
         </Link>
       
       <Button variant="contained" endIcon={<PaidIcon />}>
-        Invest
+        Partner
       </Button>
     </Stack>
         </Box>
