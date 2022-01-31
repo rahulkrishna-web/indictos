@@ -38,7 +38,7 @@ their ideological leanings.
         Watch Trailer
       </Button>
       <Button variant="contained" endIcon={<PaidIcon />}>
-        Partner
+        Partner with us
       </Button>
     </Stack>
         </Box>

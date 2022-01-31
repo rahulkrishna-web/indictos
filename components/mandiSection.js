@@ -41,7 +41,7 @@ their ideological leanings.
         </Link>
       
       <Button variant="contained" endIcon={<PaidIcon />}>
-        Partner
+        Partner with us
       </Button>
     </Stack>
         </Box>
