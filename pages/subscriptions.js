@@ -17,6 +17,7 @@ export default function Subscriptions() {
       </Head>
       <HomeLayout>
       <Box sx={{p: 2}}>
+      <Typography variant='h6' gutterBottom>The movie &apos;Bulbule&apos; can be watched by paying Rs 99 through the payment gateway.</Typography>
       <Typography variant='body1'>You didn&apos;t subscribe yet! Please subscribe and start your journey with us.</Typography>
       </Box>
       
