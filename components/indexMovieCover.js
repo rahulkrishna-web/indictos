@@ -15,12 +15,10 @@ import InvestCta from './investCta';
 
 export default function IndexMovieCover() {
   const opts = {
-    height: '390',
-    width: '640',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
+    
+    width: '100%',
+    height: '400',
+    modestbranding: 1
   };
   const _onReady = (event) => {
     // access to player in all event handlers via event.target
@@ -46,7 +44,7 @@ export default function IndexMovieCover() {
               </Box>
             </Paper>
             <Paper elevation={0}>
-            <YouTube videoId="SsOy4XoDlS0" opts={opts} onReady={_onReady} />
+            <YouTube videoId="SsOy4XoDlS0" opts={opts} onReady={_onReady} containerClassName={"youtubeContainer"} />
             </Paper>
             <InvestCta />
             <Paper elevation={0}>
