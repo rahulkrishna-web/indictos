@@ -9,9 +9,23 @@ import Typography from '@mui/material/Typography';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Grid from '@mui/material/Grid';
+import YouTube from 'react-youtube';
+import InvestCta from './investCta';
 
 
 export default function IndexMovieCover() {
+  const opts = {
+    height: '390',
+    width: '640',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
+  const _onReady = (event) => {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
   return (
     <React.Fragment>
       <CssBaseline />
@@ -31,6 +45,10 @@ export default function IndexMovieCover() {
     </Stack>
               </Box>
             </Paper>
+            <Paper elevation={0}>
+            <YouTube videoId="SsOy4XoDlS0" opts={opts} onReady={_onReady} />
+            </Paper>
+            <InvestCta />
             <Paper elevation={0}>
               <Box sx={{p:2}}>
               <Typography variant="h5" gutterBottom component="div">

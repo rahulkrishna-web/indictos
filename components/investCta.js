@@ -14,7 +14,7 @@ export default function InvestCta() {
         <Box sx={{ p: 2 }} >
             <Paper sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
             <Box sx={{ p: 2 }} >
-            Bulbule 2 is coming soon!
+            Film to be released very soon!
             </Box>
             
             </Paper>

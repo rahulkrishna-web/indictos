@@ -15,7 +15,6 @@ export default function Home() {
       </Head>
       <HomeLayout>
         <IndexMovieCover />
-        <InvestCta />
       </HomeLayout>
     </div>
   )
