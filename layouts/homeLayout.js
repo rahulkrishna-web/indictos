@@ -53,14 +53,7 @@ function HomeLayout(props) {
             <ListItemText primary="Bulbule" />
             </ListItem>
             </Link>
-            <Link href="/partner" passHref>
-            <ListItem button key="3">
-            <ListItemIcon>
-              <PaidIcon />
-            </ListItemIcon>
-            <ListItemText primary="Partner With Us" />
-            </ListItem>
-            </Link>
+            
             <Link href="/subscriptions" passHref>
             <ListItem button key="1">
             <ListItemIcon>
