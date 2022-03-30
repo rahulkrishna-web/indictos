@@ -30,38 +30,6 @@ export default function DashboardScreen() {
   const auth = getAuth(fb);
   const [user] = useAuthState(auth);
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  async function getUserByEmail(user) {
-    // Make the initial query
-    console.log("checkpoint1",user);
-    const q = query(collection(db, "users"), where("email", "==", user.email));
-    const querySnapshot = await getDocs(q);
-    if(!(querySnapshot)){
-      console.log("no document found");
-    }
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-    });
-  }
-  useEffect(()=>{
-    getUserByEmail(user);
-    });
-  
   return (
     <div>
       <Box>
@@ -73,6 +41,8 @@ export default function DashboardScreen() {
       <Typography variant="subtitle1" gutterBottom component="div">
         Register now and get exclusive conent.
       </Typography>
+      <Link href="/movies" passHref><Button variant="contained">Movies</Button></Link>
+
       </Box>
       
       
