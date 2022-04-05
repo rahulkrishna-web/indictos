@@ -20,34 +20,14 @@ const payu = {
   }
    
 
-export const getStaticPaths = async () => {
-    const snapshot = await getDocs(collection(db, 'subscriptions'));
-
-    // map data to an array of path objects with params (id)
-    const paths = snapshot.docs.map(doc => {
-        return {
-        params: { id: doc.id.toString() }
-        }
-        })
-  
-    return {
-      paths,
-      fallback: blocking
-    }
-  }
-
-  export const getStaticProps = async (context) => {
-    const id = context.params.id;
-    const res = await getDoc(doc(db, 'subscriptions', id))
-    const subscription = JSON.parse(JSON.stringify(res.data())) ;
-    return {
-      props: { subscription, sid: id }
-    }
-  }
-
 export default function Subscription({subscription,sid }) {
     const router = useRouter();
-    
+    // If the page is not yet generated, this will be displayed
+      // initially until getStaticProps() finishes running
+      if (router.isFallback) {
+        return <div>Loading...</div>
+      }
+
     console.log("props", subscription, sid)
     const paymentHashString = payu.merchantKey+ "|" + sid + "|" + "99" + "|" + "bulbule" + "|" + subscription.billingAddress.first_name + "|" + subscription.billingAddress.email + "|||||||||||" + payu.salt1
     const paymentHash = sha512(paymentHashString);
@@ -77,4 +57,30 @@ export default function Subscription({subscription,sid }) {
             </HomeLayout>
         </div>
     );
+}
+
+export const getStaticPaths = async () => {
+  const snapshot = await getDocs(collection(db, 'subscriptions'));
+
+  // map data to an array of path objects with params (id)
+  const paths = snapshot.docs.map(doc => {
+      return {
+      params: { id: doc.id.toString() }
+      }
+      })
+
+  return {
+    paths,
+    fallback: true,
+  }
+}
+
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+  const res = await getDoc(doc(db, 'subscriptions', id))
+  const subscription = JSON.parse(JSON.stringify(res.data())) ;
+  return {
+    props: { subscription, sid: id },
+    revalidate: 1,
+  }
 }
