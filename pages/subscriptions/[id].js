@@ -22,11 +22,7 @@ const payu = {
 
 export default function Subscription({subscription,sid }) {
     const router = useRouter();
-    // If the page is not yet generated, this will be displayed
-      // initially until getStaticProps() finishes running
-      if (router.isFallback) {
-        return <div>Loading...</div>
-      }
+     
 
     console.log("props", subscription, sid)
     const paymentHashString = payu.merchantKey+ "|" + sid + "|" + "99" + "|" + "bulbule" + "|" + subscription.billingAddress.first_name + "|" + subscription.billingAddress.email + "|||||||||||" + payu.salt1
@@ -38,6 +34,7 @@ export default function Subscription({subscription,sid }) {
             Subscription {sid}<br/>
             payment hash string = {paymentHashString}<br/>
             payment hash = {paymentHash}
+            router path = {router.pathname}
             <form action='https://test.payu.in/_payment' method='post'>
             <input type="hidden" name="key" value={payu.merchantKey} />
             <input type="hidden" name="txnid" value={sid} />
