@@ -12,10 +12,7 @@ import * as Yup from 'yup';
 
 
 const auth = getAuth(fb);
-
 const db = getFirestore();
-
-
 
 const SubscribeBtn = ({movie,mid}) => {
   const router = useRouter();
@@ -33,6 +30,7 @@ const SubscribeBtn = ({movie,mid}) => {
       city: '',
       country: '',
       pincode: '',
+      uid: '',
       loading: false
     });
 
@@ -80,34 +78,7 @@ const SubscribeBtn = ({movie,mid}) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  console.log(movie,mid)
   
-  const paymentData = {
-    key:"",
-    txnid:"",
-    productinfo:"",
-    amount:"",
-    email:"",
-    firstname:"",
-    lastname:"",
-    surl:"",
-    furl:"",
-    phone:"",
-    hash:""
-  }
-  const initPayment = async() => {
-    console.log("payment init")
-    // get settings data from db
-    axios.post(payu.endpoint, paymentData)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
   const subscribe = async() => {
     setValues({
         ...values,
