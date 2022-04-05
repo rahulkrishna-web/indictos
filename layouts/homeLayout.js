@@ -50,7 +50,7 @@ function HomeLayout(props) {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary="Bulbule" />
+            <ListItemText primary="Home" />
             </ListItem>
             </Link>
             

@@ -32,16 +32,19 @@ export const getStaticPaths = async () => {
     const res = await getDoc(doc(db, 'movies', id))
     const movie = JSON.parse(JSON.stringify(res.data())) ;
     return {
-      props: { movie }
+      props: { movie, mid: id }
     }
   }
 
-export default function Movie({movie}) {
-    console.log("props", movie)
+export default function Movie({movie,mid }) {
+    console.log("props", movie, mid)
     return (
         <div>
             <HomeLayout>
             <Box sx={{p: 2}}>
+            {movie.poster && (
+                <img alt={movie.title} src={movie.poster} />
+            )}
             <Typography variant="h1" component="div" gutterBottom>
             {movie.title}
             </Typography> 
@@ -49,7 +52,7 @@ export default function Movie({movie}) {
           <Typography variant="subtitle1" gutterBottom component="div">
           {movie.storyline}
           </Typography>)}
-          <SubscribeBtn movie={movie}/>
+          <SubscribeBtn movie={movie} mid={mid}/>
 
             </Box>
       
