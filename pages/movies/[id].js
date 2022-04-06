@@ -45,7 +45,7 @@ export default function Movie({movie,mid }) {
             {movie.poster && (
                 <img alt={movie.title} src={movie.poster} />
             )}
-            <Typography variant="h1" component="div" gutterBottom>
+            <Typography variant="h3" component="div">
             {movie.title}
             </Typography> 
             {movie.storyline && (
