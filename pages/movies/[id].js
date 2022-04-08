@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import HomeLayout from "../../layouts/homeLayout";
 import fb from "../../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import {
   getFirestore,
@@ -20,9 +21,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 import SubscribeBtn from "../../components/subscribeBtn";
-const auth = getAuth(fb);
+
 const db = getFirestore();
-const user = auth.currentUser;
 export const getStaticPaths = async () => {
   const snapshot = await getDocs(collection(db, "movies"));
 
@@ -50,6 +50,8 @@ export const getStaticProps = async (context) => {
 
 export default function Movie({ movie, mid }) {
   console.log("props", movie, mid);
+  const auth = getAuth(fb);
+  const [user] = useAuthState(auth);
   return (
     <div>
       <HomeLayout>
@@ -63,7 +65,11 @@ export default function Movie({ movie, mid }) {
               {movie.storyline}
             </Typography>
           )}
-          {user ? "logged in" : <Button>Login To Subscribe</Button>}
+          {user ? (
+            <SubscribeBtn movie={movie} mid={mid} />
+          ) : (
+            <Button>Login To Subscribe</Button>
+          )}
         </Box>
       </HomeLayout>
     </div>

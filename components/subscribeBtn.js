@@ -27,12 +27,12 @@ import {
   where,
 } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { sha512 } from "js-sha512";
 
-const auth = getAuth(fb);
 const db = getFirestore();
 
 const payu = {
@@ -45,6 +45,8 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
 const SubscribeBtn = ({ movie, mid }) => {
   const router = useRouter();
+  const auth = getAuth(fb);
+  const [user] = useAuthState(auth);
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     txnId: "",
@@ -62,8 +64,6 @@ const SubscribeBtn = ({ movie, mid }) => {
     uid: "",
     loading: false,
   });
-  console.log(auth.currentUser);
-  const user = auth.currentUser;
   const surl = basePath + "/success";
   const furl = basePath + "/failure";
   const paymentHashString =
@@ -111,7 +111,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   };
 
   const subscribe = async () => {
-    if (user) {
+    if (!user) {
       console.log("not logged in ");
     } else {
       setValues({
@@ -136,9 +136,10 @@ const SubscribeBtn = ({ movie, mid }) => {
       try {
         const res = await addDoc(collection(db, "subscriptions"), data);
         console.log("Document written with ID: ", res.id);
-
         setValues({ ...values, txnId: res.id });
-        console.log("setTxnID", values.txnId);
+        if (values.txnId) {
+          setOpen(true);
+        }
         console.log("hash", paymentHashString, paymentHash);
       } catch (e) {
         console.error("Error adding document: ", e);
@@ -155,7 +156,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   return (
     <>
       <Button variant="contained" onClick={subscribe}>
-        Subscribe
+        Subscribe {values.txnId}
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: "fixed" }}>
@@ -203,9 +204,9 @@ const SubscribeBtn = ({ movie, mid }) => {
             <input type="hidden" name="furl" value={furl} />
             <input type="hidden" name="phone" value={values.mobile} />
             <input type="hidden" name="hash" value={paymentHash} />
-            <input type="submit" value="Pay Now" />
-            <Button type="submit" autoFocus>
-              Proceed to Pay
+
+            <Button type="submit" autoFocus disabled={!values.mobile}>
+              Pay Now
             </Button>
           </form>
         </Box>
