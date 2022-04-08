@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, disableNetwork } from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 

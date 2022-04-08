@@ -1,62 +1,71 @@
-import { Typography, Box, Button } from '@mui/material';
-import Head from 'next/head'
-import Link from 'next/link';
-import ReactPlayer from 'react-player'
-import Grid from '@mui/material/Grid';
+import { Typography, Box, Button } from "@mui/material";
+import Head from "next/head";
+import Link from "next/link";
+import ReactPlayer from "react-player";
+import Grid from "@mui/material/Grid";
 
-import HomeLayout from '../../layouts/homeLayout'
-import fb from '../../firebase/clientApp';
-import { getFirestore, collection, onSnapshot,query, orderBy, QuerySnapshot, getDocs , doc, getDoc } from "firebase/firestore";
-import SubscribeBtn from '../../components/subscribeBtn';
+import HomeLayout from "../../layouts/homeLayout";
+import fb from "../../firebase/clientApp";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  QuerySnapshot,
+  getDocs,
+  doc,
+  getDoc,
+} from "firebase/firestore";
+import SubscribeBtn from "../../components/subscribeBtn";
+const auth = getAuth(fb);
 const db = getFirestore();
-
+const user = auth.currentUser;
 export const getStaticPaths = async () => {
-    const snapshot = await getDocs(collection(db, 'movies'));
+  const snapshot = await getDocs(collection(db, "movies"));
 
-    // map data to an array of path objects with params (id)
-    const paths = snapshot.docs.map(doc => {
-        return {
-        params: { id: doc.id.toString() }
-        }
-        })
-  
+  // map data to an array of path objects with params (id)
+  const paths = snapshot.docs.map((doc) => {
     return {
-      paths,
-      fallback: false
-    }
-  }
+      params: { id: doc.id.toString() },
+    };
+  });
 
-  export const getStaticProps = async (context) => {
-    const id = context.params.id;
-    const res = await getDoc(doc(db, 'movies', id))
-    const movie = JSON.parse(JSON.stringify(res.data())) ;
-    return {
-      props: { movie, mid: id }
-    }
-  }
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
-export default function Movie({movie,mid }) {
-    console.log("props", movie, mid)
-    return (
-        <div>
-            <HomeLayout>
-            <Box sx={{p: 2}}>
-            {movie.poster && (
-                <img alt={movie.title} src={movie.poster} />
-            )}
-            <Typography variant="h3" component="div">
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+  const res = await getDoc(doc(db, "movies", id));
+  const movie = JSON.parse(JSON.stringify(res.data()));
+  return {
+    props: { movie, mid: id },
+  };
+};
+
+export default function Movie({ movie, mid }) {
+  console.log("props", movie, mid);
+  return (
+    <div>
+      <HomeLayout>
+        <Box sx={{ p: 2 }}>
+          {movie.poster && <img alt={movie.title} src={movie.poster} />}
+          <Typography variant="h3" component="div">
             {movie.title}
-            </Typography> 
-            {movie.storyline && (
-          <Typography variant="subtitle1" gutterBottom component="div">
-          {movie.storyline}
-          </Typography>)}
-          <SubscribeBtn movie={movie} mid={mid}/>
-
-            </Box>
-      
-            </HomeLayout>
-        </div>
-    );
+          </Typography>
+          {movie.storyline && (
+            <Typography variant="subtitle1" gutterBottom component="div">
+              {movie.storyline}
+            </Typography>
+          )}
+          {user ? "logged in" : <Button>Login To Subscribe</Button>}
+        </Box>
+      </HomeLayout>
+    </div>
+  );
 }
