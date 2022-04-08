@@ -24,8 +24,7 @@ const db = getFirestore();
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
-  useEffect(() => {});
-  const getMovies = () => {
+  useEffect(() => {
     const collectionRef = collection(db, "movies");
     const q = query(collectionRef, orderBy("created", "desc"));
     const getMovies = onSnapshot(q, (QuerySnapshot) => {
@@ -34,7 +33,7 @@ export default function Movies() {
       );
     });
     return getMovies;
-  };
+  }, []);
   return (
     <div>
       <Head>

@@ -23,17 +23,16 @@ const db = getFirestore();
 
 export default function RecommendedVideoSection() {
   const [movies, setMovies] = useState([]);
-  useEffect(() => {});
-  const getMovies = () => {
+  useEffect(() => {
     const collectionRef = collection(db, "movies");
     const q = query(collectionRef, orderBy("created", "desc"));
-    const getMovies = onSnapshot(q, (QuerySnapshot) => {
+    const res = onSnapshot(q, (QuerySnapshot) => {
       setMovies(
         QuerySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
     });
-    return getMovies;
-  };
+    return res;
+  }, []);
   return (
     <React.Fragment>
       <CssBaseline />
