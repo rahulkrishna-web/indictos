@@ -68,7 +68,9 @@ export default function Movie({ movie, mid }) {
           {user ? (
             <SubscribeBtn movie={movie} mid={mid} />
           ) : (
-            <Button>Login To Subscribe</Button>
+            <Link href="/auth" passHref>
+              <Button>Login To Subscribe</Button>
+            </Link>
           )}
         </Box>
       </HomeLayout>

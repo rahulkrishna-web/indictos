@@ -156,7 +156,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   return (
     <>
       <Button variant="contained" onClick={subscribe}>
-        Subscribe {values.txnId}
+        Subscribe
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: "fixed" }}>
@@ -179,7 +179,6 @@ const SubscribeBtn = ({ movie, mid }) => {
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
           <Paper sx={{ p: 2 }}>{movie.title}</Paper>
-          {user.displayName} | {user.email} | {values.mobile}
           <TextField
             {...register("mobile")}
             id="mobile"
