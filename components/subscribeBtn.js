@@ -64,6 +64,14 @@ const SubscribeBtn = ({ movie, mid }) => {
     uid: "",
     loading: false,
   });
+  useEffect(() => {
+    openDialog();
+  }, [values.txnId]);
+  const openDialog = () => {
+    if (values.txnId) {
+      setOpen(true);
+    }
+  };
   const surl = basePath + "/success";
   const furl = basePath + "/failure";
   const paymentHashString =
@@ -137,21 +145,13 @@ const SubscribeBtn = ({ movie, mid }) => {
         const res = await addDoc(collection(db, "subscriptions"), data);
         console.log("Document written with ID: ", res.id);
         setValues({ ...values, txnId: res.id });
-        if (values.txnId) {
-          setOpen(true);
-        }
+
         console.log("hash", paymentHashString, paymentHash);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
     }
   };
-  function onSubmit(data) {
-    // display form data on success
-    const subs = subscribe();
-    console.log(subs);
-    return false;
-  }
 
   return (
     <>
