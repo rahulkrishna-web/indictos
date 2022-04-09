@@ -1,4 +1,5 @@
-import { Typography, Box, Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Typography, Box, Button, Paper } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
 import ReactPlayer from "react-player";
@@ -19,10 +20,13 @@ import {
   getDocs,
   doc,
   getDoc,
+  where,
 } from "firebase/firestore";
 import SubscribeBtn from "../../components/subscribeBtn";
+import YouTube from "react-youtube";
 
 const db = getFirestore();
+const auth = getAuth(fb);
 export const getStaticPaths = async () => {
   const snapshot = await getDocs(collection(db, "movies"));
 
@@ -49,14 +53,65 @@ export const getStaticProps = async (context) => {
 };
 
 export default function Movie({ movie, mid }) {
-  console.log("props", movie, mid);
-  const auth = getAuth(fb);
+  const [subs, setSubs] = useState([]);
+  const opts = {
+    width: "100%",
+    height: "400",
+    modestbranding: 1,
+  };
+  const _onReady = (event) => {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  };
+  console.log("props", subs);
+
   const [user] = useAuthState(auth);
+
+  const isSubscribed = async (movie, user, mid) => {
+    if (auth.currentUser) {
+      const q = query(
+        collection(db, "subscriptions"),
+        where("user", "==", user.uid),
+        where("movie", "==", mid),
+        where("paymentStatus", "==", "success")
+      );
+      const docSnap = await getDocs(q);
+      console.log("docsnap", docSnap);
+      setSubs(docSnap.docs);
+      docSnap.forEach((doc) => {
+        console.log(doc.data());
+      });
+    }
+
+    return false;
+  };
+  useEffect(() => {
+    if (auth.currentUser) {
+      isSubscribed(movie, auth.currentUser, mid);
+    }
+  }, []);
+
   return (
     <div>
       <HomeLayout>
         <Box sx={{ p: 2 }}>
-          {movie.poster && <img alt={movie.title} src={movie.poster} />}
+          {user ? (
+            subs.length > 0 ? (
+              <Paper elevation={0}>
+                <YouTube
+                  videoId="SsOy4XoDlS0"
+                  opts={opts}
+                  onReady={_onReady}
+                  containerClassName={"youtubeContainer"}
+                />
+              </Paper>
+            ) : (
+              movie.poster && <img alt={movie.title} src={movie.poster} />
+            )
+          ) : (
+            movie.poster && <img alt={movie.title} src={movie.poster} />
+          )}
+
           <Typography variant="h3" component="div">
             {movie.title}
           </Typography>
@@ -65,11 +120,16 @@ export default function Movie({ movie, mid }) {
               {movie.storyline}
             </Typography>
           )}
+
           {user ? (
-            <SubscribeBtn movie={movie} mid={mid} />
+            subs.length > 0 ? (
+              <Button variant="outlined">Subscribed</Button>
+            ) : (
+              <SubscribeBtn movie={movie} mid={mid} />
+            )
           ) : (
             <Link href="/auth" passHref>
-              <Button>Login To Subscribe</Button>
+              <Button variant="contained">Login To Subscribe</Button>
             </Link>
           )}
         </Box>

@@ -1,30 +1,31 @@
-import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { getFirestore, collection, doc, getDoc } from "firebase/firestore"
+import React, { useEffect } from "react";
+import Link from "next/link";
+import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import IndexAppbar from '../components/indexAppbar';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import fb from '../firebase/clientApp';
-import { getAuth, signOut } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import IndexAppbar from "../components/indexAppbar";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import fb from "../firebase/clientApp";
+import { getAuth, signOut, updateProfile } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { TextField } from "@mui/material";
 
 const db = getFirestore();
 
 export default function ProfileScreen() {
   const [values, setValues] = React.useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    username: '',
-    password: '',
+    name: "",
+    mobile: "",
+    email: "",
+    username: "",
+    password: "",
     loading: false,
     showPassword: false,
-    user: {}
+    user: {},
   });
 
   const auth = getAuth(fb);
@@ -45,37 +46,71 @@ export default function ProfileScreen() {
     event.preventDefault();
   };
 
-  async function getUserByEmail(user) {
-    // Make the initial query
-    const docRef = doc(db, "users", user);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      setValues({ ...values, user: docSnap.data() });
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  }
-  useEffect(()=>{
-    getUserByEmail(user.uid);
+  const saveProfile = () => {
+    updateProfile(auth.currentUser, {
+      displayName: values.name,
+      phoneNumber: values.mobile,
+    })
+      .then((res) => {
+        console.log("profile updated", res);
+        // ...
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  useEffect(() => {
+    setValues({
+      ...values,
+      name: user.displayName,
+      email: user.email,
+      mobile: user.phoneNumber,
     });
-  
+  }, [user]);
+
   return (
     <div>
       <Box>
-      <Paper elevation={0} >
-      <Box sx={{p: 2}}>
-      <Typography variant="h3" gutterBottom component="div">
-        {user.displayName}
-      </Typography>
-      <Typography variant="subtitle1" gutterBottom component="div">
-        Register now and get exclusive conent.
-      </Typography>
+        <Paper elevation={0}>
+          <Box sx={{ p: 2 }}>
+            <Typography variant="h3" gutterBottom component="div">
+              {values.name}
+            </Typography>
+            <TextField
+              id="name"
+              label="Name"
+              variant="outlined"
+              margin="dense"
+              fullWidth
+              value={values.name}
+              onChange={handleChange("name")}
+            />
+
+            <TextField
+              id="email"
+              label="Email"
+              variant="outlined"
+              margin="dense"
+              fullWidth
+              value={values.email}
+              onChange={handleChange("email")}
+            />
+            <TextField
+              id="mobile"
+              label="Mobile"
+              variant="outlined"
+              margin="dense"
+              fullWidth
+              value={values.mobile}
+              onChange={handleChange("mobile")}
+            />
+            <Button variant="contained" onClick={saveProfile}>
+              Save
+            </Button>
+          </Box>
+        </Paper>
       </Box>
-      
-      
-      </Paper>
-    </Box>
     </div>
   );
 }

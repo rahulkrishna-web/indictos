@@ -3,13 +3,44 @@ import HomeLayout from "../layouts/homeLayout";
 import bodyParser from "body-parser";
 import { promisify } from "util";
 import { useRouter } from "next/router";
+import fb from "../firebase/clientApp";
+import { getAuth } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+} from "firebase/firestore";
 
 const getBody = promisify(bodyParser.urlencoded());
+const db = getFirestore();
+const auth = getAuth(fb);
+
+const updateSubs = async (data) => {
+  console.log("update subs called");
+  const subscriptionsRef = collection(db, "subscriptions");
+  await setDoc(
+    doc(subscriptionsRef, data.txnid),
+    {
+      paymentStatus: data.status,
+      paymentMode: data.mode,
+      paymentBank: data.bankcode,
+      mihpayid: data.mihpayid,
+    },
+    { merge: true }
+  ).then((res) => {
+    console.log("subs updated", res);
+  });
+};
 
 const Success = (props) => {
   const router = useRouter();
+
   if (props.data) {
-    console.log(props.data);
+    console.log("data found", props.data);
+    // save data
+    updateSubs(props.data);
   }
 
   return (

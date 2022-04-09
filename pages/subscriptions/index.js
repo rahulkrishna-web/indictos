@@ -63,7 +63,6 @@ export default function Subscriptions() {
           </Typography>
           {auth.currentUser && (
             <div>
-              Logged in
               {subscriptions &&
                 subscriptions.map((m, index) => (
                   <div key={index}>
