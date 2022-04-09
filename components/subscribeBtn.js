@@ -65,13 +65,22 @@ const SubscribeBtn = ({ movie, mid }) => {
     loading: false,
   });
   useEffect(() => {
+    const openDialog = () => {
+      if (values.txnId) {
+        setOpen(true);
+      }
+    };
     openDialog();
   }, [values.txnId]);
-  const openDialog = () => {
-    if (values.txnId) {
-      setOpen(true);
-    }
-  };
+  useEffect(() => {
+    setValues({
+      ...values,
+      firstname: user.displayName,
+      email: user.email,
+      uid: user.uid,
+      mobile: user.mobile,
+    });
+  }, []);
   const surl = basePath + "/success";
   const furl = basePath + "/failure";
   const paymentHashString =
@@ -83,9 +92,9 @@ const SubscribeBtn = ({ movie, mid }) => {
     "|" +
     "bulbule" +
     "|" +
-    user.displayName +
+    values.firstname +
     "|" +
-    user.email +
+    values.email +
     "|||||||||||" +
     payu.salt1;
   const paymentHash = sha512(paymentHashString);
@@ -128,9 +137,9 @@ const SubscribeBtn = ({ movie, mid }) => {
       });
       const data = {
         billingAddress: {
-          first_name: user.displayName,
+          first_name: values.firstname,
           last_name: "",
-          email: user.email,
+          email: values.email,
           mobile: "",
         },
         user: user.uid,
@@ -172,13 +181,35 @@ const SubscribeBtn = ({ movie, mid }) => {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Subscribe
             </Typography>
-            <Button type="submit" autoFocus color="inherit">
-              Proceed to Pay
-            </Button>
           </Toolbar>
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
           <Paper sx={{ p: 2 }}>{movie.title}</Paper>
+
+          <TextField
+            {...register("firstname")}
+            id="name"
+            label="Name"
+            variant="outlined"
+            fullWidth
+            margin="dense"
+            value={values.firstname}
+            onChange={handleChange("firstname")}
+            error={errors.firstname}
+            helperText={errors.firstname?.message}
+          />
+          <TextField
+            {...register("email")}
+            id="email"
+            label="Email"
+            variant="outlined"
+            fullWidth
+            margin="dense"
+            value={values.email}
+            onChange={handleChange("email")}
+            error={errors.email}
+            helperText={errors.email?.message}
+          />
           <TextField
             {...register("mobile")}
             id="mobile"
@@ -196,15 +227,20 @@ const SubscribeBtn = ({ movie, mid }) => {
             <input type="hidden" name="txnid" value={values.txnId} />
             <input type="hidden" name="productinfo" value="bulbule" />
             <input type="hidden" name="amount" value="99" />
-            <input type="hidden" name="email" value={user.email} />
-            <input type="hidden" name="firstname" value={user.displayName} />
+            <input type="hidden" name="email" value={values.email} />
+            <input type="hidden" name="firstname" value={values.firstname} />
             <input type="hidden" name="lastname" value="" />
             <input type="hidden" name="surl" value={surl} />
             <input type="hidden" name="furl" value={furl} />
             <input type="hidden" name="phone" value={values.mobile} />
             <input type="hidden" name="hash" value={paymentHash} />
 
-            <Button type="submit" autoFocus disabled={!values.mobile}>
+            <Button
+              variant="contained"
+              type="submit"
+              autoFocus
+              disabled={!values.mobile || !values.email || !values.firstname}
+            >
               Pay Now
             </Button>
           </form>

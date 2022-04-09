@@ -16,13 +16,16 @@ const Success = (props) => {
     <HomeLayout>
       <Box sx={{ p: 2 }}>
         <Paper sx={{ p: 2 }}>
-          <Typography variant="h3" component="div">
-            Success
+          <Typography variant="h4" component="div">
+            Subscription Successful
           </Typography>
           {props.data && (
             <>
               <Typography variant="subtitle1" component="div">
                 Txn Id : {props.data.txnid}
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                Movie : {props.data.productinfo}
               </Typography>
               <Typography variant="subtitle1" component="div">
                 Status : {props.data.status}
