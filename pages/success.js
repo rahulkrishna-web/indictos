@@ -40,7 +40,6 @@ const Success = (props) => {
   if (props.data) {
     console.log("data found", props.data);
     // save data
-    updateSubs(props.data);
   }
 
   return (
