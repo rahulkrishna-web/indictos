@@ -37,10 +37,13 @@ const updateSubs = async (data) => {
 const Success = (props) => {
   const router = useRouter();
 
-  if (props.data) {
-    console.log("data found", props.data);
-    // save data
-  }
+  useEffect(() => {
+    if (props.data) {
+      console.log("data found", props.data);
+      // save data
+      updateSubs();
+    }
+  }, []);
 
   return (
     <HomeLayout>
