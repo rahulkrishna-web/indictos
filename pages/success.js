@@ -41,7 +41,7 @@ const Success = (props) => {
     if (props.data) {
       console.log("data found", props.data);
       // save data
-      updateSubs();
+      updateSubs(props.data);
     }
   }, []);
 
