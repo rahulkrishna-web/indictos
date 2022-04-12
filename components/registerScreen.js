@@ -27,8 +27,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IndexAppbar from "../components/indexAppbar";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 import fb from "../firebase/clientApp";
 import LinearProgress from "@mui/material/LinearProgress";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const auth = getAuth(fb);
 const db = getFirestore();
@@ -42,6 +46,7 @@ export default function RegisterScreen() {
     password: "",
     loading: false,
     showPassword: false,
+    error: "",
   });
 
   const handleChange = (prop) => (event) => {
@@ -59,40 +64,35 @@ export default function RegisterScreen() {
     event.preventDefault();
   };
 
-  const writeUserData = async (uid) => {
-    const data = {
-      name: values.name,
-      mobile: values.mobile,
-      email: values.email,
-      username: values.username,
-      uid: uid,
-      created: serverTimestamp(),
-      updated: serverTimestamp(),
-    };
-    try {
-      const docRef = await setDoc(collection(db, "profiles", uid), data);
-      console.log("Profile written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  };
+  // form validation rules
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    mobile: Yup.string()
+      .required("Mobile No. is required")
+      .matches(/^^((\+91)?|91)?[789][0-9]{9}$/, "Mobile number must be valid"),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+  });
 
-  const register = () => {
+  const formOptions = { resolver: yupResolver(validationSchema) };
+
+  // get functions to build form with useForm() hook
+  const { register, handleSubmit, reset, formState } = useForm(formOptions);
+  const { errors } = formState;
+
+  const signup = () => {
     setValues({
       ...values,
       loading: true,
     });
+    // find out if email is already registered
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
-        updateProfile(auth.currentUser, {
+        updateProfile({
           displayName: values.name,
-          phoneNumber: values.mobile,
-          username: values.username,
         });
-        writeUserData(user.uid).then((res) => console.log(res));
+        console.log(user);
         setValues({
           ...values,
           loading: false,
@@ -102,6 +102,11 @@ export default function RegisterScreen() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setValues({
+          ...values,
+          loading: false,
+          error: error.code,
+        });
         // ..
       });
   };
@@ -128,39 +133,33 @@ export default function RegisterScreen() {
               <Typography variant="subtitle1" gutterBottom component="div">
                 Register now and get exclusive conent.
               </Typography>
+              {values.error && values.error === "auth/email-already-in-use" && (
+                <Alert severity="error">
+                  Email already exists. Please try signing in.
+                </Alert>
+              )}
               <TextField
+                {...register("name")}
                 id="name"
                 label="Name"
                 variant="outlined"
                 margin="dense"
                 fullWidth
                 onChange={handleChange("name")}
+                error={errors.name}
+                helperText={errors.name?.message}
               />
               <TextField
-                id="username"
-                label="Username"
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                onChange={handleChange("username")}
-              />
-              <TextField
+                {...register("email")}
                 id="email"
                 label="Email"
                 variant="outlined"
                 margin="dense"
                 fullWidth
                 onChange={handleChange("email")}
+                error={errors.email}
+                helperText={errors.email?.message}
               />
-              <TextField
-                id="mobile"
-                label="Mobile"
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                onChange={handleChange("mobile")}
-              />
-
               <FormControl variant="outlined" fullWidth margin="dense">
                 <InputLabel htmlFor="password">Password</InputLabel>
                 <OutlinedInput
@@ -199,7 +198,11 @@ export default function RegisterScreen() {
                     Submit
                   </LoadingButton>
                 ) : (
-                  <Button variant="contained" onClick={register}>
+                  <Button
+                    variant="contained"
+                    onClick={signup}
+                    disabled={!values.email || !values.name}
+                  >
                     Register
                   </Button>
                 )}
