@@ -24,6 +24,7 @@ import Stack from "@mui/material/Stack";
 import GoogleIcon from "@mui/icons-material/Google";
 import Button from "@mui/material/Button";
 import fb from "../firebase/clientApp";
+import { Grid } from "@mui/material";
 
 const auth = getAuth(fb);
 const provider = new GoogleAuthProvider();
@@ -80,25 +81,29 @@ export default function SignInScreen() {
   };
   return (
     <div>
-      <IndexAppbar />
-      <Container maxWidth="sm">
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            "& > :not(style)": {
-              m: 1,
-              width: 500,
-            },
-          }}
-        >
-          <Paper elevation={0}>
-            <Typography variant="h3" gutterBottom component="div">
-              Sign In
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom component="div">
-              Signing in gives you a lot of extra features.
-            </Typography>
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "100vh", background: "#f0f0f1" }}
+      >
+        <Grid item xs={3}>
+          <Typography variant="h5" gutterBottom component="div" align="center">
+            Indictos
+          </Typography>
+          <Paper sx={{ p: 2 }}>
+            <Box sx={{ py: 2 }}>
+              <Button
+                variant="contained"
+                onClick={googleSignIn}
+                startIcon={<GoogleIcon />}
+              >
+                Sign In with Google
+              </Button>
+            </Box>
+
             <TextField
               id="username"
               label="Email"
@@ -141,25 +146,17 @@ export default function SignInScreen() {
                   Submit
                 </LoadingButton>
               ) : (
-                <Button variant="contained" onClick={login}>
+                <Button variant="contained" onClick={login} align="right">
                   Sign In
                 </Button>
               )}
-
-              <Link href="/register" passHref>
-                <Button variant="text">No Account? Register</Button>
-              </Link>
             </Stack>
-            <Button
-              variant="contained"
-              onClick={googleSignIn}
-              startIcon={<GoogleIcon />}
-            >
-              Sign In with Google
-            </Button>
           </Paper>
-        </Box>
-      </Container>
+          <Link href="/register" passHref>
+            <Button variant="text">No Account? Register</Button>
+          </Link>
+        </Grid>
+      </Grid>
     </div>
   );
 }

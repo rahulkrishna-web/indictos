@@ -33,6 +33,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { Grid } from "@mui/material";
 
 const auth = getAuth(fb);
 const db = getFirestore();
@@ -112,27 +113,29 @@ export default function RegisterScreen() {
   };
   return (
     <div>
-      <IndexAppbar />
-      <Container maxWidth="sm">
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            "& > :not(style)": {
-              m: 1,
-              width: 500,
-            },
-          }}
-        >
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "100vh", background: "#f0f0f1" }}
+      >
+        <Grid item xs={3} lg={3}>
+          <Typography variant="h5" gutterBottom component="div" align="center">
+            Indictos
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            gutterBottom
+            component="div"
+            align="center"
+          >
+            Create New Account
+          </Typography>
           <Paper elevation={0}>
             {values.loading && <LinearProgress />}
             <Box sx={{ p: 2 }}>
-              <Typography variant="h3" gutterBottom component="div">
-                Register
-              </Typography>
-              <Typography variant="subtitle1" gutterBottom component="div">
-                Register now and get exclusive conent.
-              </Typography>
               {values.error && values.error === "auth/email-already-in-use" && (
                 <Alert severity="error">
                   Email already exists. Please try signing in.
@@ -206,15 +209,26 @@ export default function RegisterScreen() {
                     Create new account
                   </Button>
                 )}
-
-                <Link href="/auth" passHref>
-                  <Button variant="text">Already have account? Login</Button>
-                </Link>
               </Stack>
             </Box>
           </Paper>
-        </Box>
-      </Container>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Grid item>
+              <Link href="/auth" passHref>
+                <Button variant="text" sx={{ my: 2 }}>
+                  Already have account? Login
+                </Button>
+              </Link>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   );
 }
