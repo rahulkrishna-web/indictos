@@ -1,28 +1,28 @@
-import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { getFirestore, collection, doc, getDoc } from "firebase/firestore"
+import React, { useEffect } from "react";
+import Link from "next/link";
+import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import IndexAppbar from './indexAppbar';
-import fb from '../firebase/clientApp';
-import { getAuth } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import IndexAppbar from "./indexAppbar";
+import fb from "../firebase/clientApp";
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const db = getFirestore();
 
 export default function AccountScreen() {
   const [values, setValues] = React.useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    username: '',
-    password: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    username: "",
+    password: "",
     loading: false,
     showPassword: false,
-    user: {}
+    user: {},
   });
 
   const auth = getAuth(fb);
@@ -54,26 +54,21 @@ export default function AccountScreen() {
       console.log("No such document!");
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     getUserByEmail(user.uid);
-    });
-  
+  });
+
   return (
     <div>
       <Box>
-      <Paper elevation={0} >
-      <Box sx={{p: 2}}>
-      <Typography variant="h3" gutterBottom component="div">
-        {user.displayName}
-      </Typography>
-      <Typography variant="subtitle1" gutterBottom component="div">
-        Register now and get exclusive conent.
-      </Typography>
+        <Paper elevation={0}>
+          <Box sx={{ p: 2 }}>
+            <Typography variant="h5" gutterBottom component="div">
+              Manange Account
+            </Typography>
+          </Box>
+        </Paper>
       </Box>
-      
-      
-      </Paper>
-    </Box>
     </div>
   );
 }

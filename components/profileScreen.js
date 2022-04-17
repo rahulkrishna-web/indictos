@@ -74,9 +74,6 @@ export default function ProfileScreen() {
       <Box>
         <Paper elevation={0}>
           <Box sx={{ p: 2 }}>
-            <Typography variant="h3" gutterBottom component="div">
-              {values.name}
-            </Typography>
             <TextField
               id="name"
               label="Name"

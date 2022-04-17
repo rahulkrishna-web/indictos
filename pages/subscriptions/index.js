@@ -46,7 +46,7 @@ export default function Subscriptions() {
       return getSubscriptions;
     }
     console.log("subs", subscriptions);
-  }, [subscriptions]);
+  }, []);
 
   return (
     <div className={styles.container}>
