@@ -88,7 +88,7 @@ const SubscribeBtn = ({ movie, mid }) => {
     "|" +
     values.txnId +
     "|" +
-    "99" +
+    "10" +
     "|" +
     "bulbule" +
     "|" +
@@ -145,7 +145,7 @@ const SubscribeBtn = ({ movie, mid }) => {
         user: user.uid,
         movieTitle: movie.title,
         movie: mid,
-        subscriptionAmt: 99,
+        subscriptionAmt: 10,
         subscriptionPlan: "wVgG0FInanjQXTIJwpiw",
         created: serverTimestamp(),
         updated: serverTimestamp(),
@@ -226,7 +226,7 @@ const SubscribeBtn = ({ movie, mid }) => {
             <input type="hidden" name="key" value={payu.merchantKey} />
             <input type="hidden" name="txnid" value={values.txnId} />
             <input type="hidden" name="productinfo" value="bulbule" />
-            <input type="hidden" name="amount" value="99" />
+            <input type="hidden" name="amount" value="10" />
             <input type="hidden" name="email" value={values.email} />
             <input type="hidden" name="firstname" value={values.firstname} />
             <input type="hidden" name="lastname" value="" />
