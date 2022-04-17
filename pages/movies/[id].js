@@ -85,7 +85,8 @@ export default function Movie({ movie, mid }) {
         collection(db, "subscriptions"),
         where("user", "==", user.uid),
         where("movie", "==", mid),
-        where("paymentStatus", "==", "success")
+        where("paymentStatus", "==", "success"),
+        orderBy("created", "desc")
       );
       const docSnap = await getDocs(q).then((res) => {
         setSubs(
@@ -108,6 +109,7 @@ export default function Movie({ movie, mid }) {
       getAward(movie);
     }
     console.log("movie", movie);
+    console.log("subscriptions", subs);
     console.log("awards", awards);
   }, [user]);
   var now = Timestamp.now().toDate();
@@ -119,7 +121,9 @@ export default function Movie({ movie, mid }) {
     var subsCreated = subs[0]?.created.toDate();
 
     var timePassed = Math.floor((now - subsCreated) / 1000 / 60 / 60); //in hours
-    if (timePassed < 48) {
+    var timeLeft = 24 - timePassed;
+    console.log("time left", subsCreated, now, timePassed, timeLeft);
+    if (timeLeft >= 0.1) {
       return true;
     }
     return false;
@@ -171,11 +175,17 @@ export default function Movie({ movie, mid }) {
               )}
             </Stack>
           )}
-          {user && !isSubs() && <SubscribeBtn movie={movie} mid={mid} />}
+          {user && !isSubs() && (
+            <Box sx={{ mb: 2 }}>
+              <SubscribeBtn movie={movie} mid={mid} />
+            </Box>
+          )}
 
           {!user && (
             <Link href="/auth" passHref>
-              <Button variant="contained">Login To Subscribe</Button>
+              <Button variant="contained" sx={{ mb: 2 }}>
+                Login To Subscribe
+              </Button>
             </Link>
           )}
           <Divider />
