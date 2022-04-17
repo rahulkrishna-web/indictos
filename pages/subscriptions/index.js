@@ -7,7 +7,7 @@ import IndexAppbar from "../../components/indexAppbar";
 import IndexLeadPanel from "../../components/indexLeadPanel";
 import HomeScreen from "../../components/homeScreen";
 import HomeLayout from "../../layouts/homeLayout";
-import { Paper, Typography } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 import fb from "../../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
@@ -22,7 +22,8 @@ import {
   doc,
   getDoc,
 } from "firebase/firestore";
-
+import moment from "moment";
+import { Grid3x3Sharp } from "@mui/icons-material";
 const auth = getAuth(fb);
 const db = getFirestore();
 
@@ -33,7 +34,9 @@ export default function Subscriptions() {
       const subscriptionsRef = collection(db, "subscriptions");
       const q = query(
         subscriptionsRef,
-        where("user", "==", auth.currentUser.uid)
+        where("user", "==", auth.currentUser.uid),
+        where("paymentStatus", "==", "success"),
+        orderBy("created", "desc")
       );
       const getSubscriptions = onSnapshot(q, (QuerySnapshot) => {
         setSubscriptions(
@@ -42,7 +45,8 @@ export default function Subscriptions() {
       });
       return getSubscriptions;
     }
-  }, []);
+    console.log("subs", subscriptions);
+  }, [subscriptions]);
 
   return (
     <div className={styles.container}>
@@ -53,23 +57,34 @@ export default function Subscriptions() {
       </Head>
       <HomeLayout>
         <Box sx={{ p: 2 }}>
-          <Typography variant="h6" gutterBottom>
-            The movie &apos;Bulbule&apos; can be watched by paying Rs 99 through
-            the payment gateway.
-          </Typography>
-          <Typography variant="body1">
-            You didn&apos;t subscribe yet! Please subscribe and start your
-            journey with us.
-          </Typography>
+          {!subscriptions && (
+            <>
+              <Typography variant="h6" gutterBottom>
+                The movie &apos;Bulbule&apos; can be watched by paying Rs 99
+                through the payment gateway.
+              </Typography>
+              <Typography variant="body1">
+                You didn&apos;t subscribe yet! Please subscribe and start your
+                journey with us.
+              </Typography>
+            </>
+          )}
+
           {auth.currentUser && (
-            <div>
-              {subscriptions &&
-                subscriptions.map((m, index) => (
-                  <div key={index}>
-                    <Paper sx={{ p: 2, mb: 2 }}>{m.id}</Paper>
-                  </div>
-                ))}
-            </div>
+            <>
+              {subscriptions && (
+                <Grid container spacing={2}>
+                  {subscriptions.map((m, index) => (
+                    <Grid item key={index} md={3}>
+                      <Paper sx={{ p: 2, mb: 2 }}>
+                        <Typography variant="h6">{m.movieTitle}</Typography>
+                        {moment(m.created.toDate(), "YYYYMMDD").fromNow()}
+                      </Paper>
+                    </Grid>
+                  ))}
+                </Grid>
+              )}
+            </>
           )}
         </Box>
       </HomeLayout>
