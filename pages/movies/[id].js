@@ -94,25 +94,24 @@ export default function Movie({ movie, mid }) {
   return (
     <div>
       <HomeLayout>
-        <Box sx={{ p: 2 }}>
-          {user ? (
-            subs.length > 0 ? (
-              <Paper elevation={0}>
-                <YouTube
-                  videoId="SsOy4XoDlS0"
-                  opts={opts}
-                  onReady={_onReady}
-                  containerClassName={"youtubeContainer"}
-                />
-              </Paper>
-            ) : (
-              movie.poster && <img alt={movie.title} src={movie.poster} />
-            )
+        {user ? (
+          subs.length > 0 ? (
+            <Paper elevation={0}>
+              <YouTube
+                videoId="SsOy4XoDlS0"
+                opts={opts}
+                onReady={_onReady}
+                containerClassName={"youtubeContainer"}
+              />
+            </Paper>
           ) : (
             movie.poster && <img alt={movie.title} src={movie.poster} />
-          )}
-
-          <Typography variant="h3" component="div">
+          )
+        ) : (
+          movie.poster && <img alt={movie.title} src={movie.poster} />
+        )}
+        <Box sx={{ p: 2 }}>
+          <Typography variant="h5" component="div" gutterBottom>
             {movie.title}
           </Typography>
           {movie.storyline && (

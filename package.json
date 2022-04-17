@@ -29,7 +29,9 @@
     "react-firebaseui": "^6.0.0",
     "react-hook-form": "^7.29.0",
     "react-player": "^2.9.0",
+    "react-slick": "^0.28.1",
     "react-youtube": "^7.14.0",
+    "slick-carousel": "^1.8.1",
     "urlencoded-body-parser": "^3.0.0",
     "util": "^0.12.4",
     "yup": "^0.32.11"

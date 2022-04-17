@@ -89,7 +89,7 @@ export default function RegisterScreen() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        updateProfile({
+        user?.updateProfile({
           displayName: values.name,
         });
         console.log(user);
@@ -203,7 +203,7 @@ export default function RegisterScreen() {
                     onClick={signup}
                     disabled={!values.email || !values.name}
                   >
-                    Register
+                    Create new account
                   </Button>
                 )}
 
