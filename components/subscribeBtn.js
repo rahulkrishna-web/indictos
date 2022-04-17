@@ -50,7 +50,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     txnId: "",
-    amt: 99,
+    amt: 10,
     productInfo: "bubule",
     firstname: "",
     lastname: "",
