@@ -122,9 +122,17 @@ export default function RegisterScreen() {
         style={{ minHeight: "100vh", background: "#f0f0f1" }}
       >
         <Grid item xs={3} lg={3}>
-          <Typography variant="h5" gutterBottom component="div" align="center">
-            Indictos
-          </Typography>
+          <Link href="/" passHref>
+            <Typography
+              variant="h5"
+              gutterBottom
+              component="div"
+              align="center"
+            >
+              Indictos
+            </Typography>
+          </Link>
+
           <Typography
             variant="subtitle1"
             gutterBottom
@@ -136,9 +144,9 @@ export default function RegisterScreen() {
           <Paper elevation={0}>
             {values.loading && <LinearProgress />}
             <Box sx={{ p: 2 }}>
-              {values.error && values.error === "auth/email-already-in-use" && (
-                <Alert severity="error">
-                  Email already exists. Please try signing in.
+              {values.error && (
+                <Alert severity="error" sx={{ mb: 2 }}>
+                  Error: {values.error}
                 </Alert>
               )}
               <TextField

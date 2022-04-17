@@ -56,6 +56,7 @@ export const getStaticProps = async (context) => {
 
 export default function Movie({ movie, mid }) {
   const [subs, setSubs] = useState([]);
+  const [awards, setAwards] = useState([]);
   const opts = {
     width: "100%",
     height: "400",
@@ -65,7 +66,16 @@ export default function Movie({ movie, mid }) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
-  console.log("props", movie);
+
+  const getAward = async (movie) => {
+    movie.aw.forEach(async (w) => {
+      // get awards
+      const res = await getDoc(doc(db, "awards", w));
+      const award = res.data();
+      setAwards({ ...awards, award });
+      return award;
+    });
+  };
 
   const [user] = useAuthState(auth);
 
@@ -78,7 +88,6 @@ export default function Movie({ movie, mid }) {
         where("paymentStatus", "==", "success")
       );
       const docSnap = await getDocs(q).then((res) => {
-        console.log("docsnap", res);
         setSubs(
           res.docs.map((doc) => ({
             ...doc.data(),
@@ -95,6 +104,11 @@ export default function Movie({ movie, mid }) {
     if (auth.currentUser) {
       getSubs(movie, auth.currentUser, mid);
     }
+    if (movie.aw) {
+      getAward(movie);
+    }
+    console.log("movie", movie);
+    console.log("awards", awards);
   }, [user]);
   var now = Timestamp.now().toDate();
 

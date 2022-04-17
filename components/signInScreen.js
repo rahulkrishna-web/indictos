@@ -90,9 +90,16 @@ export default function SignInScreen() {
         style={{ minHeight: "100vh", background: "#f0f0f1" }}
       >
         <Grid item xs={3}>
-          <Typography variant="h5" gutterBottom component="div" align="center">
-            Indictos
-          </Typography>
+          <Link href="/" passHref>
+            <Typography
+              variant="h5"
+              gutterBottom
+              component="div"
+              align="center"
+            >
+              Indictos
+            </Typography>
+          </Link>
           <Paper sx={{ p: 2 }}>
             <Box sx={{ py: 2 }}>
               <Button
