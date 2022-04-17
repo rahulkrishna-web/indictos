@@ -157,6 +157,13 @@ export default function Movie({ movie, mid }) {
               )}
             </Stack>
           )}
+          {user && !isSubs() && <SubscribeBtn movie={movie} mid={mid} />}
+
+          {!user && (
+            <Link href="/auth" passHref>
+              <Button variant="contained">Login To Subscribe</Button>
+            </Link>
+          )}
           <Divider />
           <Paper elevation={0}>
             <Box sx={{ p: 2 }}>
@@ -289,16 +296,6 @@ export default function Movie({ movie, mid }) {
               </Grid>
             </Box>
           </Paper>
-
-          {user && !isSubs() && <SubscribeBtn movie={movie} mid={mid} />}
-
-          {!user && (
-            <Link href="/auth" passHref>
-              <Button variant="contained">Login To Subscribe</Button>
-            </Link>
-          )}
-
-          <Paper>{subs && <div></div>}</Paper>
         </Box>
       </HomeLayout>
     </div>
