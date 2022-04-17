@@ -222,7 +222,7 @@ const SubscribeBtn = ({ movie, mid }) => {
             error={errors.mobile}
             helperText={errors.mobile?.message}
           />
-          <form action="https://test.payu.in/_payment" method="post">
+          <form action={process.env.NEXT_PUBLIC_PAYU_ENDPOINT} method="post">
             <input type="hidden" name="key" value={payu.merchantKey} />
             <input type="hidden" name="txnid" value={values.txnId} />
             <input type="hidden" name="productinfo" value="bulbule" />
