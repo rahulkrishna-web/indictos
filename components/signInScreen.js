@@ -24,7 +24,7 @@ import Stack from "@mui/material/Stack";
 import GoogleIcon from "@mui/icons-material/Google";
 import Button from "@mui/material/Button";
 import fb from "../firebase/clientApp";
-import { Grid } from "@mui/material";
+import { Alert, Grid, LinearProgress } from "@mui/material";
 
 const auth = getAuth(fb);
 const provider = new GoogleAuthProvider();
@@ -35,6 +35,7 @@ export default function SignInScreen() {
     password: "",
     loading: false,
     showPassword: false,
+    error: "",
   });
 
   const handleChange = (prop) => (event) => {
@@ -53,7 +54,22 @@ export default function SignInScreen() {
   };
 
   const login = () => {
-    signInWithEmailAndPassword(auth, values.username, values.password);
+    setValues({
+      ...values,
+      loading: true,
+    });
+    signInWithEmailAndPassword(auth, values.username, values.password).catch(
+      (error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setValues({
+          ...values,
+          loading: false,
+          error: error.code,
+        });
+      }
+    );
   };
 
   const googleSignIn = () => {
@@ -71,6 +87,11 @@ export default function SignInScreen() {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
+        setValues({
+          ...values,
+          loading: false,
+          error: error.code,
+        });
         // The email of the user's account used.
         const email = error.email;
         // The AuthCredential type that was used.
@@ -101,6 +122,12 @@ export default function SignInScreen() {
             </Typography>
           </Link>
           <Paper sx={{ p: 2 }}>
+            {values.loading && <LinearProgress />}
+            {values.error && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                Error: {values.error}
+              </Alert>
+            )}
             <Box sx={{ py: 2 }}>
               <Button
                 variant="contained"
