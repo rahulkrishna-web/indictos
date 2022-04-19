@@ -152,10 +152,8 @@ const SubscribeBtn = ({ movie, mid }) => {
       };
       try {
         const res = await addDoc(collection(db, "subscriptions"), data);
-        console.log("Document written with ID: ", res.id);
+        console.log("Subscribed: ", res.id);
         setValues({ ...values, txnId: res.id });
-
-        console.log("hash", paymentHashString, paymentHash);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -165,7 +163,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   return (
     <>
       <Button variant="contained" onClick={subscribe}>
-        Subscribe
+        Subscribe • ₹99
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: "fixed" }}>
@@ -184,7 +182,14 @@ const SubscribeBtn = ({ movie, mid }) => {
           </Toolbar>
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
-          <Paper sx={{ p: 2 }}>{movie.title}</Paper>
+          <Paper sx={{ p: 2 }}>
+            <Typography variant="h6" component="div">
+              {movie.title}
+            </Typography>
+            <Typography variant="subtitle1" component="div">
+              Amount: ₹99
+            </Typography>
+          </Paper>
 
           <TextField
             {...register("firstname")}

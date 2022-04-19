@@ -29,6 +29,7 @@ const db = getFirestore();
 
 export default function Subscriptions() {
   const [subscriptions, setSubscriptions] = useState([]);
+
   useEffect(() => {
     if (auth.currentUser) {
       const subscriptionsRef = collection(db, "subscriptions");
@@ -48,6 +49,16 @@ export default function Subscriptions() {
     console.log("subs", subscriptions);
   }, []);
 
+  const subscriptionStatus = (s) => {
+    var now = new moment();
+    var duration = moment.duration(now.diff(s));
+    console.log(duration.asDays());
+    if (duration < 24) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -57,7 +68,7 @@ export default function Subscriptions() {
       </Head>
       <HomeLayout>
         <Box sx={{ p: 2 }}>
-          {!subscriptions && (
+          {subscriptions.length == 0 && (
             <>
               <Typography variant="h6" gutterBottom>
                 The movie &apos;Bulbule&apos; can be watched by paying Rs 99
@@ -78,7 +89,10 @@ export default function Subscriptions() {
                     <Grid item key={index} md={3}>
                       <Paper sx={{ p: 2, mb: 2 }}>
                         <Typography variant="h6">{m.movieTitle}</Typography>
-                        {moment(m.created.toDate(), "YYYYMMDD").fromNow()}
+                        {moment(m.created.toDate(), "YYYYMMDD").fromNow()} •
+                        {subscriptionStatus(m.created.toDate())
+                          ? " Active"
+                          : " Expired"}
                       </Paper>
                     </Grid>
                   ))}
