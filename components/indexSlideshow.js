@@ -7,7 +7,7 @@ export default function IndexSlideshow() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerMode: true,
+    centerMode: false,
     infinite: false,
   };
   return (
@@ -15,21 +15,30 @@ export default function IndexSlideshow() {
       <div>
         <Paper sx={{ p: 2, m: 2 }}>
           <Typography variant="h6" gutterBottom component="div">
-            1. Heading
+            Bulbule
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom component="div">
+            Watch for just Rs. 99
           </Typography>
         </Paper>
       </div>
       <div>
         <Paper sx={{ p: 2, m: 2 }}>
           <Typography variant="h6" gutterBottom component="div">
-            2. Heading
+            Great movies
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom component="div">
+            Exclusive movies you wont find anywhere
           </Typography>
         </Paper>
       </div>
       <div>
         <Paper sx={{ p: 2, m: 2 }}>
           <Typography variant="h6" gutterBottom component="div">
-            3. Heading
+            Made for you
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom component="div">
+            Watch movies, make a difference
           </Typography>
         </Paper>
       </div>

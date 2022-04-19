@@ -121,14 +121,14 @@ export default function SignInScreen() {
               Indictos
             </Typography>
           </Link>
-          <Paper sx={{ p: 2 }}>
+          <Paper>
             {values.loading && <LinearProgress />}
             {values.error && (
               <Alert severity="error" sx={{ mb: 2 }}>
                 Error: {values.error}
               </Alert>
             )}
-            <Box sx={{ py: 2 }}>
+            <Box sx={{ p: 2 }}>
               <Button
                 variant="contained"
                 onClick={googleSignIn}
@@ -137,54 +137,59 @@ export default function SignInScreen() {
                 Sign In with Google
               </Button>
             </Box>
-
-            <TextField
-              id="username"
-              label="Email"
-              variant="outlined"
-              margin="dense"
-              fullWidth
-              onChange={handleChange("username")}
-            />
-            <FormControl variant="outlined" fullWidth margin="dense">
-              <InputLabel htmlFor="password">Password</InputLabel>
-              <OutlinedInput
-                id="password"
-                label="Password"
-                type={values.showPassword ? "text" : "password"}
-                value={values.password}
-                onChange={handleChange("password")}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
+            <Box sx={{ p: 2 }}>
+              <TextField
+                id="username"
+                label="Email"
+                variant="outlined"
+                margin="dense"
+                fullWidth
+                onChange={handleChange("username")}
               />
-            </FormControl>
+              <FormControl variant="outlined" fullWidth margin="dense">
+                <InputLabel htmlFor="password">Password</InputLabel>
+                <OutlinedInput
+                  id="password"
+                  label="Password"
+                  type={values.showPassword ? "text" : "password"}
+                  value={values.password}
+                  onChange={handleChange("password")}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <VisibilityOff />
+                        ) : (
+                          <Visibility />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
 
-            <Stack
-              spacing={2}
-              direction="row"
-              sx={{
-                py: 2,
-              }}
-            >
-              {values.loading ? (
-                <LoadingButton loading variant="contained">
-                  Submit
-                </LoadingButton>
-              ) : (
-                <Button variant="contained" onClick={login} align="right">
-                  Sign In
-                </Button>
-              )}
-            </Stack>
+              <Stack
+                spacing={2}
+                direction="row"
+                sx={{
+                  py: 2,
+                }}
+              >
+                {values.loading ? (
+                  <LoadingButton loading variant="contained">
+                    Submit
+                  </LoadingButton>
+                ) : (
+                  <Button variant="contained" onClick={login} align="right">
+                    Sign In
+                  </Button>
+                )}
+              </Stack>
+            </Box>
           </Paper>
           <Link href="/register" passHref>
             <Button variant="text">No Account? Register</Button>
