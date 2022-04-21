@@ -8,38 +8,25 @@ export default function IndexSlideshow() {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
+    dots: true,
+    arrows: true,
   };
   return (
     <div className="fullwidth">
       <Slider {...settings}>
         <div>
-          <Paper sx={{ p: 2, m: 2 }}>
-            <Typography variant="h6" gutterBottom component="div">
-              Bulbule
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom component="div">
-              Watch for just Rs. 99
-            </Typography>
+          <Paper sx={{ m: 2 }}>
+            <img src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/slideshow1.png?alt=media&token=a99ae982-1446-486f-97a2-43f87c3e0e18" />
           </Paper>
         </div>
         <div>
-          <Paper sx={{ p: 2, m: 2 }}>
-            <Typography variant="h6" gutterBottom component="div">
-              Great movies
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom component="div">
-              Exclusive movies you wont find anywhere
-            </Typography>
+          <Paper sx={{ m: 2 }}>
+            <img src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/slideshow3.png?alt=media&token=d17681e4-5ab9-4204-9e5a-ba899a2864a6" />
           </Paper>
         </div>
         <div>
-          <Paper sx={{ p: 2, m: 2 }}>
-            <Typography variant="h6" gutterBottom component="div">
-              Made for you
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom component="div">
-              Watch movies, make a difference
-            </Typography>
+          <Paper sx={{ m: 2 }}>
+            <img src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/slideshow2.png?alt=media&token=4ed9b330-2cdf-4877-bce1-6d0294696d7c" />
           </Paper>
         </div>
       </Slider>
