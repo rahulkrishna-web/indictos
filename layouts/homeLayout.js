@@ -1,29 +1,28 @@
-import * as React from 'react';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import HomeIcon from '@mui/icons-material/Home';
-import ExploreIcon from '@mui/icons-material/Explore';
-import PaidIcon from '@mui/icons-material/Paid';
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import HistoryIcon from '@mui/icons-material/History';
-import InfoIcon from '@mui/icons-material/Info';
-import MailIcon from '@mui/icons-material/Mail';
-import AppbarUserMenu from '../components/appbarUserMenu';
-import Button from '@mui/material/Button';
-
+import * as React from "react";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import HomeIcon from "@mui/icons-material/Home";
+import ExploreIcon from "@mui/icons-material/Explore";
+import PaidIcon from "@mui/icons-material/Paid";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import HistoryIcon from "@mui/icons-material/History";
+import InfoIcon from "@mui/icons-material/Info";
+import MailIcon from "@mui/icons-material/Mail";
+import AppbarUserMenu from "../components/appbarUserMenu";
+import Button from "@mui/material/Button";
 
 const drawerWidth = 240;
 
@@ -45,63 +44,72 @@ function HomeLayout(props) {
       <Toolbar />
       <Divider />
       <List>
-            <Link href="/" passHref>
-            <ListItem button key="1">
+        <Link href="/" passHref>
+          <ListItem button key="1">
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
-            </ListItem>
-            </Link>
-            
-            <Link href="/subscriptions" passHref>
-            <ListItem button key="1">
+          </ListItem>
+        </Link>
+
+        <Link href="/subscriptions" passHref>
+          <ListItem button key="1">
             <ListItemIcon>
-            <ExploreIcon />
+              <ExploreIcon />
             </ListItemIcon>
             <ListItemText primary="Subscriptions" />
           </ListItem>
-          </Link>
+        </Link>
       </List>
       <Divider />
       <List>
-      <Link href="/about" passHref>
-            <ListItem button key="1">
+        <Link href="/about" passHref>
+          <ListItem button key="1">
             <ListItemIcon>
-            <InfoIcon />
+              <InfoIcon />
             </ListItemIcon>
             <ListItemText primary="About" />
           </ListItem>
-          </Link>
-          <Link href="/contact" passHref>
+        </Link>
+        <Link href="/contact" passHref>
           <ListItem button key="2">
             <ListItemIcon>
-            <MailIcon />
+              <MailIcon />
             </ListItemIcon>
             <ListItemText primary="Contact" />
           </ListItem>
-          </Link>
+        </Link>
       </List>
       <Divider />
-      <Box sx={{p : 2}}>
-      <Link href="/privacy" passHref><Button variant="text">Privacy</Button></Link>
-      <Link href="/terms" passHref><Button variant="text">Terms</Button></Link>
-      <Link href="/refund" passHref><Button variant="text">Refund</Button></Link>
-      <Link href="/faq" passHref><Button variant="text">FAQ</Button></Link>
+      <Box sx={{ p: 2 }}>
+        <Link href="/privacy" passHref>
+          <Button variant="text">Privacy</Button>
+        </Link>
+        <Link href="/terms" passHref>
+          <Button variant="text">Terms</Button>
+        </Link>
+        <Link href="/refund" passHref>
+          <Button variant="text">Refund</Button>
+        </Link>
+        <Link href="/faq" passHref>
+          <Button variant="text">FAQ</Button>
+        </Link>
       </Box>
     </div>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
-            zIndex: (theme) => theme.zIndex.drawer + 1,
-            boxShadow: 'none'
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          boxShadow: "none",
         }}
       >
         <Toolbar>
@@ -110,7 +118,7 @@ function HomeLayout(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -119,14 +127,14 @@ function HomeLayout(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDesktopToggle}
-            sx={{ mr: 2, display: { xs: 'none', md: 'block' } }}
+            sx={{ mr: 2, display: { xs: "none", md: "block" } }}
           >
             <MenuIcon />
           </IconButton>
-          <Link href="/" passHref >
-          <Button variant="text" sx={{ color: "#fff" }}>
-            Indictos
-          </Button>
+          <Link href="/" passHref>
+            <Button variant="text" sx={{ color: "#fff" }}>
+              Indictos
+            </Button>
           </Link>
           <Box sx={{ flexGrow: "1" }} />
           <AppbarUserMenu />
@@ -147,8 +155,11 @@ function HomeLayout(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -156,8 +167,11 @@ function HomeLayout(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
           open={desktopOpen}
           onClose={handleDesktopToggle}
@@ -168,9 +182,10 @@ function HomeLayout(props) {
       <Box
         component="main"
         sx={{ flexGrow: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        className="fullwidth"
       >
         <Toolbar />
-        {children }
+        {children}
       </Box>
     </Box>
   );

@@ -36,3 +36,13 @@ img {
   top: 0;
   left: 0;
 }
+
+.fullwidth{
+  max-width: 100%;
+  overflow: hidden;
+}
+.slick-slider {
+  overflow: hidden;
+}
+
+.slick-initialized { overflow: hidden; }
