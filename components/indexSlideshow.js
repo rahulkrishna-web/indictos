@@ -7,9 +7,10 @@ export default function IndexSlideshow() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: false,
+    infinite: true,
     dots: true,
     arrows: true,
+    autoplay: true,
   };
   return (
     <div className="fullwidth">
