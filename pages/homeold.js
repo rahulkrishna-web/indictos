@@ -6,24 +6,20 @@ import InvestCta from "../components/investCta";
 import IndexMovieCover from "../components/indexMovieCover";
 import IndexSlideshow from "../components/indexSlideshow";
 import AboutSection from "../components/aboutSection";
-import BulbuleSection from "../components/bulbuleSection";
-import IndexAppbar from "../components/indexAppbar";
-import Footer from "../components/footer";
 
 export default function Home() {
   return (
-    <div
-      className={styles.container}
-      sx={{ background: "#08070e", color: "#c4c4c5" }}
-    >
+    <div className={styles.container}>
       <Head>
         <title>Indictos</title>
         <meta name="description" content="Watch Bulbule online" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <IndexAppbar />
-      <BulbuleSection />
-      <Footer />
+      <HomeLayout>
+        <IndexSlideshow />
+        <RecommendedVideoSection />
+        <AboutSection />
+      </HomeLayout>
     </div>
   );
 }

@@ -7,11 +7,22 @@ const theme = createTheme({
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#01506b",
+      main: "#2e0de1",
     },
     secondary: {
       // This is green.A700 as hex.
       main: "#11cb5f",
+    },
+  },
+  typography: {
+    h3: {
+      fontFamily: "'Fira Sans Condensed', sans-serif",
+    },
+    body1: {
+      fontFamily: "'Lato', sans-serif",
+    },
+    button: {
+      fontStyle: "italic",
     },
   },
 });
@@ -32,6 +43,12 @@ function MyApp({ Component, pageProps }) {
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@700&family=Lato&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
