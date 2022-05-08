@@ -22,7 +22,7 @@ const theme = createTheme({
       fontFamily: "'Lato', sans-serif",
     },
     button: {
-      fontStyle: "italic",
+      fontFamily: "'Lato', sans-serif",
     },
   },
 });

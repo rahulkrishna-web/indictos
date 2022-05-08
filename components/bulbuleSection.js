@@ -81,10 +81,13 @@ export default function BulbuleSection() {
     }
   }, [user]);
 
-  useEffect(async () => {
-    const res = await getDoc(doc(db, "movies", mid));
-    const movie = JSON.parse(JSON.stringify(res.data()));
-    setMovie(movie);
+  useEffect(() => {
+    async function getMovie() {
+      const res = await getDoc(doc(db, "movies", mid));
+      const movie = JSON.parse(JSON.stringify(res.data()));
+      setMovie(movie);
+    }
+    getMovie();
   }, []);
 
   function handleClickOpen() {
@@ -132,9 +135,9 @@ export default function BulbuleSection() {
           container
           sx={{
             color: "#c4c4c5",
-            minHeight: { md: "350px", xs: "200px" },
+            minHeight: { md: "745px", xs: "210px" },
             background:
-              "linear-gradient(to bottom, rgba(8,7,14,0) 0%, #08070e 100%), url('https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485')",
+              "url('https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485')",
             backgroundSize: "cover",
           }}
           alignItems="center"
@@ -150,7 +153,7 @@ export default function BulbuleSection() {
             </IconButton>
           </Grid>
         </Grid>
-        <Grid container spacing={2} sx={{ px: 5 }}>
+        <Grid container spacing={2} sx={{ px: 5, py: 5 }}>
           <Grid item md={3} sx={{ display: { md: "block", xs: "none" } }}>
             <Paper sx={{ p: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
