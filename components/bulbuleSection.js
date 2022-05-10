@@ -201,6 +201,204 @@ export default function BulbuleSection() {
                   </Link>
                 )}
               </Stack>
+              <Paper
+                elevation={0}
+                sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+              >
+                <Box sx={{ p: 2 }}>
+                  <Typography variant="h5" gutterBottom component="div">
+                    Movie Details
+                  </Typography>
+                  <Grid container spacing={2}>
+                    <Grid item md={4}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Duration of the film
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        95 minutes
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Director
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Manpreet Singh Dhami
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Produced by
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        MD Production
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Paper>
+              <Paper
+                elevation={0}
+                sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+              >
+                <Box sx={{ p: 2 }}>
+                  <Typography variant="h5" gutterBottom component="div">
+                    Movie Cast
+                  </Typography>
+                  <Grid container spacing={2}>
+                    <Grid item md={4}>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Jasmeet Bhatia
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Sachin K. Jaryal
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Yashodhan Bal
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Shabi Jafri
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Paper>
+              <Paper
+                elevation={0}
+                sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+              >
+                <Box sx={{ p: 2 }}>
+                  <Typography variant="h5" gutterBottom component="div">
+                    Awards
+                  </Typography>
+                  <Grid container spacing={2}>
+                    <Grid item md={4}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        UK Asian film festival, London
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Nominated
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Lift-off festival
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Selected
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        LIFFT India Filmotsav
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Nominated
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Golden jury international film festival
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Selected
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        South Asian International film festival, New York
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Nominated
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        First time filmmaker session
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Selected
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Indo global international film festival
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Best director award
+                      </Typography>
+                    </Grid>
+                    <Grid item md={4}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Paris Film festival
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Nominated
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Sincine film festival
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Selected
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                      >
+                        Diorama film festival
+                      </Typography>
+                      <Typography variant="body2" gutterBottom component="div">
+                        Best Debut award
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Paper>
             </Box>
           </Grid>
         </Grid>
