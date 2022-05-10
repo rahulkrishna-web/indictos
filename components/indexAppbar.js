@@ -40,21 +40,21 @@ const IndexAppbar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Indictos
-          </Typography>
+          <Link href="/" sx={{ textDecoration: "none" }} passHref>
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontWeight: 700,
+                color: "#fff",
+                textDecoration: "none",
+              }}
+            >
+              Indictos
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -106,21 +106,22 @@ const IndexAppbar = () => {
               </Link>
             </Menu>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontWeight: 700,
-              textDecoration: "none",
-            }}
-          >
-            Indictos
-          </Typography>
+          <Link href="/" sx={{ textDecoration: "none", flexGrow: 1 }} passHref>
+            <Typography
+              variant="h5"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+
+                fontWeight: 700,
+                textDecoration: "none",
+                color: "#fff",
+              }}
+            >
+              Indictos
+            </Typography>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Link
               href="/about"
