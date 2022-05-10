@@ -153,7 +153,7 @@ export default function BulbuleSection() {
             </IconButton>
           </Grid>
         </Grid>
-        <Grid container spacing={2} sx={{ px: 5, py: 5 }}>
+        <Grid container spacing={2} sx={{ px: 2, py: 5 }}>
           <Grid item md={3} sx={{ display: { md: "block", xs: "none" } }}>
             <Paper sx={{ p: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
