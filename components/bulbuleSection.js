@@ -205,7 +205,7 @@ export default function BulbuleSection() {
                 elevation={0}
                 sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
               >
-                <Box sx={{ p: 2 }}>
+                <Box sx={{ p: 1 }}>
                   <Typography variant="h5" gutterBottom component="div">
                     Movie Details
                   </Typography>
@@ -253,7 +253,7 @@ export default function BulbuleSection() {
                 elevation={0}
                 sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
               >
-                <Box sx={{ p: 2 }}>
+                <Box sx={{ p: 1 }}>
                   <Typography variant="h5" gutterBottom component="div">
                     Movie Cast
                   </Typography>
@@ -285,7 +285,7 @@ export default function BulbuleSection() {
                 elevation={0}
                 sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
               >
-                <Box sx={{ p: 2 }}>
+                <Box sx={{ p: 1 }}>
                   <Typography variant="h5" gutterBottom component="div">
                     Awards
                   </Typography>
