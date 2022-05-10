@@ -56,7 +56,11 @@ const IndexAppbar = () => {
             </Typography>
           </Link>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -106,13 +110,20 @@ const IndexAppbar = () => {
               </Link>
             </Menu>
           </Box>
-          <Link href="/" sx={{ textDecoration: "none", flexGrow: 1 }} passHref>
+          <Link
+            href="/"
+            sx={{
+              textDecoration: "none",
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+            }}
+            passHref
+          >
             <Typography
               variant="h5"
               noWrap
               sx={{
                 mr: 2,
-                display: { xs: "flex", md: "none" },
 
                 fontWeight: 700,
                 textDecoration: "none",
