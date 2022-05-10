@@ -130,7 +130,7 @@ export default function BulbuleSection() {
 
   return (
     <div>
-      <Box sx={{ pt: 7 }}>
+      <Box>
         <Grid
           container
           sx={{

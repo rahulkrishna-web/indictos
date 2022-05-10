@@ -13,7 +13,7 @@ function PlainLayout(props) {
   return (
     <>
       <IndexAppbar />
-      <Box sx={{ minHeight: "80vh" }}>{children}</Box>
+      <Box sx={{ minHeight: "80vh", mt: 7 }}>{children}</Box>
       <Footer />
     </>
   );
