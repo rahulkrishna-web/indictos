@@ -37,7 +37,7 @@ const IndexAppbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link href="/" sx={{ textDecoration: "none" }} passHref>
