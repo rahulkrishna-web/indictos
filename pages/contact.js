@@ -20,7 +20,7 @@ export default function Contact() {
       </Head>
       <PlainLayout>
         <Container maxWidth="md" sx={{ py: 3 }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography align="center" variant="h3" gutterBottom>
             Contact
           </Typography>
           <Box
