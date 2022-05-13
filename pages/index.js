@@ -9,6 +9,7 @@ import AboutSection from "../components/aboutSection";
 import BulbuleSection from "../components/bulbuleSection";
 import IndexAppbar from "../components/indexAppbar";
 import Footer from "../components/footer";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
@@ -22,7 +23,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <IndexAppbar />
-      <BulbuleSection />
+      <Box sx={{ pt: 6 }}>
+        <BulbuleSection />
+      </Box>
+
       <Footer />
     </div>
   );
