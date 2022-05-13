@@ -41,7 +41,10 @@ export default function DashboardScreen() {
   return (
     <div>
       <Box>
-        <Paper elevation={0}>
+        <Paper
+          elevation={0}
+          sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+        >
           <Box sx={{ p: 2 }}>
             <Typography variant="h5" gutterBottom component="div">
               Hello {user.displayName}!

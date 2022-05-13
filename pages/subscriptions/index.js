@@ -7,7 +7,7 @@ import IndexAppbar from "../../components/indexAppbar";
 import IndexLeadPanel from "../../components/indexLeadPanel";
 import HomeScreen from "../../components/homeScreen";
 import HomeLayout from "../../layouts/homeLayout";
-import { Container, Grid, Paper, Typography } from "@mui/material";
+import { Button, Container, Grid, Paper, Typography } from "@mui/material";
 import fb from "../../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
@@ -75,10 +75,11 @@ export default function Subscriptions() {
                 The movie &apos;Bulbule&apos; can be watched by paying Rs 99
                 through the payment gateway.
               </Typography>
-              <Typography variant="body1">
+              <Typography variant="body1" gutterBottom>
                 You didn&apos;t subscribe yet! Please subscribe and start your
                 journey with us.
               </Typography>
+              <Button variant="contained">Subscribe</Button>
             </>
           )}
 
