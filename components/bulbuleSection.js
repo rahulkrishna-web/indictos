@@ -162,9 +162,14 @@ export default function BulbuleSection() {
               <Stack direction="row" spacing={2} sx={{ py: 2 }}>
                 {user && isSubs() && (
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    <Button variant="outlined">Subscribed</Button>{" "}
+                    <Button
+                      variant="contained"
+                      startIcon={<PlayCircleOutlineIcon />}
+                    >
+                      Watch Now
+                    </Button>{" "}
                     {isSubs() && (
-                      <Button variant="text">
+                      <Button variant="text" sx={{ color: "#c4c4c5" }}>
                         {subsTimeLeft()} hours left
                       </Button>
                     )}
@@ -185,7 +190,7 @@ export default function BulbuleSection() {
               </Stack>
               <Paper
                 elevation={0}
-                sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+                sx={{ mb: 2, background: "#1e1d26", color: "#c4c4c5" }}
               >
                 <Box sx={{ p: 1 }}>
                   <Typography variant="h5" gutterBottom component="div">
@@ -233,7 +238,7 @@ export default function BulbuleSection() {
               </Paper>
               <Paper
                 elevation={0}
-                sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+                sx={{ mb: 2, background: "#1e1d26", color: "#c4c4c5" }}
               >
                 <Box sx={{ p: 1 }}>
                   <Typography variant="h5" gutterBottom component="div">
@@ -265,7 +270,7 @@ export default function BulbuleSection() {
               </Paper>
               <Paper
                 elevation={0}
-                sx={{ mb: 2, background: "#1e1d26", color: "#fff" }}
+                sx={{ mb: 2, background: "#1e1d26", color: "#c4c4c5" }}
               >
                 <Box sx={{ p: 1 }}>
                   <Typography variant="h5" gutterBottom component="div">

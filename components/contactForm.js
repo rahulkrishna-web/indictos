@@ -57,13 +57,7 @@ export default function ContactForm() {
                 Discover premium movies and videos.
               </Typography>
             </Box>
-            <TextField
-              sx={{ my: 1 }}
-              id="name"
-              label="Name"
-              variant="outlined"
-              fullWidth
-            />
+            <TextField id="name" label="Name" variant="outlined" fullWidth />
             <br />
             <TextField
               sx={{ my: 1 }}

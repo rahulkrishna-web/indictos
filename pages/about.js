@@ -18,8 +18,8 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PlainLayout>
-        <Container maxWidth="md" sx={{ py: 3 }}>
-          <Typography variant="h3" gutterBottom>
+        <Container maxWidth="md" sx={{ py: 5 }}>
+          <Typography align="center" variant="h3" gutterBottom>
             About
           </Typography>
           <AboutMD />

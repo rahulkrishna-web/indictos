@@ -19,7 +19,7 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PlainLayout>
-        <Container maxWidth="md" sx={{ py: 3 }}>
+        <Container maxWidth="md" sx={{ py: 5 }}>
           <Typography align="center" variant="h3" gutterBottom>
             Contact
           </Typography>

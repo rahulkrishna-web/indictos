@@ -75,7 +75,7 @@ export default function Subscriptions() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PlainLayout>
-        <Container maxWidth="md" sx={{ py: 3 }}>
+        <Container maxWidth="md" sx={{ py: 5 }}>
           {subscriptions.length == 0 && (
             <>
               <Typography variant="h6" gutterBottom>
@@ -96,8 +96,8 @@ export default function Subscriptions() {
 
           {auth.currentUser && (
             <>
-              <Box sx={{ py: 3 }}>
-                <Typography variant="h3" gutterBottom>
+              <Box>
+                <Typography variant="h3" align="center" gutterBottom>
                   Subscriptions
                 </Typography>
                 {subscriptions && (
