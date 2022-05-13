@@ -457,6 +457,7 @@ export default function BulbuleSection() {
             e.preventDefault();
             return false;
           }}
+          controlsList="nodownload"
         >
           <source
             src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule%20Trailor%20OPT%2002.mp4?alt=media&token=82a25e07-fbd2-4bee-aa82-3560aa85a4b0"
