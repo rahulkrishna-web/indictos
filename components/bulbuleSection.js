@@ -130,12 +130,12 @@ export default function BulbuleSection() {
 
   return (
     <div>
-      <Box>
+      <Container maxWidth="xl">
         <img
           onClick={handleClickOpen}
           src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485"
         />
-        <Grid container spacing={2} sx={{ px: 2, py: 5 }}>
+        <Grid container spacing={2} sx={{ py: 5 }}>
           <Grid item md={3} sx={{ display: { md: "block", xs: "none" } }}>
             <Paper sx={{ p: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
@@ -389,7 +389,7 @@ export default function BulbuleSection() {
             </Box>
           </Grid>
         </Grid>
-      </Box>
+      </Container>
       <Dialog
         fullScreen
         open={open}
