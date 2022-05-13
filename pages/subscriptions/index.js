@@ -59,9 +59,9 @@ export default function Subscriptions() {
 
   const subscriptionStatus = (s) => {
     var now = new moment();
-    var duration = moment.duration(now.diff(s));
-    console.log(duration.asDays());
-    if (duration < 24) {
+    var duration = moment.duration(now.diff(s)).asDays();
+    console.log(duration);
+    if (duration <= 24) {
       return true;
     }
     return false;
@@ -87,7 +87,9 @@ export default function Subscriptions() {
                 journey with us.
               </Typography>
               <Link href="/" passHref>
-                <Button variant="contained">Subscribe</Button>
+                <Button variant="contained" sx={{ my: 1 }}>
+                  Subscribe
+                </Button>
               </Link>
             </>
           )}
