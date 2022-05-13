@@ -119,12 +119,12 @@ export default function RegisterScreen() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "100vh", background: "#f0f0f1" }}
+        style={{ minHeight: "100vh", background: "#08070e" }}
       >
         <Grid item xs={3} lg={3}>
           <Link href="/" passHref>
             <Typography
-              variant="h5"
+              variant="h3"
               gutterBottom
               component="div"
               align="center"

@@ -7,7 +7,14 @@ import IndexAppbar from "../../components/indexAppbar";
 import IndexLeadPanel from "../../components/indexLeadPanel";
 import HomeScreen from "../../components/homeScreen";
 import HomeLayout from "../../layouts/homeLayout";
-import { Button, Container, Grid, Paper, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  Grid,
+  Link,
+  Paper,
+  Typography,
+} from "@mui/material";
 import fb from "../../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
@@ -79,7 +86,9 @@ export default function Subscriptions() {
                 You didn&apos;t subscribe yet! Please subscribe and start your
                 journey with us.
               </Typography>
-              <Button variant="contained">Subscribe</Button>
+              <Link href="/" passHref>
+                <Button variant="contained">Subscribe</Button>
+              </Link>
             </>
           )}
 
