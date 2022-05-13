@@ -131,28 +131,10 @@ export default function BulbuleSection() {
   return (
     <div>
       <Box>
-        <Grid
-          container
-          sx={{
-            color: "#c4c4c5",
-            minHeight: { md: "745px", xs: "210px" },
-            background:
-              "url('https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485')",
-            backgroundSize: "cover",
-          }}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Grid item xs={3} sx={{ textAlign: "center" }}>
-            <IconButton
-              aria-label="delete"
-              size="large"
-              onClick={handleClickOpen}
-            >
-              <PlayCircleOutlineIcon sx={{ color: "#fff", fontSize: 100 }} />
-            </IconButton>
-          </Grid>
-        </Grid>
+        <img
+          onClick={handleClickOpen}
+          src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485"
+        />
         <Grid container spacing={2} sx={{ px: 2, py: 5 }}>
           <Grid item md={3} sx={{ display: { md: "block", xs: "none" } }}>
             <Paper sx={{ p: 2, background: "#1e1d26", color: "#fff" }}>
