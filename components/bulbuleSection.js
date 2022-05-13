@@ -50,6 +50,7 @@ export default function BulbuleSection() {
   const [movie, setMovie] = React.useState([]);
   const [subs, setSubs] = React.useState([]);
   const [open, setOpen] = React.useState(false);
+  const [openMovie, setOpenMovie] = React.useState(false);
   const mid = "dpNVfXcGBI3pEhxkggdh";
   const [user] = useAuthState(auth);
 
@@ -96,6 +97,14 @@ export default function BulbuleSection() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  function handleClickOpenMovie() {
+    setOpenMovie(true);
+  }
+
+  const handleCloseMovie = () => {
+    setOpenMovie(false);
   };
 
   var now = Timestamp.now().toDate();
@@ -165,6 +174,7 @@ export default function BulbuleSection() {
                     <Button
                       variant="contained"
                       startIcon={<PlayCircleOutlineIcon />}
+                      onClick={handleClickOpenMovie}
                     >
                       Watch Now
                     </Button>{" "}
@@ -405,6 +415,35 @@ export default function BulbuleSection() {
               edge="start"
               color="inherit"
               onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <video autoPlay controls>
+          <source
+            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule%20Trailor%20OPT%2002.mp4?alt=media&token=82a25e07-fbd2-4bee-aa82-3560aa85a4b0"
+            type="video/mp4"
+          />
+          Your Browser does not support HTML video.
+        </video>
+      </Dialog>
+      <Dialog
+        fullScreen
+        open={openMovie}
+        onClose={handleCloseMovie}
+        TransitionComponent={Transition}
+      >
+        <AppBar sx={{ position: "relative" }}>
+          <Toolbar>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              Watch Movie
+            </Typography>
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleCloseMovie}
               aria-label="close"
             >
               <CloseIcon />
