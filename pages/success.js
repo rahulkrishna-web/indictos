@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-
-import { Box, Paper, Typography } from "@mui/material";
+import Link from "next/link";
+import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import HomeLayout from "../layouts/homeLayout";
 import bodyParser from "body-parser";
 import { promisify } from "util";
@@ -14,6 +14,7 @@ import {
   getDoc,
   setDoc,
 } from "firebase/firestore";
+import PlainLayout from "../layouts/plainLayout";
 
 const getBody = promisify(bodyParser.urlencoded());
 const db = getFirestore();
@@ -48,31 +49,38 @@ const Success = (props) => {
   }, []);
 
   return (
-    <HomeLayout>
-      <Box sx={{ p: 2 }}>
-        <Paper sx={{ p: 2 }}>
-          <Typography variant="h4" component="div">
-            Subscription Successful
-          </Typography>
-          {props.data && (
-            <>
-              <Typography variant="subtitle1" component="div">
-                Txn Id : {props.data.txnid}
-              </Typography>
-              <Typography variant="subtitle1" component="div">
-                Movie : {props.data.productinfo}
-              </Typography>
-              <Typography variant="subtitle1" component="div">
-                Status : {props.data.status}
-              </Typography>
-              <Typography variant="subtitle1" component="div">
-                Method : {props.data.bankcode}
-              </Typography>
-            </>
-          )}
-        </Paper>
-      </Box>
-    </HomeLayout>
+    <PlainLayout>
+      <Container maxWidth="md" sx={{ py: 3 }}>
+        <Box sx={{ p: 2 }}>
+          <Paper sx={{ p: 2 }}>
+            <Typography variant="h4" component="div">
+              Subscription Successful
+            </Typography>
+            {props.data && (
+              <>
+                <Typography variant="subtitle1" component="div">
+                  Txn Id : {props.data.txnid}
+                </Typography>
+                <Typography variant="subtitle1" component="div">
+                  Movie : {props.data.productinfo}
+                </Typography>
+                <Typography variant="subtitle1" component="div">
+                  Status : {props.data.status}
+                </Typography>
+                <Typography variant="subtitle1" component="div">
+                  Method : {props.data.bankcode}
+                </Typography>
+                <Link href="/" passHref>
+                  <Button variant="contained" sx={{ my: 1 }}>
+                    Watch Movie
+                  </Button>
+                </Link>
+              </>
+            )}
+          </Paper>
+        </Box>
+      </Container>
+    </PlainLayout>
   );
 };
 
