@@ -142,7 +142,7 @@ export default function BulbuleSection() {
       <img
         onClick={handleClickOpen}
         style={{ width: "100%" }}
-        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule.png?alt=media&token=3f9f5a26-2f0a-4e8a-a762-72516be92485"
+        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule-poster-sm.png?alt=media&token=b0849ab3-82e3-4d35-b6e2-ff8803bbb3c4"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
@@ -193,8 +193,12 @@ export default function BulbuleSection() {
                 )}
                 {!user && (
                   <Link href="/auth" passHref>
-                    <Button variant="contained" sx={{ mb: 2 }}>
-                      Login To Subscribe
+                    <Button
+                      variant="contained"
+                      sx={{ mb: 2 }}
+                      startIcon={<PlayCircleOutlineIcon />}
+                    >
+                      Watch Now
                     </Button>
                   </Link>
                 )}
@@ -422,7 +426,15 @@ export default function BulbuleSection() {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <video autoPlay controls>
+        <video
+          autoPlay
+          controls
+          onContextMenu={(e) => {
+            e.preventDefault();
+            return false;
+          }}
+          controlsList="nodownload"
+        >
           <source
             src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule%20Trailor%20OPT%2002.mp4?alt=media&token=82a25e07-fbd2-4bee-aa82-3560aa85a4b0"
             type="video/mp4"

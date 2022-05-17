@@ -9,7 +9,7 @@ import { Button, Divider, Grid, Paper, Stack } from "@mui/material";
 export default function Footer() {
   return (
     <>
-      <Box sx={{ py: 2, borderTop: "solid 1px #c4c4c5", textAlign: "center" }}>
+      <Box sx={{ py: 2, borderTop: "solid 1px #1e1d26", textAlign: "center" }}>
         <Grid
           container
           spacing={0}
