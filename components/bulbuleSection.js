@@ -147,6 +147,10 @@ export default function BulbuleSection() {
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
           <Grid item md={3} sx={{ display: { md: "block", xs: "none" } }}>
+            <img
+              style={{ width: "100%" }}
+              src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule_poster.jpg?alt=media&token=236ad0a3-f3aa-4452-ac75-3ebe7cc830c4"
+            />
             <Paper sx={{ p: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
                 Release Date
