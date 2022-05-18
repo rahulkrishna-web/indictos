@@ -38,7 +38,7 @@ const IndexAppbar = () => {
 
   return (
     <AppBar position="fixed">
-      <Container maxWidth="xl">
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
           <Link href="/" sx={{ textDecoration: "none" }} passHref>
             <Typography
