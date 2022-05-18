@@ -182,15 +182,6 @@ const SubscribeBtn = ({ movie, mid }) => {
           </Toolbar>
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
-          <Paper sx={{ p: 2 }}>
-            <Typography variant="h6" component="div">
-              {movie.title}
-            </Typography>
-            <Typography variant="subtitle1" component="div">
-              Amount: ₹99
-            </Typography>
-          </Paper>
-
           <TextField
             {...register("firstname")}
             id="name"

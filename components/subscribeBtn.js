@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import countryList from "react-select-country-list";
 import { useRouter } from "next/router";
 import {
   AppBar,
   Box,
   Button,
   Dialog,
+  FormControl,
   IconButton,
+  InputLabel,
+  MenuItem,
   Paper,
+  Select,
   TextField,
   Toolbar,
   Typography,
@@ -47,6 +52,11 @@ const SubscribeBtn = ({ movie, mid }) => {
   const router = useRouter();
   const auth = getAuth(fb);
   const [user] = useAuthState(auth);
+  const [country, setCountry] = useState("");
+  const options = useMemo(() => countryList().getData(), []);
+  const countryChangeHandler = (e) => {
+    setCountry(e.target.value);
+  };
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     txnId: "",
@@ -168,34 +178,41 @@ const SubscribeBtn = ({ movie, mid }) => {
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: "fixed" }}>
           <Toolbar>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              Subscribe
+            </Typography>
             <IconButton
-              edge="start"
+              edge="end"
               color="inherit"
               onClick={handleClose}
               aria-label="close"
             >
               <CloseIcon />
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Subscribe
-            </Typography>
           </Toolbar>
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
-          <Paper sx={{ p: 2 }}>
-            <Typography variant="h6" component="div">
-              {movie.title}
-            </Typography>
-            <Typography variant="subtitle1" component="div">
-              Amount: ₹99
-            </Typography>
-          </Paper>
-
+          <FormControl fullWidth>
+            <InputLabel id="country-select-lbl">Country</InputLabel>
+            <Select
+              labelId="country-select-lbl"
+              id="country-select"
+              value={country}
+              label="Country"
+              onChange={countryChangeHandler}
+            >
+              {options.map((c) => (
+                <MenuItem value={c.value} key={c.value}>
+                  {c.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <TextField
             {...register("firstname")}
             id="name"
             label="Name"
-            variant="outlined"
+            variant="filled"
             fullWidth
             margin="dense"
             value={values.firstname}
@@ -245,6 +262,7 @@ const SubscribeBtn = ({ movie, mid }) => {
               type="submit"
               autoFocus
               disabled={!values.mobile || !values.email || !values.firstname}
+              sx={{ mt: 1 }}
             >
               Pay Now
             </Button>

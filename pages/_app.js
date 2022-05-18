@@ -5,6 +5,7 @@ import { purple } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
+    type: "dark",
     primary: {
       // Purple and green play nicely together.
       main: "#2e0de1",
@@ -24,6 +25,10 @@ const theme = createTheme({
     button: {
       fontFamily: "'Lato', sans-serif",
     },
+  },
+  "& .MuiFilledInput-root": {
+    background: "rgb(232, 241, 250)",
+    color: "#fff",
   },
 });
 
