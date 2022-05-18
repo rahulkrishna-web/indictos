@@ -20,16 +20,24 @@ export default function Footer() {
           <Grid item xs={3}>
             <Stack spacing={2} direction="row" sx={{ textAlign: "center" }}>
               <Link href="/privacy" passHref>
-                <Button variant="text">Privacy</Button>
+                <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                  Privacy
+                </Button>
               </Link>
               <Link href="/terms" passHref>
-                <Button variant="text">Terms</Button>
+                <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                  Terms
+                </Button>
               </Link>
               <Link href="/refund" passHref>
-                <Button variant="text">Refund</Button>
+                <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                  Refund
+                </Button>
               </Link>
               <Link href="/faq" passHref>
-                <Button variant="text">FAQ</Button>
+                <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                  FAQ
+                </Button>
               </Link>
             </Stack>
           </Grid>

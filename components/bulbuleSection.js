@@ -151,7 +151,7 @@ export default function BulbuleSection() {
               style={{ width: "100%" }}
               src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule_poster.jpg?alt=media&token=236ad0a3-f3aa-4452-ac75-3ebe7cc830c4"
             />
-            <Paper sx={{ p: 2, background: "#1e1d26", color: "#fff" }}>
+            <Paper sx={{ p: 2, mt: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
                 Release Date
               </Typography>
@@ -159,6 +159,13 @@ export default function BulbuleSection() {
                 May 5, 2022
               </Typography>
             </Paper>
+            <Typography variant="h6" component="div" sx={{ mt: 2 }}>
+              Upcoming
+            </Typography>
+            <img
+              style={{ width: "100%" }}
+              src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/mandi_poster.jpg?alt=media&token=22d8d39c-0c1a-4fe6-af63-67ee7d495e01"
+            />
           </Grid>
           <Grid item md={9}>
             <Box>
