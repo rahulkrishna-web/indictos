@@ -102,6 +102,7 @@ export default function SignInScreen() {
   };
   return (
     <div>
+      <IndexAppbar />
       <Grid
         container
         spacing={0}
@@ -111,16 +112,9 @@ export default function SignInScreen() {
         style={{ minHeight: "100vh", background: "#08070e" }}
       >
         <Grid item xs={3}>
-          <Link href="/" passHref>
-            <Typography
-              variant="h3"
-              gutterBottom
-              component="div"
-              align="center"
-            >
-              Indictos
-            </Typography>
-          </Link>
+          <Typography variant="h5" gutterBottom component="div" align="center">
+            Login
+          </Typography>
           <Paper>
             {values.loading && <LinearProgress />}
             {values.error && (
@@ -191,9 +185,21 @@ export default function SignInScreen() {
               </Stack>
             </Box>
           </Paper>
-          <Link href="/register" passHref>
-            <Button variant="text">No Account? Register</Button>
-          </Link>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Grid item>
+              <Link href="/register" passHref>
+                <Button variant="text" sx={{ my: 2, color: "#c4c4c5" }}>
+                  No Account? Register
+                </Button>
+              </Link>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </div>

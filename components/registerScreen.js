@@ -113,6 +113,7 @@ export default function RegisterScreen() {
   };
   return (
     <div>
+      <IndexAppbar />
       <Grid
         container
         spacing={0}
@@ -122,23 +123,7 @@ export default function RegisterScreen() {
         style={{ minHeight: "100vh", background: "#08070e" }}
       >
         <Grid item xs={3} lg={3}>
-          <Link href="/" passHref>
-            <Typography
-              variant="h3"
-              gutterBottom
-              component="div"
-              align="center"
-            >
-              Indictos
-            </Typography>
-          </Link>
-
-          <Typography
-            variant="subtitle1"
-            gutterBottom
-            component="div"
-            align="center"
-          >
+          <Typography variant="h5" gutterBottom component="div" align="center">
             Create New Account
           </Typography>
           <Paper elevation={0}>
@@ -229,7 +214,7 @@ export default function RegisterScreen() {
           >
             <Grid item>
               <Link href="/auth" passHref>
-                <Button variant="text" sx={{ my: 2 }}>
+                <Button variant="text" sx={{ my: 2, color: "#c4c4c5" }}>
                   Already have account? Login
                 </Button>
               </Link>
