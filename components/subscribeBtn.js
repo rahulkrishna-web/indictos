@@ -173,7 +173,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   return (
     <>
       <Button variant="contained" onClick={subscribe}>
-        Subscribe • ₹99
+        Subscribe
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: "fixed" }}>
@@ -192,6 +192,11 @@ const SubscribeBtn = ({ movie, mid }) => {
           </Toolbar>
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
+          <Paper sx={{ p: 2, mb: 2 }}>
+            {country && country === "IN"
+              ? "Subscription Amount: ₹ 99"
+              : "Subscription Amount: $3"}
+          </Paper>
           <FormControl fullWidth>
             <InputLabel id="country-select-lbl">Country</InputLabel>
             <Select
