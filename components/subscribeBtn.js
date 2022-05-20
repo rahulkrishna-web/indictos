@@ -37,6 +37,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { sha512 } from "js-sha512";
+import { PayPalButton } from "react-paypal-button-v2";
 
 const db = getFirestore();
 
@@ -57,6 +58,19 @@ const SubscribeBtn = ({ movie, mid }) => {
   const countryChangeHandler = (e) => {
     setCountry(e.target.value);
   };
+
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((response) => {
+        console.log("Country is : ", response.country_code);
+        setCountry(response.country_code);
+      })
+      .catch((data, status) => {
+        console.log("Request failed:", data);
+      });
+  }, []);
+
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     txnId: "",
@@ -197,81 +211,91 @@ const SubscribeBtn = ({ movie, mid }) => {
               ? "Subscription Amount: ₹ 99"
               : "Subscription Amount: $3"}
           </Paper>
-          <FormControl fullWidth>
-            <InputLabel id="country-select-lbl">Country</InputLabel>
-            <Select
-              labelId="country-select-lbl"
-              id="country-select"
-              value={country}
-              label="Country"
-              onChange={countryChangeHandler}
-            >
-              {options.map((c) => (
-                <MenuItem value={c.value} key={c.value}>
-                  {c.label}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <TextField
-            {...register("firstname")}
-            id="name"
-            label="Name"
-            variant="filled"
-            fullWidth
-            margin="dense"
-            value={values.firstname}
-            onChange={handleChange("firstname")}
-            error={errors.firstname}
-            helperText={errors.firstname?.message}
-          />
-          <TextField
-            {...register("email")}
-            id="email"
-            label="Email"
-            variant="outlined"
-            fullWidth
-            margin="dense"
-            value={values.email}
-            onChange={handleChange("email")}
-            error={errors.email}
-            helperText={errors.email?.message}
-          />
-          <TextField
-            {...register("mobile")}
-            id="mobile"
-            label="Mobile"
-            variant="outlined"
-            fullWidth
-            margin="dense"
-            value={values.mobile}
-            onChange={handleChange("mobile")}
-            error={errors.mobile}
-            helperText={errors.mobile?.message}
-          />
-          <form action={process.env.NEXT_PUBLIC_PAYU_ENDPOINT} method="post">
-            <input type="hidden" name="key" value={payu.merchantKey} />
-            <input type="hidden" name="txnid" value={values.txnId} />
-            <input type="hidden" name="productinfo" value="bulbule" />
-            <input type="hidden" name="amount" value="10" />
-            <input type="hidden" name="email" value={values.email} />
-            <input type="hidden" name="firstname" value={values.firstname} />
-            <input type="hidden" name="lastname" value="" />
-            <input type="hidden" name="surl" value={surl} />
-            <input type="hidden" name="furl" value={furl} />
-            <input type="hidden" name="phone" value={values.mobile} />
-            <input type="hidden" name="hash" value={paymentHash} />
 
-            <Button
-              variant="contained"
-              type="submit"
-              autoFocus
-              disabled={!values.mobile || !values.email || !values.firstname}
-              sx={{ mt: 1 }}
-            >
-              Pay Now
-            </Button>
-          </form>
+          {country && country === "IN" ? (
+            <>
+              <TextField
+                {...register("firstname")}
+                id="name"
+                label="Name"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                value={values.firstname}
+                onChange={handleChange("firstname")}
+                error={errors.firstname}
+                helperText={errors.firstname?.message}
+              />
+              <TextField
+                {...register("email")}
+                id="email"
+                label="Email"
+                variant="outlined"
+                fullWidth
+                margin="dense"
+                value={values.email}
+                onChange={handleChange("email")}
+                error={errors.email}
+                helperText={errors.email?.message}
+              />
+              <TextField
+                {...register("mobile")}
+                id="mobile"
+                label="Mobile"
+                variant="outlined"
+                fullWidth
+                margin="dense"
+                value={values.mobile}
+                onChange={handleChange("mobile")}
+                error={errors.mobile}
+                helperText={errors.mobile?.message}
+              />
+              <form
+                action={process.env.NEXT_PUBLIC_PAYU_ENDPOINT}
+                method="post"
+              >
+                <input type="hidden" name="key" value={payu.merchantKey} />
+                <input type="hidden" name="txnid" value={values.txnId} />
+                <input type="hidden" name="productinfo" value="bulbule" />
+                <input type="hidden" name="amount" value="10" />
+                <input type="hidden" name="email" value={values.email} />
+                <input
+                  type="hidden"
+                  name="firstname"
+                  value={values.firstname}
+                />
+                <input type="hidden" name="lastname" value="" />
+                <input type="hidden" name="surl" value={surl} />
+                <input type="hidden" name="furl" value={furl} />
+                <input type="hidden" name="phone" value={values.mobile} />
+                <input type="hidden" name="hash" value={paymentHash} />
+
+                <Button
+                  variant="contained"
+                  type="submit"
+                  autoFocus
+                  disabled={
+                    !values.mobile || !values.email || !values.firstname
+                  }
+                  sx={{ mt: 1 }}
+                >
+                  Pay Now
+                </Button>
+              </form>
+            </>
+          ) : (
+            <div>
+              <PayPalButton
+                amount="3"
+                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                onSuccess={(details, data) => {
+                  console.log(
+                    "Transaction completed by " + details.payer.name.given_name
+                  );
+                }}
+              />
+            </div>
+          )}
         </Box>
       </Dialog>
     </>

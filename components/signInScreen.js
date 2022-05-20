@@ -111,7 +111,7 @@ export default function SignInScreen() {
         justifyContent="center"
         style={{ minHeight: "100vh", background: "#08070e" }}
       >
-        <Grid item xs={3}>
+        <Grid item xs={3} lg={3}>
           <Typography variant="h5" gutterBottom component="div" align="center">
             Login
           </Typography>
