@@ -184,6 +184,39 @@ const SubscribeBtn = ({ movie, mid }) => {
     }
   };
 
+  const subscribePaypal = async (name, email) => {
+    if (!user) {
+      console.log("not logged in ");
+    } else {
+      setValues({
+        ...values,
+        loading: true,
+      });
+      const data = {
+        billingAddress: {
+          first_name: name,
+          last_name: "",
+          email: email,
+          mobile: "",
+        },
+        user: user.uid,
+        movieTitle: movie.title,
+        movie: mid,
+        subscriptionAmt: 3,
+        subscriptionPlan: "wVgG0FInanjQXTIJwpiw",
+        created: serverTimestamp(),
+        updated: serverTimestamp(),
+      };
+      try {
+        const res = await addDoc(collection(db, "subscriptions"), data);
+        console.log("Subscribed: ", res.id);
+        setValues({ ...values, txnId: res.id });
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+  };
+
   return (
     <>
       <Button variant="contained" onClick={subscribe}>
@@ -292,6 +325,9 @@ const SubscribeBtn = ({ movie, mid }) => {
                   console.log(
                     "Transaction completed by " + details.payer.name.given_name
                   );
+                }}
+                options={{
+                  clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
                 }}
               />
             </div>
