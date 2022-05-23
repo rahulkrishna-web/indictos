@@ -325,9 +325,10 @@ const SubscribeBtn = ({ movie, mid }) => {
                   console.log(
                     "Transaction completed by " + details.payer.name.given_name
                   );
-                }}
-                options={{
-                  clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+                  subscribePaypal(
+                    details.payer.name.given_name,
+                    details.payer.email
+                  );
                 }}
               />
             </div>
