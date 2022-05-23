@@ -322,9 +322,7 @@ const SubscribeBtn = ({ movie, mid }) => {
                 amount="3"
                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                 onSuccess={(details, data) => {
-                  console.log(
-                    "Transaction completed by " + details.payer.name.given_name
-                  );
+                  console.log("Transaction completed by ", details.payer);
                   subscribePaypal(
                     details.payer.name.given_name,
                     details.payer.email
