@@ -142,7 +142,7 @@ export default function BulbuleSection() {
       <img
         onClick={handleClickOpen}
         style={{ width: "100%" }}
-        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbule-poster-sm.png?alt=media&token=b0849ab3-82e3-4d35-b6e2-ff8803bbb3c4"
+        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbuleP2%20(1).png?alt=media&token=aa5ce9f4-5a12-44ab-a549-de7cff9f5d68"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
