@@ -142,7 +142,7 @@ export default function BulbuleSection() {
       <img
         onClick={handleClickOpen}
         style={{ width: "100%" }}
-        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bp_trailer.png?alt=media&token=8d065679-0fc3-46c4-9077-eeade3227385"
+        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/poster_bulbule.png?alt=media&token=3575e2d7-c34b-4d01-8f66-b55f8f759c77"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
@@ -405,8 +405,8 @@ export default function BulbuleSection() {
                   </Grid>
                 </Box>
               </Paper>
-              <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-                Upcoming
+              <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
+                Upcoming Project - Brainwashed!
               </Typography>
               <video
                 controls
@@ -423,6 +423,14 @@ export default function BulbuleSection() {
                 />
                 Your Browser does not support HTML video.
               </video>
+              <Typography variant="body1" component="div" sx={{ mt: 2, mb: 2 }}>
+                Be a part of our upcoming project
+              </Typography>
+              <Link href="/contact" passHref>
+                <Button variant="contained" sx={{ color: "#c4c4c5" }}>
+                  Contact Us
+                </Button>
+              </Link>
             </Box>
           </Grid>
         </Grid>
