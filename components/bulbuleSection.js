@@ -142,7 +142,7 @@ export default function BulbuleSection() {
       <img
         onClick={handleClickOpen}
         style={{ width: "100%" }}
-        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bulbuleP2%20(1).png?alt=media&token=aa5ce9f4-5a12-44ab-a549-de7cff9f5d68"
+        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/bp_trailer.png?alt=media&token=8d065679-0fc3-46c4-9077-eeade3227385"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
@@ -156,7 +156,7 @@ export default function BulbuleSection() {
                 Release Date
               </Typography>
               <Typography variant="body1" component="div">
-                May 5, 2022
+                Aug 4, 2022
               </Typography>
             </Paper>
           </Grid>
@@ -408,10 +408,21 @@ export default function BulbuleSection() {
               <Typography variant="h6" component="div" sx={{ mt: 2 }}>
                 Upcoming
               </Typography>
-              <img
-                style={{ width: "100%" }}
-                src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/mandi_poster.jpg?alt=media&token=22d8d39c-0c1a-4fe6-af63-67ee7d495e01"
-              />
+              <video
+                controls
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  return false;
+                }}
+                controlsList="nodownload"
+                className="fullwidth"
+              >
+                <source
+                  src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/itihas_trailer.mp4?alt=media&token=6d375968-ca78-4562-bde2-2f60043a9958"
+                  type="video/mp4"
+                />
+                Your Browser does not support HTML video.
+              </video>
             </Box>
           </Grid>
         </Grid>
