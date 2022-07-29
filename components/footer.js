@@ -46,6 +46,11 @@ export default function Footer() {
         <Typography variant="body1" component="div" gutterBottom>
           © 2022, Indictos
         </Typography>
+        <script
+          id="dsq-count-scr"
+          src="//indictos-com.disqus.com/count.js"
+          async
+        ></script>
       </Box>
     </>
   );
