@@ -423,7 +423,7 @@ export default function BulbuleSection() {
                 />
                 Your Browser does not support HTML video.
               </video>
-              <Typography variant="body1" component="div" sx={{ mt: 2, mb: 2 }}>
+              <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
                 Be a part of our upcoming project
               </Typography>
               <Link href="/contact" passHref>
