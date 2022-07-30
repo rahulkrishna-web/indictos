@@ -32,7 +32,7 @@ import Slide from "@mui/material/Slide";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ReactPlayer from "react-player";
-
+import { DiscussionEmbed } from "disqus-react";
 import fb from "../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -207,6 +207,14 @@ export default function BulbuleSection() {
                   </Link>
                 )}
               </Stack>
+              <DiscussionEmbed
+                shortname="indictos-com"
+                config={{
+                  url: "https://www.indictos.com/",
+                  identifier: "indictos",
+                  title: "indictos",
+                }}
+              />
               <Paper
                 elevation={0}
                 sx={{ mb: 2, background: "#1e1d26", color: "#c4c4c5" }}
@@ -473,6 +481,16 @@ export default function BulbuleSection() {
           />
           Your Browser does not support HTML video.
         </video>
+        <Box>
+          <DiscussionEmbed
+            shortname="indictos-com"
+            config={{
+              url: "https://www.indictos.com/",
+              identifier: "indictos",
+              title: "indictos",
+            }}
+          />
+        </Box>
       </Dialog>
       <Dialog
         fullScreen
@@ -510,6 +528,14 @@ export default function BulbuleSection() {
           />
           Your Browser does not support HTML video.
         </video>
+        <DiscussionEmbed
+          shortname="indictos-com"
+          config={{
+            url: "https://www.indictos.com/",
+            identifier: "indictos",
+            title: "indictos",
+          }}
+        />
       </Dialog>
     </div>
   );
