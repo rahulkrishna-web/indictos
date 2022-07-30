@@ -416,6 +416,14 @@ export default function BulbuleSection() {
               <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
                 Upcoming Project - Brainwashed!
               </Typography>
+              <Typography variant="body2" gutterBottom component="div">
+                A 42-year old motivated father, Namit, is up against the
+                powerful education board which is responsible for unaccountable,
+                twisted history and brainwashing social science textbooks. Will
+                the truth ever see the light of the day, or will printed words
+                take the throne as he tries to save his daughter from getting
+                brainwashed through the history textbooks?
+              </Typography>
               <video
                 poster="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/vlcsnap-2022-07-30-11h45m20s200.png?alt=media&token=b260434f-9638-455b-bd68-bb77f2077c92"
                 controls

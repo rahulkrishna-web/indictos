@@ -74,7 +74,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     txnId: "",
-    amt: 10,
+    amt: 99,
     productInfo: "bubule",
     firstname: "",
     lastname: "",
@@ -112,7 +112,7 @@ const SubscribeBtn = ({ movie, mid }) => {
     "|" +
     values.txnId +
     "|" +
-    "10" +
+    "99" +
     "|" +
     "bulbule" +
     "|" +
@@ -169,7 +169,7 @@ const SubscribeBtn = ({ movie, mid }) => {
         user: user.uid,
         movieTitle: movie.title,
         movie: mid,
-        subscriptionAmt: 10,
+        subscriptionAmt: 99,
         subscriptionPlan: "wVgG0FInanjQXTIJwpiw",
         created: serverTimestamp(),
         updated: serverTimestamp(),
@@ -202,7 +202,7 @@ const SubscribeBtn = ({ movie, mid }) => {
         user: user.uid,
         movieTitle: movie.title,
         movie: mid,
-        subscriptionAmt: 3,
+        subscriptionAmt: 4,
         subscriptionPlan: "wVgG0FInanjQXTIJwpiw",
         created: serverTimestamp(),
         updated: serverTimestamp(),
@@ -242,7 +242,7 @@ const SubscribeBtn = ({ movie, mid }) => {
           <Paper sx={{ p: 2, mb: 2 }}>
             {country && country === "IN"
               ? "Subscription Amount: ₹ 99"
-              : "Subscription Amount: $3"}
+              : "Subscription Amount: $4"}
           </Paper>
 
           {country && country === "IN" ? (
@@ -290,7 +290,7 @@ const SubscribeBtn = ({ movie, mid }) => {
                 <input type="hidden" name="key" value={payu.merchantKey} />
                 <input type="hidden" name="txnid" value={values.txnId} />
                 <input type="hidden" name="productinfo" value="bulbule" />
-                <input type="hidden" name="amount" value="10" />
+                <input type="hidden" name="amount" value="99" />
                 <input type="hidden" name="email" value={values.email} />
                 <input
                   type="hidden"
@@ -319,7 +319,7 @@ const SubscribeBtn = ({ movie, mid }) => {
           ) : (
             <div>
               <PayPalButton
-                amount="3"
+                amount="4"
                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                 onSuccess={(details, data) => {
                   console.log("Transaction completed by ", details.payer);
