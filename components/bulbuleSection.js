@@ -553,7 +553,7 @@ export default function BulbuleSection() {
           controlsList="nodownload"
         >
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/0001%20(1).jpg?alt=media&token=769f8418-2e96-44ea-a31e-6f46ff44b896"
+            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/BulbuleFullFilm.mp4?alt=media&token=2149e5ef-aec7-4b37-859c-63ae16fe11d8"
             type="video/mp4"
           />
           Your Browser does not support HTML video.
