@@ -108,6 +108,15 @@ const IndexAppbar = () => {
                   <Typography textAlign="center">Contact</Typography>
                 </MenuItem>
               </Link>
+              <Link
+                href="https://pmny.in/TIfLKUtbuvJ8"
+                sx={{ color: "#fff", textDecoration: "none" }}
+                passHref
+              >
+                <MenuItem>
+                  <Typography textAlign="center">Donate</Typography>
+                </MenuItem>
+              </Link>
             </Menu>
           </Box>
           <Link
@@ -159,6 +168,15 @@ const IndexAppbar = () => {
             >
               <MenuItem>
                 <Typography textAlign="center">Contact</Typography>
+              </MenuItem>
+            </Link>
+            <Link
+              href="https://pmny.in/TIfLKUtbuvJ8"
+              sx={{ color: "#fff", textDecoration: "none" }}
+              passHref
+            >
+              <MenuItem>
+                <Typography textAlign="center">Donate</Typography>
               </MenuItem>
             </Link>
           </Box>

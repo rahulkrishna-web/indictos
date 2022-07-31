@@ -173,40 +173,62 @@ export default function BulbuleSection() {
                 the fault lines of modern Indian society as they examine all the
                 things in our society designed to divide.
               </Typography>
-              <Stack direction="row" spacing={2} sx={{ py: 2 }}>
-                {user && isSubs() && (
-                  <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    <Button
-                      variant="contained"
-                      startIcon={<PlayCircleOutlineIcon />}
-                      onClick={handleClickOpenMovie}
-                    >
-                      Watch Now
-                    </Button>{" "}
-                    {isSubs() && (
-                      <Button variant="text" sx={{ color: "#c4c4c5" }}>
-                        {subsTimeLeft()} hours left
-                      </Button>
-                    )}
-                  </Stack>
-                )}
-                {user && !isSubs() && (
-                  <Box sx={{ mb: 2 }}>
-                    <SubscribeBtn movie={movie} mid={mid} />
-                  </Box>
-                )}
-                {!user && (
-                  <Link href="/auth" passHref>
-                    <Button
-                      variant="contained"
-                      sx={{ mb: 2 }}
-                      startIcon={<PlayCircleOutlineIcon />}
-                    >
-                      Watch Now
+              {user && isSubs() && (
+                <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                  <Button
+                    variant="contained"
+                    startIcon={<PlayCircleOutlineIcon />}
+                    onClick={handleClickOpenMovie}
+                  >
+                    Watch Now
+                  </Button>{" "}
+                  {isSubs() && (
+                    <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                      {subsTimeLeft()} hours left
+                    </Button>
+                  )}
+                  <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                    <Button variant="contained" sx={{ mb: 2 }}>
+                      Donate Now
                     </Button>
                   </Link>
-                )}
-              </Stack>
+                </Stack>
+              )}
+              {user && !isSubs() && (
+                <Box sx={{ mb: 2 }}>
+                  <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                    <SubscribeBtn movie={movie} mid={mid} />
+                    <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                      <Button variant="contained" sx={{ mb: 2 }}>
+                        Donate Now
+                      </Button>
+                    </Link>
+                  </Stack>
+                </Box>
+              )}
+              {!user && (
+                <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                  <div>
+                    <Link href="/auth" passHref>
+                      <Button
+                        variant="contained"
+                        sx={{ mb: 2 }}
+                        startIcon={<PlayCircleOutlineIcon />}
+                      >
+                        Watch Now
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div>
+                    <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                      <Button variant="contained" sx={{ mb: 2 }}>
+                        Donate Now
+                      </Button>
+                    </Link>
+                  </div>
+                </Stack>
+              )}
               <DiscussionEmbed
                 shortname="indictos-com"
                 config={{

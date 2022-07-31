@@ -48,3 +48,7 @@ img {
 }
 
 .slick-initialized { overflow: hidden; }
+
+.donateBtn{
+  width: 135px; background-color: #2e0de1; text-align: center; font-weight: 800; padding: 11px 0px; color: white; font-size: 12px; display: inline-block; text-decoration: none;
+}
