@@ -189,7 +189,7 @@ export default function BulbuleSection() {
                   )}
                   <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
                     <Button variant="contained" sx={{ mb: 2 }}>
-                      Donate Now
+                      Donate Us
                     </Button>
                   </Link>
                 </Stack>
@@ -200,7 +200,7 @@ export default function BulbuleSection() {
                     <SubscribeBtn movie={movie} mid={mid} />
                     <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
                       <Button variant="contained" sx={{ mb: 2 }}>
-                        Donate Now
+                        Donate Us
                       </Button>
                     </Link>
                   </Stack>
@@ -223,7 +223,7 @@ export default function BulbuleSection() {
                   <div>
                     <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
                       <Button variant="contained" sx={{ mb: 2 }}>
-                        Donate Now
+                        Donate Us
                       </Button>
                     </Link>
                   </div>
@@ -437,6 +437,9 @@ export default function BulbuleSection() {
               </Paper>
               <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
                 Upcoming Project - Brainwashed!
+              </Typography>
+              <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
+                Synopsis
               </Typography>
               <Typography variant="body2" gutterBottom component="div">
                 A 42-year old motivated father, Namit, is up against the
