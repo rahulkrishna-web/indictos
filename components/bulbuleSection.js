@@ -496,7 +496,7 @@ export default function BulbuleSection() {
           </Toolbar>
         </AppBar>
         <video
-          poster="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/vlcsnap-2022-07-30-11h45m20s200.png?alt=media&token=b260434f-9638-455b-bd68-bb77f2077c92"
+          poster="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/0001%20(1).jpg?alt=media&token=769f8418-2e96-44ea-a31e-6f46ff44b896"
           autoPlay
           controls
           onContextMenu={(e) => {
@@ -506,7 +506,7 @@ export default function BulbuleSection() {
           controlsList="nodownload"
         >
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/iTIHAS_Out_HQ.mp4?alt=media&token=56f4ff58-c226-4f61-9ef4-a9cc1614adcb"
+            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule%20Trailor%20OPT%2002.mp4?alt=media&token=82a25e07-fbd2-4bee-aa82-3560aa85a4b0"
             type="video/mp4"
           />
           Your Browser does not support HTML video.
@@ -553,7 +553,7 @@ export default function BulbuleSection() {
           controlsList="nodownload"
         >
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule%20Trailor%20OPT%2002.mp4?alt=media&token=82a25e07-fbd2-4bee-aa82-3560aa85a4b0"
+            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/0001%20(1).jpg?alt=media&token=769f8418-2e96-44ea-a31e-6f46ff44b896"
             type="video/mp4"
           />
           Your Browser does not support HTML video.
