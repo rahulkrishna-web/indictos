@@ -116,7 +116,7 @@ export default function BulbuleSection() {
     var subsCreated = subs[0]?.created.toDate();
 
     var timePassed = Math.floor((now - subsCreated) / 1000 / 60 / 60); //in hours
-    var timeLeft = 24 - timePassed;
+    var timeLeft = 12 - timePassed;
     console.log("time left", subsCreated, now, timePassed, timeLeft);
     if (timeLeft >= 0.1) {
       return true;
@@ -130,7 +130,7 @@ export default function BulbuleSection() {
     }
     var subsCreated = subs[0]?.created.toDate();
     var timePassed = Math.floor((now - subsCreated) / 1000 / 60 / 60); //in hours
-    var timeLeft = 24 - timePassed;
+    var timeLeft = 12 - timePassed;
     if (timeLeft <= 0.1) {
       return 0;
     }
@@ -556,7 +556,7 @@ export default function BulbuleSection() {
           controlsList="nodownload"
         >
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/BulbuleFullFilm.mp4?alt=media&token=2149e5ef-aec7-4b37-859c-63ae16fe11d8"
+            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule%20Trailor%20OPT%2002.mp4?alt=media&token=82a25e07-fbd2-4bee-aa82-3560aa85a4b0"
             type="video/mp4"
           />
           Your Browser does not support HTML video.
