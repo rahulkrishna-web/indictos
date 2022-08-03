@@ -215,7 +215,7 @@ export default function BulbuleSection() {
                         sx={{ mb: 2 }}
                         startIcon={<PlayCircleOutlineIcon />}
                       >
-                        Watch Movcie
+                        Watch Movie
                       </Button>
                     </Link>
                   </div>
@@ -499,7 +499,7 @@ export default function BulbuleSection() {
                 Your Browser does not support HTML video.
               </video>
               <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
-                Be a part of our upcoming project
+                To be a part of our upcoming project
               </Typography>
               <Link href="/contact" passHref>
                 <Button variant="contained" sx={{ color: "#c4c4c5" }}>
