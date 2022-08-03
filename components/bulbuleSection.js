@@ -31,7 +31,7 @@ import Slide from "@mui/material/Slide";
 
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 import { DiscussionEmbed } from "disqus-react";
 import fb from "../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -482,22 +482,10 @@ export default function BulbuleSection() {
                 take the throne as he tries to save his daughter from getting
                 brainwashed through the history textbooks?
               </Typography>
-              <video
-                poster="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/vlcsnap-2022-07-30-11h45m20s200.png?alt=media&token=b260434f-9638-455b-bd68-bb77f2077c92"
-                controls
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  return false;
-                }}
-                controlsList="nodownload"
+              <ReactPlayer
                 className="fullwidth"
-              >
-                <source
-                  src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/iTIHAS_Out_HQ.mp4?alt=media&token=56f4ff58-c226-4f61-9ef4-a9cc1614adcb"
-                  type="video/mp4"
-                />
-                Your Browser does not support HTML video.
-              </video>
+                url="https://www.youtube.com/watch?v=ILKvE75Yuxs"
+              />
               <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
                 To be a part of our upcoming project
               </Typography>
