@@ -220,7 +220,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   return (
     <>
       <Button variant="contained" onClick={subscribe}>
-        Watch
+        Watch Movie
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: "fixed" }}>

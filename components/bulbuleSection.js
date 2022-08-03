@@ -215,7 +215,7 @@ export default function BulbuleSection() {
                         sx={{ mb: 2 }}
                         startIcon={<PlayCircleOutlineIcon />}
                       >
-                        Watch Now
+                        Watch Movcie
                       </Button>
                     </Link>
                   </div>
