@@ -180,7 +180,7 @@ export default function BulbuleSection() {
                     startIcon={<PlayCircleOutlineIcon />}
                     onClick={handleClickOpenMovie}
                   >
-                    Watch Now
+                    Watch Movie
                   </Button>{" "}
                   {isSubs() && (
                     <Button variant="text" sx={{ color: "#c4c4c5" }}>
@@ -251,6 +251,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Duration of the film
                       </Typography>
@@ -263,6 +264,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Director
                       </Typography>
@@ -275,6 +277,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Produced by
                       </Typography>
@@ -295,22 +298,42 @@ export default function BulbuleSection() {
                   </Typography>
                   <Grid container spacing={2}>
                     <Grid item md={4}>
-                      <Typography variant="body2" gutterBottom component="div">
+                      <Typography
+                        variant="body2"
+                        gutterBottom
+                        component="div"
+                        sx={{ color: "#edcf3e" }}
+                      >
                         Jasmeet Bhatia
                       </Typography>
                     </Grid>
                     <Grid item md={4}>
-                      <Typography variant="body2" gutterBottom component="div">
+                      <Typography
+                        variant="body2"
+                        gutterBottom
+                        component="div"
+                        sx={{ color: "#edcf3e" }}
+                      >
                         Sachin K. Jaryal
                       </Typography>
                     </Grid>
                     <Grid item md={4}>
-                      <Typography variant="body2" gutterBottom component="div">
+                      <Typography
+                        variant="body2"
+                        gutterBottom
+                        component="div"
+                        sx={{ color: "#edcf3e" }}
+                      >
                         Yashodhan Bal
                       </Typography>
                     </Grid>
                     <Grid item md={4}>
-                      <Typography variant="body2" gutterBottom component="div">
+                      <Typography
+                        variant="body2"
+                        gutterBottom
+                        component="div"
+                        sx={{ color: "#edcf3e" }}
+                      >
                         Shabi Jafri
                       </Typography>
                     </Grid>
@@ -331,6 +354,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         UK Asian film festival, London
                       </Typography>
@@ -341,6 +365,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Lift-off festival
                       </Typography>
@@ -351,6 +376,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         LIFFT India Filmotsav
                       </Typography>
@@ -361,6 +387,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Golden jury international film festival
                       </Typography>
@@ -373,6 +400,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         South Asian International film festival, New York
                       </Typography>
@@ -383,6 +411,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         First time filmmaker session
                       </Typography>
@@ -393,6 +422,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Indo global international film festival
                       </Typography>
@@ -405,6 +435,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Paris Film festival
                       </Typography>
@@ -415,6 +446,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Sincine film festival
                       </Typography>
@@ -425,6 +457,7 @@ export default function BulbuleSection() {
                         variant="subtitle2"
                         gutterBottom
                         component="div"
+                        sx={{ color: "#edcf3e" }}
                       >
                         Diorama film festival
                       </Typography>
@@ -435,8 +468,8 @@ export default function BulbuleSection() {
                   </Grid>
                 </Box>
               </Paper>
-              <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
-                Upcoming Project - Brainwashed!
+              <Typography variant="h5" component="div" sx={{ mt: 4, mb: 2 }}>
+                Upcoming Project - BRAINWASHED!
               </Typography>
               <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
                 Synopsis

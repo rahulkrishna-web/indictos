@@ -77,6 +77,14 @@ const Success = (props) => {
                 </Link>
               </>
             )}
+            <Typography variant="h4" component="div">
+              How to watch movie:
+            </Typography>
+            <Typography variant="body1" component="div">
+              1. Use &quot;Watch Movie&quot; button above to go the movie page.
+              <br />
+              2. Click on the &quot;Watch Movie&quot; button.
+            </Typography>
           </Paper>
         </Box>
       </Container>
