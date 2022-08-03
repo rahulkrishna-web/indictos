@@ -72,7 +72,7 @@ const Success = (props) => {
                 </Typography>
                 <Link href="/" passHref>
                   <Button variant="contained" sx={{ my: 1 }}>
-                    Watch Movie
+                    Go to Movie
                   </Button>
                 </Link>
               </>
@@ -81,9 +81,12 @@ const Success = (props) => {
               How to watch movie:
             </Typography>
             <Typography variant="body1" component="div">
-              1. Use &quot;Watch Movie&quot; button above to go the movie page.
+              1. Use &quot;Go to Movie&quot; button above to go the movie on the
+              homepage.
               <br />
-              2. Click on the &quot;Watch Movie&quot; button.
+              2. Click on the &quot;Watch Movie&quot; button. <br />
+              3. After payment, The movie is available to you for only{" "}
+              <strong>12 hours.</strong>
             </Typography>
           </Paper>
         </Box>
