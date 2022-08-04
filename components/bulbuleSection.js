@@ -142,14 +142,14 @@ export default function BulbuleSection() {
       <img
         onClick={handleClickOpen}
         style={{ width: "100%" }}
-        src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/poster_bulbule.png?alt=media&token=3575e2d7-c34b-4d01-8f66-b55f8f759c77"
+        src="https://pipaltree.ngo/wp-content/uploads/0001.jpg"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
           <Grid item md={3} sx={{ display: { md: "block", xs: "none" } }}>
             <img
               style={{ width: "100%" }}
-              src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/0002_A.jpg?alt=media&token=639a78bd-0f1c-45f4-802c-05b437f02513"
+              src="https://pipaltree.ngo/wp-content/uploads/0002_A.jpg"
             />
             <Paper sx={{ p: 2, mt: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
