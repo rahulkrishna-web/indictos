@@ -142,7 +142,7 @@ export default function BulbuleSection() {
       <img
         onClick={handleClickOpen}
         style={{ width: "100%" }}
-        src="https://pipaltree.ngo/wp-content/uploads/0001.jpg"
+        src="https://pipaltree.ngo/wp-content/uploads/0001_A.jpg"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
@@ -577,7 +577,7 @@ export default function BulbuleSection() {
           controlsList="nodownload"
         >
           <source
-            src="https://pipaltree.ngo/wp-content/uploads/BulbuleFullFilm.mp4"
+            src="https://pipaltree.ngo/wp-content/uploads/Bulbule.mp4"
             type="video/mp4"
           />
           Your Browser does not support HTML video.
