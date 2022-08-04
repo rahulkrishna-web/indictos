@@ -174,38 +174,30 @@ export default function BulbuleSection() {
                 things in our society designed to divide.
               </Typography>
               {user && isSubs() && (
-                <>
-                  <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    <Button
-                      variant="contained"
-                      startIcon={<PlayCircleOutlineIcon />}
-                    >
-                      Coming Soon
-                    </Button>{" "}
-                    {isSubs() && (
-                      <Button variant="text" sx={{ color: "#c4c4c5" }}>
-                        {subsTimeLeft()} hours left
-                      </Button>
-                    )}
-                    <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
-                      <Button variant="contained" sx={{ mb: 2 }}>
-                        Donate Us
-                      </Button>
-                    </Link>
-                  </Stack>
-                  <Typography variant="body1" gutterBottom component="div">
-                    We are temporarily under maintenence. If you have already
-                    paid, you will recieve additional watch time once we come
-                    back online.
-                  </Typography>
-                </>
+                <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                  <Button
+                    variant="contained"
+                    startIcon={<PlayCircleOutlineIcon />}
+                    onClick={handleClickOpenMovie}
+                  >
+                    Watch Movie
+                  </Button>{" "}
+                  {isSubs() && (
+                    <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                      {subsTimeLeft()} hours left
+                    </Button>
+                  )}
+                  <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                    <Button variant="contained" sx={{ mb: 2 }}>
+                      Donate Us
+                    </Button>
+                  </Link>
+                </Stack>
               )}
               {user && !isSubs() && (
                 <Box sx={{ mb: 2 }}>
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    <Button variant="contained" sx={{ mb: 2 }}>
-                      Under Maintenence
-                    </Button>
+                    <SubscribeBtn movie={movie} mid={mid} />
                     <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
                       <Button variant="contained" sx={{ mb: 2 }}>
                         Donate Us
@@ -585,7 +577,7 @@ export default function BulbuleSection() {
           controlsList="nodownload"
         >
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/BulbuleFullFilm.mp4?alt=media&token=2149e5ef-aec7-4b37-859c-63ae16fe11d8"
+            src="https://pipaltree.ngo/wp-content/uploads/BulbuleFullFilm.mp4"
             type="video/mp4"
           />
           Your Browser does not support HTML video.
