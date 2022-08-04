@@ -94,15 +94,7 @@ const IndexAppbar = () => {
                   <Typography textAlign="center">About</Typography>
                 </MenuItem>
               </Link>
-              <Link
-                href="/subscriptions"
-                sx={{ textDecoration: "none" }}
-                passHref
-              >
-                <MenuItem>
-                  <Typography textAlign="center">Subscriptions</Typography>
-                </MenuItem>
-              </Link>
+
               <Link href="/contact" sx={{ textDecoration: "none" }} passhref>
                 <MenuItem>
                   <Typography textAlign="center">Contact</Typography>
