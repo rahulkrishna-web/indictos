@@ -174,30 +174,38 @@ export default function BulbuleSection() {
                 things in our society designed to divide.
               </Typography>
               {user && isSubs() && (
-                <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                  <Button
-                    variant="contained"
-                    startIcon={<PlayCircleOutlineIcon />}
-                    onClick={handleClickOpenMovie}
-                  >
-                    Watch Movie
-                  </Button>{" "}
-                  {isSubs() && (
-                    <Button variant="text" sx={{ color: "#c4c4c5" }}>
-                      {subsTimeLeft()} hours left
-                    </Button>
-                  )}
-                  <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
-                    <Button variant="contained" sx={{ mb: 2 }}>
-                      Donate Us
-                    </Button>
-                  </Link>
-                </Stack>
+                <>
+                  <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                    <Button
+                      variant="contained"
+                      startIcon={<PlayCircleOutlineIcon />}
+                    >
+                      Coming Soon
+                    </Button>{" "}
+                    {isSubs() && (
+                      <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                        {subsTimeLeft()} hours left
+                      </Button>
+                    )}
+                    <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                      <Button variant="contained" sx={{ mb: 2 }}>
+                        Donate Us
+                      </Button>
+                    </Link>
+                  </Stack>
+                  <Typography variant="body1" gutterBottom component="div">
+                    We are temporarily under maintenence. If you have already
+                    paid, you'll recieve additional watch time once we come back
+                    online.
+                  </Typography>
+                </>
               )}
               {user && !isSubs() && (
                 <Box sx={{ mb: 2 }}>
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    <SubscribeBtn movie={movie} mid={mid} />
+                    <Button variant="contained" sx={{ mb: 2 }}>
+                      Under Maintenence
+                    </Button>
                     <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
                       <Button variant="contained" sx={{ mb: 2 }}>
                         Donate Us
