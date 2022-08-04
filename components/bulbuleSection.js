@@ -116,7 +116,7 @@ export default function BulbuleSection() {
     var subsCreated = subs[0]?.created.toDate();
 
     var timePassed = Math.floor((now - subsCreated) / 1000 / 60 / 60); //in hours
-    var timeLeft = 12 - timePassed;
+    var timeLeft = 24 - timePassed;
     console.log("time left", subsCreated, now, timePassed, timeLeft);
     if (timeLeft >= 0.1) {
       return true;
@@ -130,7 +130,7 @@ export default function BulbuleSection() {
     }
     var subsCreated = subs[0]?.created.toDate();
     var timePassed = Math.floor((now - subsCreated) / 1000 / 60 / 60); //in hours
-    var timeLeft = 12 - timePassed;
+    var timeLeft = 24 - timePassed;
     if (timeLeft <= 0.1) {
       return 0;
     }
