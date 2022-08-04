@@ -195,8 +195,8 @@ export default function BulbuleSection() {
                   </Stack>
                   <Typography variant="body1" gutterBottom component="div">
                     We are temporarily under maintenence. If you have already
-                    paid, you'll recieve additional watch time once we come back
-                    online.
+                    paid, you will recieve additional watch time once we come
+                    back online.
                   </Typography>
                 </>
               )}
