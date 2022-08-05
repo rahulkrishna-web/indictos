@@ -143,6 +143,7 @@ export default function BulbuleSection() {
         onClick={handleClickOpen}
         style={{ width: "100%" }}
         src="https://pipaltree.ngo/wp-content/uploads/0001_A.jpg"
+        alt="poster"
       />
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 3 }}>
@@ -150,6 +151,7 @@ export default function BulbuleSection() {
             <img
               style={{ width: "100%" }}
               src="https://pipaltree.ngo/wp-content/uploads/0002_A.jpg"
+              alt="poster"
             />
             <Paper sx={{ p: 2, mt: 2, background: "#1e1d26", color: "#fff" }}>
               <Typography variant="h6" component="div">
@@ -187,7 +189,7 @@ export default function BulbuleSection() {
                       {subsTimeLeft()} hours left
                     </Button>
                   )}
-                  <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                  <Link href="https://pmny.in/TIfLKUtbuvJ8">
                     <Button variant="contained" sx={{ mb: 2 }}>
                       Donate Us
                     </Button>
@@ -198,7 +200,7 @@ export default function BulbuleSection() {
                 <Box sx={{ mb: 2 }}>
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
                     <SubscribeBtn movie={movie} mid={mid} />
-                    <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                    <Link href="https://pmny.in/TIfLKUtbuvJ8">
                       <Button variant="contained" sx={{ mb: 2 }}>
                         Donate Us
                       </Button>
@@ -209,7 +211,7 @@ export default function BulbuleSection() {
               {!user && (
                 <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
                   <div>
-                    <Link href="/auth" passHref>
+                    <Link href="/auth">
                       <Button
                         variant="contained"
                         sx={{ mb: 2 }}
@@ -221,7 +223,7 @@ export default function BulbuleSection() {
                   </div>
 
                   <div>
-                    <Link href="https://pmny.in/TIfLKUtbuvJ8" passHref>
+                    <Link href="https://pmny.in/TIfLKUtbuvJ8">
                       <Button variant="contained" sx={{ mb: 2 }}>
                         Donate Us
                       </Button>
@@ -489,7 +491,7 @@ export default function BulbuleSection() {
               <Typography variant="h6" component="div" sx={{ mt: 2, mb: 2 }}>
                 To be a part of our upcoming project
               </Typography>
-              <Link href="/contact" passHref>
+              <Link href="/contact">
                 <Button variant="contained" sx={{ color: "#c4c4c5" }}>
                   Contact Us
                 </Button>

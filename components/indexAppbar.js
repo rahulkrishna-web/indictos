@@ -40,7 +40,7 @@ const IndexAppbar = () => {
     <AppBar position="fixed">
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          <Link href="/" sx={{ textDecoration: "none" }} passHref>
+          <Link href="/" sx={{ textDecoration: "none" }}>
             <Typography
               variant="h6"
               noWrap
@@ -118,7 +118,6 @@ const IndexAppbar = () => {
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
             }}
-            passHref
           >
             <Typography
               variant="h5"
