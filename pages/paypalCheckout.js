@@ -122,8 +122,8 @@ export default function PaypalCheckout() {
               </div>
             ) : (
               <div>
-                <Paper sx={{ p: 2 }}>
-                  <Typography variant="h4" component="div">
+                <Paper sx={{ p: 2, mb: 2 }}>
+                  <Typography variant="h6" component="div">
                     Use the Paypal button to proceed with the payment. Once your
                     payment is successful, you can proceed to watch movie.
                   </Typography>

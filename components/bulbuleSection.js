@@ -289,14 +289,7 @@ export default function BulbuleSection() {
                   </div>
                 </Stack>
               )}
-              <DiscussionEmbed
-                shortname="indictos-com"
-                config={{
-                  url: "https://www.indictos.com/",
-                  identifier: "indictos",
-                  title: "indictos",
-                }}
-              />
+
               <Paper
                 elevation={0}
                 sx={{ mb: 2, background: "#1e1d26", color: "#c4c4c5" }}
