@@ -60,7 +60,7 @@ export default function BulbuleSection() {
   useEffect(() => {
     if (!localStorage.getItem("country")) {
       fetch(
-        "http://api.ipapi.com/api/check?access_key=177c228a8d318be5cd40dd250f2cb591"
+        "https://api.ipapi.com/api/check?access_key=177c228a8d318be5cd40dd250f2cb591"
       )
         .then((res) => res.json())
         .then((response) => {
@@ -170,11 +170,11 @@ export default function BulbuleSection() {
     if (!subs) {
       return false;
     }
+    console.log("subs", subs);
     var subsCreated = subs[0]?.created.toDate();
 
     var timePassed = Math.floor((now - subsCreated) / 1000 / 60 / 60); //in hours
     var timeLeft = 24 - timePassed;
-    console.log("time left", subsCreated, now, timePassed, timeLeft);
     if (timeLeft >= 0.1) {
       return true;
     }
