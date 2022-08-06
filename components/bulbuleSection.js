@@ -211,7 +211,7 @@ export default function BulbuleSection() {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item md={9}>
+          <Grid item md={9} sm={12}>
             <Box>
               <Typography variant="h3" component="div">
                 Bulbule
@@ -248,14 +248,20 @@ export default function BulbuleSection() {
               {user && !isSubs() && (
                 <Box sx={{ mb: 2 }}>
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    {country && country === "IN" ? (
+                    {country && country === undefined ? (
                       <SubscribeBtn movie={movie} mid={mid} />
                     ) : (
-                      <Link href="/paypalCheckout">
-                        <Button variant="contained" sx={{ mb: 2 }}>
-                          Subscribe - $4
-                        </Button>
-                      </Link>
+                      <>
+                        {country === "IN" ? (
+                          <SubscribeBtn movie={movie} mid={mid} />
+                        ) : (
+                          <Link href="/paypalCheckout">
+                            <Button variant="contained" sx={{ mb: 2 }}>
+                              Subscribe - $4
+                            </Button>
+                          </Link>
+                        )}
+                      </>
                     )}
 
                     <Link href="https://pmny.in/TIfLKUtbuvJ8">

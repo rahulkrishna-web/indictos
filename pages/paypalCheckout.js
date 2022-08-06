@@ -61,6 +61,7 @@ export default function PaypalCheckout() {
       mobile: user.mobile,
     });
   }, []);
+
   const subscribePaypal = async (name, email) => {
     if (!user) {
       console.log("not logged in ");
