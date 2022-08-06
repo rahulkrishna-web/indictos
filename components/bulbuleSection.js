@@ -58,17 +58,22 @@ export default function BulbuleSection() {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(
-      "http://ipapi.co/json/?key=dbnU3TfzX6DTqDz426t0fEGgrekbzAKiwIKv95srltNo05nw9G"
-    )
-      .then((res) => res.json())
-      .then((response) => {
-        console.log("Country is : ", response.country_code);
-        setCountry(response.country_code);
-      })
-      .catch((data, status) => {
-        console.log("Request failed:", data);
-      });
+    if (!localStorage.getItem("country")) {
+      fetch(
+        "http://api.ipapi.com/api/check?access_key=177c228a8d318be5cd40dd250f2cb591"
+      )
+        .then((res) => res.json())
+        .then((response) => {
+          console.log("Country is : ", response.country_code);
+          setCountry(response.country_code);
+          localStorage.setItem("country", response.country_code);
+        })
+        .catch((data, status) => {
+          console.log("Request failed:", data);
+        });
+    } else {
+      setCountry(localStorage.getItem("country"));
+    }
   }, []);
 
   const subscribePaypal = async (name, email) => {
@@ -639,7 +644,7 @@ export default function BulbuleSection() {
             controlsList="nodownload"
           >
             <source
-              src="https://pipaltree.ngo/wp-content/uploads/Bulbule_mobile.mp4"
+              src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule_mobile.mp4?alt=media&token=8297ea68-6a80-41f2-b0ee-f50073411a61"
               type="video/mp4"
             />
             Your Browser does not support HTML video.
@@ -655,7 +660,7 @@ export default function BulbuleSection() {
             controlsList="nodownload"
           >
             <source
-              src="https://pipaltree.ngo/wp-content/uploads/Bulbule.mp4"
+              src="https://firebasestorage.googleapis.com/v0/b/indictos-com.appspot.com/o/Bulbule.mp4?alt=media&token=d5a7fae5-49f1-4b07-b94d-a56aeb3a372c"
               type="video/mp4"
             />
             Your Browser does not support HTML video.
