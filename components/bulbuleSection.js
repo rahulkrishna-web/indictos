@@ -253,7 +253,7 @@ export default function BulbuleSection() {
                     ) : (
                       <Link href="/paypalCheckout">
                         <Button variant="contained" sx={{ mb: 2 }}>
-                          Paypal Checkout - $4
+                          Subscribe - $4
                         </Button>
                       </Link>
                     )}

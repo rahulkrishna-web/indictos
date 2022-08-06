@@ -108,8 +108,11 @@ export default function PaypalCheckout() {
             {values.success ? (
               <div>
                 <Paper sx={{ p: 2 }}>
-                  Your transaction was successful. Please proceed to watch
-                  movie.
+                  <Typography variant="h4" component="div">
+                    Your transaction was successful. Please proceed to watch
+                    movie.
+                  </Typography>
+
                   <Link href="/" passHref>
                     <Button variant="contained" sx={{ my: 1 }}>
                       Go to Movie
@@ -119,6 +122,12 @@ export default function PaypalCheckout() {
               </div>
             ) : (
               <div>
+                <Paper sx={{ p: 2 }}>
+                  <Typography variant="h4" component="div">
+                    Use the Paypal button to proceed with the payment. Once your
+                    payment is successful, you can proceed to watch movie.
+                  </Typography>
+                </Paper>
                 <PayPalButton
                   amount="4"
                   // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
