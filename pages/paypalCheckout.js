@@ -22,7 +22,6 @@ import {
 import Dialog from "@mui/material/Dialog";
 import Router, { useRouter } from "next/router";
 import { PayPalButton } from "react-paypal-button-v2";
-import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import PlainLayout from "../layouts/plainLayout";
 import fb from "../firebase/clientApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
