@@ -239,69 +239,98 @@ const SubscribeBtn = ({ movie, mid }) => {
           </Toolbar>
         </AppBar>
         <Box sx={{ p: 2, mt: 10 }}>
-          <Paper sx={{ p: 2, mb: 2 }}>Subscription Amount: ₹ 99</Paper>
+          <Paper sx={{ p: 2, mb: 2 }}>
+            {country && country === "IN"
+              ? "Subscription Amount: ₹ 99"
+              : "Subscription Amount: $4"}
+          </Paper>
 
-          <>
-            <TextField
-              {...register("firstname")}
-              id="name"
-              label="Name"
-              variant="filled"
-              fullWidth
-              margin="dense"
-              value={values.firstname}
-              onChange={handleChange("firstname")}
-              error={errors.firstname}
-              helperText={errors.firstname?.message}
-            />
-            <TextField
-              {...register("email")}
-              id="email"
-              label="Email"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              value={values.email}
-              onChange={handleChange("email")}
-              error={errors.email}
-              helperText={errors.email?.message}
-            />
-            <TextField
-              {...register("mobile")}
-              id="mobile"
-              label="Mobile"
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              value={values.mobile}
-              onChange={handleChange("mobile")}
-              error={errors.mobile}
-              helperText={errors.mobile?.message}
-            />
-            <form action={process.env.NEXT_PUBLIC_PAYU_ENDPOINT} method="post">
-              <input type="hidden" name="key" value={payu.merchantKey} />
-              <input type="hidden" name="txnid" value={values.txnId} />
-              <input type="hidden" name="productinfo" value="bulbule" />
-              <input type="hidden" name="amount" value="99" />
-              <input type="hidden" name="email" value={values.email} />
-              <input type="hidden" name="firstname" value={values.firstname} />
-              <input type="hidden" name="lastname" value="" />
-              <input type="hidden" name="surl" value={surl} />
-              <input type="hidden" name="furl" value={furl} />
-              <input type="hidden" name="phone" value={values.mobile} />
-              <input type="hidden" name="hash" value={paymentHash} />
-
-              <Button
-                variant="contained"
-                type="submit"
-                autoFocus
-                disabled={!values.mobile || !values.email || !values.firstname}
-                sx={{ mt: 1 }}
+          {country && country === "IN" ? (
+            <>
+              <TextField
+                {...register("firstname")}
+                id="name"
+                label="Name"
+                variant="filled"
+                fullWidth
+                margin="dense"
+                value={values.firstname}
+                onChange={handleChange("firstname")}
+                error={errors.firstname}
+                helperText={errors.firstname?.message}
+              />
+              <TextField
+                {...register("email")}
+                id="email"
+                label="Email"
+                variant="outlined"
+                fullWidth
+                margin="dense"
+                value={values.email}
+                onChange={handleChange("email")}
+                error={errors.email}
+                helperText={errors.email?.message}
+              />
+              <TextField
+                {...register("mobile")}
+                id="mobile"
+                label="Mobile"
+                variant="outlined"
+                fullWidth
+                margin="dense"
+                value={values.mobile}
+                onChange={handleChange("mobile")}
+                error={errors.mobile}
+                helperText={errors.mobile?.message}
+              />
+              <form
+                action={process.env.NEXT_PUBLIC_PAYU_ENDPOINT}
+                method="post"
               >
-                Pay Now
-              </Button>
-            </form>
-          </>
+                <input type="hidden" name="key" value={payu.merchantKey} />
+                <input type="hidden" name="txnid" value={values.txnId} />
+                <input type="hidden" name="productinfo" value="bulbule" />
+                <input type="hidden" name="amount" value="99" />
+                <input type="hidden" name="email" value={values.email} />
+                <input
+                  type="hidden"
+                  name="firstname"
+                  value={values.firstname}
+                />
+                <input type="hidden" name="lastname" value="" />
+                <input type="hidden" name="surl" value={surl} />
+                <input type="hidden" name="furl" value={furl} />
+                <input type="hidden" name="phone" value={values.mobile} />
+                <input type="hidden" name="hash" value={paymentHash} />
+
+                <Button
+                  variant="contained"
+                  type="submit"
+                  autoFocus
+                  disabled={
+                    !values.mobile || !values.email || !values.firstname
+                  }
+                  sx={{ mt: 1 }}
+                >
+                  Pay Now
+                </Button>
+              </form>
+            </>
+          ) : (
+            <div>
+              <PayPalButton
+                amount="4"
+                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                onSuccess={(details, data) => {
+                  console.log("Transaction completed by ", details.payer);
+                  subscribePaypal(
+                    details.payer.name.given_name,
+                    details.payer.email
+                  );
+                }}
+              />
+            </div>
+          )}
         </Box>
       </Dialog>
     </>

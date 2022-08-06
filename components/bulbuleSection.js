@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { isMobile } from "react-device-detect";
 import Link from "next/link";
 import {
   getFirestore,
@@ -10,6 +11,7 @@ import {
   getDocs,
   doc,
   getDoc,
+  addDoc,
   where,
   Timestamp,
   toDate,
@@ -28,7 +30,7 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PaidIcon from "@mui/icons-material/Paid";
 import Slide from "@mui/material/Slide";
-
+import { PayPalButton } from "react-paypal-button-v2";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ReactPlayer from "react-player/youtube";
@@ -51,8 +53,55 @@ export default function BulbuleSection() {
   const [subs, setSubs] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [openMovie, setOpenMovie] = React.useState(false);
+  const [country, setCountry] = React.useState("");
   const mid = "dpNVfXcGBI3pEhxkggdh";
   const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((response) => {
+        console.log("Country is : ", response.country_code);
+        setCountry(response.country_code);
+      })
+      .catch((data, status) => {
+        console.log("Request failed:", data);
+      });
+  }, []);
+
+  const subscribePaypal = async (name, email) => {
+    if (!user) {
+      console.log("not logged in ");
+    } else {
+      setValues({
+        ...values,
+        loading: true,
+      });
+      const data = {
+        billingAddress: {
+          first_name: name,
+          last_name: "",
+          email: email,
+          mobile: "",
+        },
+        user: user.uid,
+        movieTitle: "Bulbule",
+        movie: "dpNVfXcGBI3pEhxkggdh",
+        subscriptionAmt: 4,
+        subscriptionPlan: "wVgG0FInanjQXTIJwpiw",
+        paymentStatus: "success",
+        created: serverTimestamp(),
+        updated: serverTimestamp(),
+      };
+      try {
+        const res = await addDoc(collection(db, "subscriptions"), data);
+        console.log("Subscribed: ", res.id);
+        setValues({ ...values, txnId: res.id });
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+  };
 
   const getSubs = async (user, mid) => {
     if (auth.currentUser) {
@@ -199,7 +248,16 @@ export default function BulbuleSection() {
               {user && !isSubs() && (
                 <Box sx={{ mb: 2 }}>
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                    <SubscribeBtn movie={movie} mid={mid} />
+                    {country && country === "IN" ? (
+                      <SubscribeBtn movie={movie} mid={mid} />
+                    ) : (
+                      <Link href="/paypalCheckout">
+                        <Button variant="contained" sx={{ mb: 2 }}>
+                          Paypal Checkout - $4
+                        </Button>
+                      </Link>
+                    )}
+
                     <Link href="https://pmny.in/TIfLKUtbuvJ8">
                       <Button variant="contained" sx={{ mb: 2 }}>
                         Donate Us
@@ -569,21 +627,40 @@ export default function BulbuleSection() {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <video
-          autoPlay
-          controls
-          onContextMenu={(e) => {
-            e.preventDefault();
-            return false;
-          }}
-          controlsList="nodownload"
-        >
-          <source
-            src="https://pipaltree.ngo/wp-content/uploads/Bulbule.mp4"
-            type="video/mp4"
-          />
-          Your Browser does not support HTML video.
-        </video>
+        {isMobile ? (
+          <video
+            autoPlay
+            controls
+            onContextMenu={(e) => {
+              e.preventDefault();
+              return false;
+            }}
+            controlsList="nodownload"
+          >
+            <source
+              src="https://pipaltree.ngo/wp-content/uploads/Bulbule_mobile.mp4"
+              type="video/mp4"
+            />
+            Your Browser does not support HTML video.
+          </video>
+        ) : (
+          <video
+            autoPlay
+            controls
+            onContextMenu={(e) => {
+              e.preventDefault();
+              return false;
+            }}
+            controlsList="nodownload"
+          >
+            <source
+              src="https://pipaltree.ngo/wp-content/uploads/Bulbule.mp4"
+              type="video/mp4"
+            />
+            Your Browser does not support HTML video.
+          </video>
+        )}
+
         <DiscussionEmbed
           shortname="indictos-com"
           config={{
