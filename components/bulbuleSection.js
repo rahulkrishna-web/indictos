@@ -58,7 +58,9 @@ export default function BulbuleSection() {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
+    fetch(
+      "http://ipapi.co/json/?key=dbnU3TfzX6DTqDz426t0fEGgrekbzAKiwIKv95srltNo05nw9G"
+    )
       .then((res) => res.json())
       .then((response) => {
         console.log("Country is : ", response.country_code);
