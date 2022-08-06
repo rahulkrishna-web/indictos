@@ -59,9 +59,7 @@ export default function BulbuleSection() {
 
   useEffect(() => {
     if (!localStorage.getItem("country")) {
-      fetch(
-        "https://api.ipapi.com/api/check?access_key=177c228a8d318be5cd40dd250f2cb591"
-      )
+      fetch("https://ipapi.co/json/")
         .then((res) => res.json())
         .then((response) => {
           console.log("Country is : ", response.country_code);
