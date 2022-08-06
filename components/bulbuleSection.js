@@ -73,6 +73,7 @@ export default function BulbuleSection() {
         });
     } else {
       setCountry(localStorage.getItem("country"));
+      console.log("logging from", localStorage.getItem("country"));
     }
   }, []);
 

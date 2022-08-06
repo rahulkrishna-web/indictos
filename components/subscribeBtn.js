@@ -60,15 +60,23 @@ const SubscribeBtn = ({ movie, mid }) => {
   };
 
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
-      .then((res) => res.json())
-      .then((response) => {
-        console.log("Country is : ", response.country_code);
-        setCountry(response.country_code);
-      })
-      .catch((data, status) => {
-        console.log("Request failed:", data);
-      });
+    if (!localStorage.getItem("country")) {
+      fetch(
+        "http://api.ipapi.com/api/check?access_key=177c228a8d318be5cd40dd250f2cb591"
+      )
+        .then((res) => res.json())
+        .then((response) => {
+          console.log("Country is : ", response.country_code);
+          setCountry(response.country_code);
+          localStorage.setItem("country", response.country_code);
+        })
+        .catch((data, status) => {
+          console.log("Request failed:", data);
+        });
+    } else {
+      setCountry(localStorage.getItem("country"));
+      console.log("logging from", localStorage.getItem("country"));
+    }
   }, []);
 
   const [open, setOpen] = React.useState(false);
