@@ -50,6 +50,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function BulbuleSection() {
   const [movie, setMovie] = React.useState([]);
+  const [accessCode, setAccessCode] = React.useState([]);
   const [subs, setSubs] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [openMovie, setOpenMovie] = React.useState(false);
@@ -131,9 +132,30 @@ export default function BulbuleSection() {
 
     return false;
   };
+  const getAccessCodes = async (user) => {
+    if (auth.currentUser) {
+      const q = query(
+        collection(db, "accessCard"),
+        where("email", "==", user.email),
+        orderBy("created", "desc")
+      );
+      const docSnap = await getDocs(q).then((res) => {
+        setAccessCode(
+          res.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }))
+        );
+      });
+      return docSnap;
+    }
+
+    return false;
+  };
   useEffect(() => {
     if (auth.currentUser) {
       getSubs(auth.currentUser, mid);
+      getAccessCodes(auth.currentUser);
     }
   }, [user]);
 
@@ -164,6 +186,21 @@ export default function BulbuleSection() {
 
   var now = Timestamp.now().toDate();
 
+  var isAccessCode = () => {
+    if (!accessCode) {
+      return false;
+    }
+    console.log("ac", accessCode);
+    var accessCodeCreated = accessCode[0]?.created.toDate();
+
+    var timePassed = Math.floor((now - accessCodeCreated) / 1000 / 60 / 60); //in hours
+    var timeLeft = accessCode[0]?.usageHours - timePassed;
+    if (timeLeft >= 0.1) {
+      return true;
+    }
+    return false;
+  };
+
   var isSubs = () => {
     if (!subs) {
       return false;
@@ -177,6 +214,19 @@ export default function BulbuleSection() {
       return true;
     }
     return false;
+  };
+
+  var accessTimeLeft = () => {
+    if (!accessCode) {
+      return false;
+    }
+    var accessCodeCreated = accessCode[0]?.created.toDate();
+    var timePassed = Math.floor((now - accessCodeCreated) / 1000 / 60 / 60); //in hours
+    var timeLeft = accessCode[0]?.usageHours - timePassed;
+    if (timeLeft <= 0.1) {
+      return 0;
+    }
+    return timeLeft;
   };
 
   var subsTimeLeft = () => {
@@ -230,28 +280,52 @@ export default function BulbuleSection() {
                 the fault lines of modern Indian society as they examine all the
                 things in our society designed to divide.
               </Typography>
-              {user && isSubs() && (
-                <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
-                  <Button
-                    variant="contained"
-                    startIcon={<PlayCircleOutlineIcon />}
-                    onClick={handleClickOpenMovie}
-                  >
-                    Watch Movie
-                  </Button>{" "}
-                  {isSubs() && (
-                    <Button variant="text" sx={{ color: "#c4c4c5" }}>
-                      {subsTimeLeft()} hours left
-                    </Button>
+              {user && (
+                <>
+                  {isAccessCode() && (
+                    <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                      <Button
+                        variant="contained"
+                        startIcon={<PlayCircleOutlineIcon />}
+                        onClick={handleClickOpenMovie}
+                      >
+                        Watch Movie
+                      </Button>{" "}
+                      <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                        {accessTimeLeft()} hours left
+                      </Button>
+                      <Link href="https://pmny.in/TIfLKUtbuvJ8">
+                        <Button variant="contained" sx={{ mb: 2 }}>
+                          Donate Us
+                        </Button>
+                      </Link>
+                    </Stack>
                   )}
-                  <Link href="https://pmny.in/TIfLKUtbuvJ8">
-                    <Button variant="contained" sx={{ mb: 2 }}>
-                      Donate Us
-                    </Button>
-                  </Link>
-                </Stack>
+                  {isSubs() && (
+                    <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
+                      <Button
+                        variant="contained"
+                        startIcon={<PlayCircleOutlineIcon />}
+                        onClick={handleClickOpenMovie}
+                      >
+                        Watch Moviex
+                      </Button>{" "}
+                      {isSubs() && (
+                        <Button variant="text" sx={{ color: "#c4c4c5" }}>
+                          {subsTimeLeft()} hours left
+                        </Button>
+                      )}
+                      <Link href="https://pmny.in/TIfLKUtbuvJ8">
+                        <Button variant="contained" sx={{ mb: 2 }}>
+                          Donate Us
+                        </Button>
+                      </Link>
+                    </Stack>
+                  )}
+                </>
               )}
-              {user && !isSubs() && (
+
+              {user && !isAccessCode() && !isSubs() && (
                 <Box sx={{ mb: 2 }}>
                   <Stack spacing={2} direction="row" sx={{ mb: 2 }}>
                     {country && country === undefined ? (
@@ -276,6 +350,13 @@ export default function BulbuleSection() {
                       </Button>
                     </Link>
                   </Stack>
+                </Box>
+              )}
+              {accessCode.length > 0 && (
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="subtitle1" gutterBottom component="div">
+                    Access Code Active
+                  </Typography>
                 </Box>
               )}
               {!user && (
