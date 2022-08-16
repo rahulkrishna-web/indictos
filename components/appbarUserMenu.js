@@ -81,7 +81,7 @@ const AppbarUserMenu = () => {
             <Link href="/dashboard" passHref>
               <MenuItem>Dashboard</MenuItem>
             </Link>
-            {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+            {user.email == process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
               <Link href="/admin" passHref>
                 <MenuItem>Admin</MenuItem>
               </Link>
