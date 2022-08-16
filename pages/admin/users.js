@@ -100,7 +100,7 @@ export default function Users() {
   if (user) {
     return (
       <>
-        {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+        {user.email == process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
           <HomeLayout>
             <Container sx={{ py: 5 }}>
               <Typography variant="h3" gutterBottom>

@@ -117,7 +117,7 @@ export default function AccessCode() {
   if (user) {
     return (
       <>
-        {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+        {user.email == process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
           <HomeLayout>
             <Container sx={{ py: 5 }}>
               <div>
