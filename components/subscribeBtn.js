@@ -80,7 +80,7 @@ const SubscribeBtn = ({ movie, mid }) => {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     txnId: "",
-    amt: 99,
+    amt: 150,
     productInfo: "bubule",
     firstname: "",
     lastname: "",
@@ -118,7 +118,7 @@ const SubscribeBtn = ({ movie, mid }) => {
     "|" +
     values.txnId +
     "|" +
-    "99" +
+    "150" +
     "|" +
     "bulbule" +
     "|" +
@@ -175,7 +175,7 @@ const SubscribeBtn = ({ movie, mid }) => {
         user: user.uid,
         movieTitle: movie.title,
         movie: mid,
-        subscriptionAmt: 99,
+        subscriptionAmt: 150,
         subscriptionPlan: "wVgG0FInanjQXTIJwpiw",
         created: serverTimestamp(),
         updated: serverTimestamp(),
@@ -247,7 +247,7 @@ const SubscribeBtn = ({ movie, mid }) => {
         <Box sx={{ p: 2, mt: 10 }}>
           <Paper sx={{ p: 2, mb: 2 }}>
             {country && country === "IN"
-              ? "Subscription Amount: ₹ 99"
+              ? "Subscription Amount: ₹ 150"
               : "Subscription Amount: $4"}
           </Paper>
 
@@ -296,7 +296,7 @@ const SubscribeBtn = ({ movie, mid }) => {
                 <input type="hidden" name="key" value={payu.merchantKey} />
                 <input type="hidden" name="txnid" value={values.txnId} />
                 <input type="hidden" name="productinfo" value="bulbule" />
-                <input type="hidden" name="amount" value="99" />
+                <input type="hidden" name="amount" value="150" />
                 <input type="hidden" name="email" value={values.email} />
                 <input
                   type="hidden"

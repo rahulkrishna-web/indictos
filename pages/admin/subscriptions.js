@@ -15,6 +15,7 @@ import {
   orderBy,
   limit,
   onSnapshot,
+  where,
 } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 
@@ -70,7 +71,12 @@ export default function Subscriptions() {
 
   useEffect(() => {
     const collectionRef = collection(db, "subscriptions");
-    const q = query(collectionRef, orderBy("created", "desc"), limit(200));
+    const q = query(
+      collectionRef,
+      where("paymentStatus", "==", "success"),
+      orderBy("created", "desc"),
+      limit(200)
+    );
     const getSubs = onSnapshot(q, (QuerySnapshot) => {
       setSubs(
         QuerySnapshot.docs.map((doc) => ({

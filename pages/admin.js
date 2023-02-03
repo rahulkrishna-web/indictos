@@ -48,7 +48,7 @@ export default function Admin() {
                   justifyItems: "center",
                 }}
               >
-                hh
+                Hello <>{user.displayName}</>
               </Box>
             </Container>
           </HomeLayout>
